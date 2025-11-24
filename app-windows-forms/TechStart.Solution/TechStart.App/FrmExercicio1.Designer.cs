@@ -60,11 +60,11 @@
             // 
             this.lblInformacao1.AutoSize = true;
             this.lblInformacao1.BackColor = System.Drawing.Color.Transparent;
-            this.lblInformacao1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacao1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInformacao1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblInformacao1.Location = new System.Drawing.Point(83, 185);
             this.lblInformacao1.Name = "lblInformacao1";
-            this.lblInformacao1.Size = new System.Drawing.Size(215, 21);
+            this.lblInformacao1.Size = new System.Drawing.Size(223, 21);
             this.lblInformacao1.TabIndex = 96;
             this.lblInformacao1.Text = "Informe o primeiro número:";
             // 
@@ -87,30 +87,33 @@
             this.txtN1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtN1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtN1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN1.Location = new System.Drawing.Point(314, 183);
+            this.txtN1.Location = new System.Drawing.Point(455, 183);
             this.txtN1.Name = "txtN1";
-            this.txtN1.Size = new System.Drawing.Size(396, 29);
+            this.txtN1.Size = new System.Drawing.Size(190, 29);
             this.txtN1.TabIndex = 1;
+            this.txtN1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN1_KeyPress);
             // 
             // txtN2
             // 
             this.txtN2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtN2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtN2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN2.Location = new System.Drawing.Point(314, 218);
+            this.txtN2.Location = new System.Drawing.Point(455, 218);
             this.txtN2.Name = "txtN2";
-            this.txtN2.Size = new System.Drawing.Size(396, 29);
+            this.txtN2.Size = new System.Drawing.Size(190, 29);
             this.txtN2.TabIndex = 2;
+            this.txtN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN1_KeyPress);
             // 
             // txtN3
             // 
             this.txtN3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtN3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtN3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN3.Location = new System.Drawing.Point(314, 253);
+            this.txtN3.Location = new System.Drawing.Point(455, 253);
             this.txtN3.Name = "txtN3";
-            this.txtN3.Size = new System.Drawing.Size(396, 29);
+            this.txtN3.Size = new System.Drawing.Size(190, 29);
             this.txtN3.TabIndex = 3;
+            this.txtN3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtN1_KeyPress);
             // 
             // btnLimpar
             // 
@@ -141,7 +144,7 @@
             this.btnIniciar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.BlueViolet;
             this.btnIniciar.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciar.Image")));
-            this.btnIniciar.Location = new System.Drawing.Point(156, 386);
+            this.btnIniciar.Location = new System.Drawing.Point(162, 388);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(137, 40);
             this.btnIniciar.TabIndex = 4;
@@ -162,7 +165,7 @@
             this.btnSair.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.BlueViolet;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.Location = new System.Drawing.Point(508, 387);
+            this.btnSair.Location = new System.Drawing.Point(508, 388);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(137, 40);
             this.btnSair.TabIndex = 6;
@@ -177,11 +180,11 @@
             // 
             this.lblInformacao2.AutoSize = true;
             this.lblInformacao2.BackColor = System.Drawing.Color.Transparent;
-            this.lblInformacao2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacao2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInformacao2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblInformacao2.Location = new System.Drawing.Point(83, 220);
             this.lblInformacao2.Name = "lblInformacao2";
-            this.lblInformacao2.Size = new System.Drawing.Size(216, 21);
+            this.lblInformacao2.Size = new System.Drawing.Size(223, 21);
             this.lblInformacao2.TabIndex = 97;
             this.lblInformacao2.Text = "Informe o segundo número:";
             // 
@@ -189,11 +192,11 @@
             // 
             this.lblInformacao3.AutoSize = true;
             this.lblInformacao3.BackColor = System.Drawing.Color.Transparent;
-            this.lblInformacao3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacao3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInformacao3.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblInformacao3.Location = new System.Drawing.Point(83, 255);
             this.lblInformacao3.Name = "lblInformacao3";
-            this.lblInformacao3.Size = new System.Drawing.Size(210, 21);
+            this.lblInformacao3.Size = new System.Drawing.Size(216, 21);
             this.lblInformacao3.TabIndex = 98;
             this.lblInformacao3.Text = "Informe o terceiro número:";
             // 

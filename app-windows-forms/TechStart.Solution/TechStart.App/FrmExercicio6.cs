@@ -19,6 +19,7 @@ namespace TechStart.App
             toolTip1.SetToolTip(btnIniciar, "Inicia o exercício.");
             toolTip1.SetToolTip(btnLimpar, "Limpa os campos.");
             toolTip1.SetToolTip(btnSair, "Sai do exercício.");
+            toolTip1.SetToolTip(txtNumero, "O programa só calcula até 20.");
         }
 
         private void FrmExercicio6_Paint(object sender, PaintEventArgs e)
@@ -31,7 +32,7 @@ namespace TechStart.App
 
         private void FrmExercicio6_Load(object sender, EventArgs e)
         {
-
+            txtNumero.Focus();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
@@ -49,6 +50,13 @@ namespace TechStart.App
                 return;
             }
 
+            if (n > 20)
+            {
+                lblResultado.Text = "Número muito grande. Informe um valor até 20.";
+                lblResultado.Visible = true;
+                return;
+            }
+
             long fat = 1;
             for (int i = 1; i <= n; i++)
             {
@@ -57,9 +65,6 @@ namespace TechStart.App
 
             lblResultado.Text = $"O fatorial de {n} é: {fat}";
             lblResultado.Visible = true;
-            txtNumero.Clear();
-            txtN2.Clear();
-            txtN3.Clear();
             txtNumero.Focus();
         }
 
@@ -71,8 +76,6 @@ namespace TechStart.App
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtNumero.Clear();
-            txtN2.Clear();
-            txtN3.Clear();
             txtNumero.Focus();
             lblResultado.Visible = false;
         }
@@ -105,6 +108,17 @@ namespace TechStart.App
         private void btnSair_MouseLeave(object sender, EventArgs e)
         {
             btnSair.BackColor = Color.White;
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            e.Handled = true;
         }
     }
 }

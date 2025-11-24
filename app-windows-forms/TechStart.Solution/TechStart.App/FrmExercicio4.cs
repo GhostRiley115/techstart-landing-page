@@ -31,13 +31,13 @@ namespace TechStart.App
 
         private void FrmExercicio4_Load(object sender, EventArgs e)
         {
-
+            txtAnoAtual.Focus();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtAnoAtual.Text, out int AnoAtual) ||
-        !int.TryParse(txtAnoNasc.Text, out int AnoNasc))
+                !int.TryParse(txtAnoNasc.Text, out int AnoNasc))
             {
                 MessageBox.Show("Informe anos válidos.");
                 return;
@@ -48,6 +48,11 @@ namespace TechStart.App
             if (idade < 0)
             {
                 lblResultado.Text = "Ano de nascimento maior que ano atual.";
+                return;
+            }
+            if (idade > 120)
+            {
+                lblResultado.Text = "Impossível você ser velho desse jeito.";
                 return;
             }
 
@@ -62,6 +67,7 @@ namespace TechStart.App
         {
             txtAnoNasc.Clear();
             txtAnoAtual.Clear();
+            lblResultado.Visible = false;
             txtAnoAtual.Focus();
         }
 
@@ -98,6 +104,17 @@ namespace TechStart.App
         private void btnSair_MouseLeave(object sender, EventArgs e)
         {
             btnSair.BackColor = Color.White;
+        }
+
+        private void txtAnoAtual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            e.Handled = true;
         }
     }
 }

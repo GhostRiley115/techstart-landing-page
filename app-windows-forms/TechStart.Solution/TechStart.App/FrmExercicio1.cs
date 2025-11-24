@@ -33,14 +33,14 @@ namespace TechStart.App
 
         private void FrmExercicio1_Load(object sender, EventArgs e)
         {
-
+            txtN1.Focus();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             if (!double.TryParse(txtN1.Text, out double n1) ||
-          !double.TryParse(txtN2.Text, out double n2) ||
-          !double.TryParse(txtN3.Text, out double n3))
+                !double.TryParse(txtN2.Text, out double n2) ||
+                !double.TryParse(txtN3.Text, out double n3))
             {
                 MessageBox.Show("Digite três números válidos.");
                 return;
@@ -49,9 +49,6 @@ namespace TechStart.App
             double media = (n1 + n2 + n3) / 3.0;
             lblResultado.Text = $"A média dos números é: {media}";
             lblResultado.Visible = true;
-            txtN1.Clear();
-            txtN2.Clear();
-            txtN3.Clear();
             txtN1.Focus();
         }
 
@@ -97,5 +94,21 @@ namespace TechStart.App
         {
             btnSair.BackColor = Color.White;
         }
+
+        private void txtN1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            var txt = sender as System.Windows.Forms.TextBox;
+            if (e.KeyChar == ',' && txt != null && !txt.Text.Contains(","))
+                return;
+
+            e.Handled = true;
+        }
+
     }
 }

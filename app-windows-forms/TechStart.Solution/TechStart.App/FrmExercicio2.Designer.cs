@@ -30,12 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExercicio2));
-            this.lblInformacao3 = new System.Windows.Forms.Label();
             this.lblInformacao2 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
-            this.txtN3 = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.txtValorProduto = new System.Windows.Forms.TextBox();
             this.lblResultado = new System.Windows.Forms.Label();
@@ -44,28 +42,15 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // lblInformacao3
-            // 
-            this.lblInformacao3.AutoSize = true;
-            this.lblInformacao3.BackColor = System.Drawing.Color.Transparent;
-            this.lblInformacao3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInformacao3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblInformacao3.Location = new System.Drawing.Point(83, 239);
-            this.lblInformacao3.Name = "lblInformacao3";
-            this.lblInformacao3.Size = new System.Drawing.Size(210, 21);
-            this.lblInformacao3.TabIndex = 24;
-            this.lblInformacao3.Text = "Informe o terceiro número:";
-            this.lblInformacao3.Visible = false;
-            // 
             // lblInformacao2
             // 
             this.lblInformacao2.AutoSize = true;
             this.lblInformacao2.BackColor = System.Drawing.Color.Transparent;
-            this.lblInformacao2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacao2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInformacao2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblInformacao2.Location = new System.Drawing.Point(83, 204);
             this.lblInformacao2.Name = "lblInformacao2";
-            this.lblInformacao2.Size = new System.Drawing.Size(172, 21);
+            this.lblInformacao2.Size = new System.Drawing.Size(180, 21);
             this.lblInformacao2.TabIndex = 23;
             this.lblInformacao2.Text = "Informe a quantidade:";
             // 
@@ -79,7 +64,7 @@
             this.btnSair.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.BlueViolet;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.Location = new System.Drawing.Point(508, 371);
+            this.btnSair.Location = new System.Drawing.Point(508, 372);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(137, 40);
             this.btnSair.TabIndex = 22;
@@ -119,7 +104,7 @@
             this.btnIniciar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.BlueViolet;
             this.btnIniciar.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciar.Image")));
-            this.btnIniciar.Location = new System.Drawing.Point(156, 370);
+            this.btnIniciar.Location = new System.Drawing.Point(154, 372);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(137, 40);
             this.btnIniciar.TabIndex = 20;
@@ -130,36 +115,27 @@
             this.btnIniciar.MouseEnter += new System.EventHandler(this.btnIniciar_MouseEnter);
             this.btnIniciar.MouseLeave += new System.EventHandler(this.btnIniciar_MouseLeave);
             // 
-            // txtN3
-            // 
-            this.txtN3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtN3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtN3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN3.Location = new System.Drawing.Point(314, 237);
-            this.txtN3.Name = "txtN3";
-            this.txtN3.Size = new System.Drawing.Size(396, 29);
-            this.txtN3.TabIndex = 19;
-            this.txtN3.Visible = false;
-            // 
             // txtQuantidade
             // 
             this.txtQuantidade.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQuantidade.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantidade.Location = new System.Drawing.Point(314, 202);
+            this.txtQuantidade.Location = new System.Drawing.Point(482, 202);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(396, 29);
+            this.txtQuantidade.Size = new System.Drawing.Size(163, 29);
             this.txtQuantidade.TabIndex = 18;
+            this.txtQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorProduto_KeyPress);
             // 
             // txtValorProduto
             // 
             this.txtValorProduto.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtValorProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtValorProduto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorProduto.Location = new System.Drawing.Point(314, 167);
+            this.txtValorProduto.Location = new System.Drawing.Point(482, 167);
             this.txtValorProduto.Name = "txtValorProduto";
-            this.txtValorProduto.Size = new System.Drawing.Size(396, 29);
+            this.txtValorProduto.Size = new System.Drawing.Size(163, 29);
             this.txtValorProduto.TabIndex = 17;
+            this.txtValorProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorProduto_KeyPress);
             // 
             // lblResultado
             // 
@@ -179,11 +155,11 @@
             // 
             this.lblInformacao1.AutoSize = true;
             this.lblInformacao1.BackColor = System.Drawing.Color.Transparent;
-            this.lblInformacao1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacao1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInformacao1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblInformacao1.Location = new System.Drawing.Point(83, 169);
             this.lblInformacao1.Name = "lblInformacao1";
-            this.lblInformacao1.Size = new System.Drawing.Size(216, 21);
+            this.lblInformacao1.Size = new System.Drawing.Size(222, 21);
             this.lblInformacao1.TabIndex = 15;
             this.lblInformacao1.Text = "Informe o valor do produto:";
             // 
@@ -208,12 +184,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblInformacao3);
             this.Controls.Add(this.lblInformacao2);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnIniciar);
-            this.Controls.Add(this.txtN3);
             this.Controls.Add(this.txtQuantidade);
             this.Controls.Add(this.txtValorProduto);
             this.Controls.Add(this.lblResultado);
@@ -232,13 +206,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblInformacao3;
         private System.Windows.Forms.Label lblInformacao2;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.TextBox txtN3;
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.TextBox txtValorProduto;
         private System.Windows.Forms.Label lblResultado;

@@ -31,13 +31,13 @@ namespace TechStart.App
 
         private void FrmExercicio2_Load(object sender, EventArgs e)
         {
-
+            txtValorProduto.Focus();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             if (!decimal.TryParse(txtValorProduto.Text, out decimal valor) ||
-       !int.TryParse(txtQuantidade.Text, out int qtd))
+                !int.TryParse(txtQuantidade.Text, out int qtd))
             {
                 MessageBox.Show("Informe um valor e uma quantidade válidos.");
                 return;
@@ -48,6 +48,7 @@ namespace TechStart.App
             lblResultado.Visible = true;
             txtValorProduto.Clear();
             txtQuantidade.Clear();
+            txtValorProduto.Focus();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -55,6 +56,7 @@ namespace TechStart.App
             txtQuantidade.Clear();
             txtValorProduto.Clear();
             lblResultado.Visible = false;
+            txtValorProduto.Focus();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -90,6 +92,21 @@ namespace TechStart.App
         private void btnSair_MouseLeave(object sender, EventArgs e)
         {
             btnSair.BackColor = Color.White;
+        }
+
+        private void txtValorProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            var txt = sender as System.Windows.Forms.TextBox;
+            if (e.KeyChar == ',' && txt != null && !txt.Text.Contains(","))
+                return;
+
+            e.Handled = true;
         }
     }
 }

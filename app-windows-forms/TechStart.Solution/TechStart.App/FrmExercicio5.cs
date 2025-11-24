@@ -31,7 +31,7 @@ namespace TechStart.App
 
         private void FrmExercicio5_Load(object sender, EventArgs e)
         {
-
+            txtNumero.Focus();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
@@ -50,18 +50,14 @@ namespace TechStart.App
                 lblResultado.Text = "O número é negativo.";
 
             lblResultado.Visible = true;
-            txtNumero.Clear();
-            txtN2.Clear();
-            txtN3.Clear();
             txtNumero.Focus();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtNumero.Clear();
-            txtN2.Clear();
-            txtN3.Clear();
             lblResultado.Visible = false;
+            txtNumero.Focus();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -97,6 +93,17 @@ namespace TechStart.App
         private void btnSair_MouseLeave(object sender, EventArgs e)
         {
             btnSair.BackColor = Color.White;
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            e.Handled = true;
         }
     }
 }

@@ -30,12 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExercicio4));
-            this.lblInformacao3 = new System.Windows.Forms.Label();
             this.lblInformacao2 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
-            this.txtN3 = new System.Windows.Forms.TextBox();
             this.txtAnoNasc = new System.Windows.Forms.TextBox();
             this.txtAnoAtual = new System.Windows.Forms.TextBox();
             this.lblResultado = new System.Windows.Forms.Label();
@@ -44,28 +42,15 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // lblInformacao3
-            // 
-            this.lblInformacao3.AutoSize = true;
-            this.lblInformacao3.BackColor = System.Drawing.Color.Transparent;
-            this.lblInformacao3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInformacao3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblInformacao3.Location = new System.Drawing.Point(83, 239);
-            this.lblInformacao3.Name = "lblInformacao3";
-            this.lblInformacao3.Size = new System.Drawing.Size(210, 21);
-            this.lblInformacao3.TabIndex = 109;
-            this.lblInformacao3.Text = "Informe o terceiro número:";
-            this.lblInformacao3.Visible = false;
-            // 
             // lblInformacao2
             // 
             this.lblInformacao2.AutoSize = true;
             this.lblInformacao2.BackColor = System.Drawing.Color.Transparent;
-            this.lblInformacao2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInformacao2.ForeColor = System.Drawing.Color.Red;
+            this.lblInformacao2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacao2.ForeColor = System.Drawing.Color.LawnGreen;
             this.lblInformacao2.Location = new System.Drawing.Point(83, 204);
             this.lblInformacao2.Name = "lblInformacao2";
-            this.lblInformacao2.Size = new System.Drawing.Size(244, 21);
+            this.lblInformacao2.Size = new System.Drawing.Size(254, 21);
             this.lblInformacao2.TabIndex = 108;
             this.lblInformacao2.Text = "Informe seu ano de nascimento:";
             // 
@@ -79,7 +64,7 @@
             this.btnSair.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.BlueViolet;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.Location = new System.Drawing.Point(508, 371);
+            this.btnSair.Location = new System.Drawing.Point(508, 372);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(137, 40);
             this.btnSair.TabIndex = 105;
@@ -119,7 +104,7 @@
             this.btnIniciar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.BlueViolet;
             this.btnIniciar.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciar.Image")));
-            this.btnIniciar.Location = new System.Drawing.Point(156, 370);
+            this.btnIniciar.Location = new System.Drawing.Point(155, 372);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(137, 40);
             this.btnIniciar.TabIndex = 103;
@@ -130,43 +115,34 @@
             this.btnIniciar.MouseEnter += new System.EventHandler(this.btnIniciar_MouseEnter);
             this.btnIniciar.MouseLeave += new System.EventHandler(this.btnIniciar_MouseLeave);
             // 
-            // txtN3
-            // 
-            this.txtN3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtN3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtN3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN3.Location = new System.Drawing.Point(348, 237);
-            this.txtN3.Name = "txtN3";
-            this.txtN3.Size = new System.Drawing.Size(362, 29);
-            this.txtN3.TabIndex = 102;
-            this.txtN3.Visible = false;
-            // 
             // txtAnoNasc
             // 
             this.txtAnoNasc.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtAnoNasc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAnoNasc.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnoNasc.Location = new System.Drawing.Point(348, 202);
+            this.txtAnoNasc.Location = new System.Drawing.Point(477, 202);
             this.txtAnoNasc.Name = "txtAnoNasc";
-            this.txtAnoNasc.Size = new System.Drawing.Size(362, 29);
+            this.txtAnoNasc.Size = new System.Drawing.Size(168, 29);
             this.txtAnoNasc.TabIndex = 101;
+            this.txtAnoNasc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnoAtual_KeyPress);
             // 
             // txtAnoAtual
             // 
             this.txtAnoAtual.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtAnoAtual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAnoAtual.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnoAtual.Location = new System.Drawing.Point(348, 167);
+            this.txtAnoAtual.Location = new System.Drawing.Point(477, 167);
             this.txtAnoAtual.Name = "txtAnoAtual";
-            this.txtAnoAtual.Size = new System.Drawing.Size(362, 29);
+            this.txtAnoAtual.Size = new System.Drawing.Size(168, 29);
             this.txtAnoAtual.TabIndex = 100;
+            this.txtAnoAtual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnoAtual_KeyPress);
             // 
             // lblResultado
             // 
             this.lblResultado.AutoEllipsis = true;
             this.lblResultado.BackColor = System.Drawing.Color.Transparent;
             this.lblResultado.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultado.ForeColor = System.Drawing.Color.Red;
+            this.lblResultado.ForeColor = System.Drawing.Color.LawnGreen;
             this.lblResultado.Location = new System.Drawing.Point(12, 269);
             this.lblResultado.Name = "lblResultado";
             this.lblResultado.Size = new System.Drawing.Size(776, 99);
@@ -179,11 +155,11 @@
             // 
             this.lblInformacao1.AutoSize = true;
             this.lblInformacao1.BackColor = System.Drawing.Color.Transparent;
-            this.lblInformacao1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInformacao1.ForeColor = System.Drawing.Color.Red;
+            this.lblInformacao1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacao1.ForeColor = System.Drawing.Color.LawnGreen;
             this.lblInformacao1.Location = new System.Drawing.Point(83, 169);
             this.lblInformacao1.Name = "lblInformacao1";
-            this.lblInformacao1.Size = new System.Drawing.Size(157, 21);
+            this.lblInformacao1.Size = new System.Drawing.Size(165, 21);
             this.lblInformacao1.TabIndex = 107;
             this.lblInformacao1.Text = "Informe o ano atual:";
             // 
@@ -191,7 +167,7 @@
             // 
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.Red;
+            this.lblTitulo.ForeColor = System.Drawing.Color.LawnGreen;
             this.lblTitulo.Location = new System.Drawing.Point(17, 39);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(771, 25);
@@ -208,12 +184,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblInformacao3);
             this.Controls.Add(this.lblInformacao2);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnIniciar);
-            this.Controls.Add(this.txtN3);
             this.Controls.Add(this.txtAnoNasc);
             this.Controls.Add(this.txtAnoAtual);
             this.Controls.Add(this.lblResultado);
@@ -232,13 +206,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblInformacao3;
         private System.Windows.Forms.Label lblInformacao2;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.TextBox txtN3;
         private System.Windows.Forms.TextBox txtAnoNasc;
         private System.Windows.Forms.TextBox txtAnoAtual;
         private System.Windows.Forms.Label lblResultado;
