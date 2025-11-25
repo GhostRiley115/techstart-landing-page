@@ -4,11 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
 
 namespace TechStart.App
 {
@@ -17,10 +17,20 @@ namespace TechStart.App
         public FrmPrincipal()
         {
             InitializeComponent();
+
         }
 
         private void mnuSair_Click(object sender, EventArgs e)
         {
+            DialogResult resp = MessageBox.Show(
+                "Deseja realmente sair?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+            if (resp == DialogResult.No)
+                return;
+            else
             Application.Exit();
         }
 
@@ -29,8 +39,8 @@ namespace TechStart.App
             using (FrmProdutos frm = new FrmProdutos())
             {
                 frm.ShowDialog();
-                frm.MdiParent = this;   // Diz que o pai é o FrmPrincipal 
-                frm.Show();             // Abre DENTRO do principal
+                frm.MdiParent = this;   
+                frm.Show();             
             }
         }
 
@@ -39,8 +49,8 @@ namespace TechStart.App
             using (FrmEventos frm = new FrmEventos())
             {
                 frm.ShowDialog();
-                frm.MdiParent = this;   // Diz que o pai é o FrmPrincipal 
-                frm.Show();             // Abre DENTRO do principal
+                frm.MdiParent = this;  
+                frm.Show();            
             }
         }
 
@@ -49,8 +59,8 @@ namespace TechStart.App
             using (FrmConsultaProdutos frm = new FrmConsultaProdutos())
             {
                 frm.ShowDialog();
-                frm.MdiParent = this;   // Diz que o pai é o FrmPrincipal 
-                frm.Show();             // Abre DENTRO do principal
+                frm.MdiParent = this;  
+                frm.Show();            
             }
         }
 
@@ -59,18 +69,23 @@ namespace TechStart.App
             using (FrmConsultaEventos frm = new FrmConsultaEventos())
             {
                 frm.ShowDialog();
-                frm.MdiParent = this;   // Diz que o pai é o FrmPrincipal 
-                frm.Show();             // Abre DENTRO do principal
+                frm.MdiParent = this;    
+                frm.Show();            
             }
         }
 
         private void mnuSobre_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-        "TechStart Júnior\n\nSistema desenvolvido por Clayton para o projeto final da ETEC.",
-        "Sobre",
-        MessageBoxButtons.OK,
-        MessageBoxIcon.Information);
+            "TechStart Júnior\n\n" +
+            "Sistema interno de apoio ao cliente TechStart.\n\n" +
+            "Desenvolvido por Clayton Sardinha de Brito\n" +
+            "Curso: Técnico em Desenvolvimento de Sistemas - ETEC\n" +
+            "Ano: 2025",
+            "Sobre",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information
+            );
         }
 
         private void tsbEventos_Click(object sender, EventArgs e)
@@ -85,7 +100,7 @@ namespace TechStart.App
 
         private void tsbExercicios_Click(object sender, EventArgs e)
         {
-
+            mnuExer9_Click(sender, e);
         }
 
         private void tsbSair_Click(object sender, EventArgs e)
@@ -101,9 +116,9 @@ namespace TechStart.App
 
             using (LinearGradientBrush brush = new LinearGradientBrush(
                 rect,
-                Color.FromArgb(47, 72, 122),  // TOPO: azul mais claro (perto do logo)
-                Color.FromArgb(5, 8, 22),     // BASE: bem escuro, quase preto
-                LinearGradientMode.Vertical)) // gradiente de cima pra baixo
+                Color.FromArgb(47, 72, 122),  
+                Color.FromArgb(5, 8, 22),     
+                LinearGradientMode.Vertical)) 
             {
                 e.Graphics.FillRectangle(brush, rect);
             }
@@ -156,8 +171,6 @@ namespace TechStart.App
                 e.Graphics.FillRectangle(brush, rect);
             }
         }
-
-        // ====== EVENTOS DE BOTÃO (CRUD) ======
 
         private void mnuExer1_Click(object sender, EventArgs e)
         {
@@ -257,6 +270,36 @@ namespace TechStart.App
                 frm.MdiParent = this;
                 frm.Show();
             }
+        }
+
+        private void mnuTrocarUsuario_Click(object sender, EventArgs e)
+        {
+            var resposta = MessageBox.Show(
+            "Deseja trocar de usuário?",
+            "Trocar usuário",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
+
+            if (resposta == DialogResult.No)
+                return;
+
+            Application.Restart();
+        }
+
+        private void tsbTrocarConta_Click(object sender, EventArgs e)
+        {
+            mnuTrocarUsuario_Click(sender, e);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            mnuConEventos_Click(sender, e);
+        }
+
+        private void pnlEventos_MouseClick(object sender, MouseEventArgs e)
+        {
+            mnuConEventos_Click(sender, e);
         }
     }
 }

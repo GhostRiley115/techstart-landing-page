@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\techstart.app\\frmexercicio8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|solutionrelative:techstart.app\\frmexercicio8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|c:\\users\\clayton\\desktop\\techstart-projeto-final\\app-windows-forms\\techstart.solution\\techstart.app\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|solutionrelative:techstart.app\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\techstart.app\\frmexercicio8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|solutionrelative:techstart.app\\frmexercicio8.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\techstart.app\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|solutionrelative:techstart.app\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\techstart.app\\frmexercicio1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|solutionrelative:techstart.app\\frmexercicio1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\techstart.app\\frmconsultaeventos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|solutionrelative:techstart.app\\frmconsultaeventos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\techstart.app\\frmexercicio1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|solutionrelative:techstart.app\\frmexercicio1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\techstart.app\\frmconsultaeventos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|solutionrelative:techstart.app\\frmconsultaeventos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\techstart.app\\frmesquecisenha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F853DEDF-B893-4CA5-9FEE-B9B80EB9ADF7}|TechStart.App\\TechStart.App.csproj|solutionrelative:techstart.app\\frmesquecisenha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,51 +38,63 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmExercicio8.cs",
-              "DocumentMoniker": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmExercicio8.cs",
-              "RelativeDocumentMoniker": "TechStart.App\\FrmExercicio8.cs",
-              "ToolTip": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmExercicio8.cs",
-              "RelativeToolTip": "TechStart.App\\FrmExercicio8.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwDEAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "FrmConsultaEventos.cs",
+              "DocumentMoniker": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmConsultaEventos.cs",
+              "RelativeDocumentMoniker": "TechStart.App\\FrmConsultaEventos.cs",
+              "ToolTip": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmConsultaEventos.cs",
+              "RelativeToolTip": "TechStart.App\\FrmConsultaEventos.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAD4v6AAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T08:26:57.319Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FrmExercicio8.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmExercicio8.cs",
-              "RelativeDocumentMoniker": "TechStart.App\\FrmExercicio8.cs",
-              "ToolTip": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmExercicio8.cs [Design]",
-              "RelativeToolTip": "TechStart.App\\FrmExercicio8.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T08:26:53.279Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-24T23:29:15.419Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FrmExercicio1.cs",
-              "DocumentMoniker": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmExercicio1.cs",
-              "RelativeDocumentMoniker": "TechStart.App\\FrmExercicio1.cs",
-              "ToolTip": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmExercicio1.cs",
-              "RelativeToolTip": "TechStart.App\\FrmExercicio1.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAmwG0AAAAdAAAAAAAAAA==",
+              "Title": "FrmConsultaEventos.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmConsultaEventos.cs",
+              "RelativeDocumentMoniker": "TechStart.App\\FrmConsultaEventos.cs",
+              "ToolTip": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmConsultaEventos.cs [Design]",
+              "RelativeToolTip": "TechStart.App\\FrmConsultaEventos.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T06:03:52.497Z"
+              "WhenOpened": "2025-11-24T23:24:28.2Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmExercicio1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmExercicio1.cs",
-              "RelativeDocumentMoniker": "TechStart.App\\FrmExercicio1.cs",
-              "ToolTip": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmExercicio1.cs [Design]",
-              "RelativeToolTip": "TechStart.App\\FrmExercicio1.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "FrmPrincipal.cs",
+              "DocumentMoniker": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmPrincipal.cs",
+              "RelativeDocumentMoniker": "TechStart.App\\FrmPrincipal.cs",
+              "ToolTip": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmPrincipal.cs",
+              "RelativeToolTip": "TechStart.App\\FrmPrincipal.cs",
+              "ViewState": "AgIAACABAAAAAAAAAAAlwCgBAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T08:43:15.663Z"
+              "WhenOpened": "2025-11-24T16:42:04.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmPrincipal.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmPrincipal.cs",
+              "RelativeDocumentMoniker": "TechStart.App\\FrmPrincipal.cs",
+              "ToolTip": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmPrincipal.cs [Design]",
+              "RelativeToolTip": "TechStart.App\\FrmPrincipal.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T16:42:01.778Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmEsqueciSenha.cs",
+              "DocumentMoniker": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmEsqueciSenha.cs",
+              "RelativeDocumentMoniker": "TechStart.App\\FrmEsqueciSenha.cs",
+              "ToolTip": "C:\\Users\\Clayton\\Desktop\\techstart-projeto-final\\app-windows-forms\\TechStart.Solution\\TechStart.App\\FrmEsqueciSenha.cs",
+              "RelativeToolTip": "TechStart.App\\FrmEsqueciSenha.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T16:38:10.922Z"
             }
           ]
         }

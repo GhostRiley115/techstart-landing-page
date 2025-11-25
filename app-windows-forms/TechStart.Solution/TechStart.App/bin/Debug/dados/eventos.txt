@@ -1,0 +1,3 @@
+1;teste;2025-11-24;teste;Treinamento;teste
+2;Reuniao;2025-11-24;Rio de Janeiro;Meetup;asodasj
+3;Aniversário;2025-11-28;Bahia;Outro;

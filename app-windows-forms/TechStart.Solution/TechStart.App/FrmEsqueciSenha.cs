@@ -26,24 +26,29 @@ namespace TechStart.App
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult resp = MessageBox.Show(
+                "Deseja realmente sair?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+            if (resp == DialogResult.No)
+                return;
+            else
+                this.Close();
         }
 
         private void txtUsuarioEsqueci_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite teclas de controle (Backspace, Delete, Tab, etc.)
             if (char.IsControl(e.KeyChar))
                 return;
 
-            // Permite letras e números
             if (char.IsLetterOrDigit(e.KeyChar))
                 return;
 
-            // Opcional: permitir underline e ponto
             if (e.KeyChar == '.')
                 return;
 
-            // Se não passou em nenhuma condição acima, bloqueia
             e.Handled = true;
         }
 

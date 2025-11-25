@@ -28,24 +28,20 @@ namespace TechStart.App
 
         private void FrmCadastroUsuario_Load(object sender, EventArgs e)
         {
-
+            txtNovoUsuario.Focus();
         }
 
         private void txtNovoUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite teclas de controle (Backspace, Delete, Tab, etc.)
             if (char.IsControl(e.KeyChar))
                 return;
 
-            // Permite letras e números
             if (char.IsLetterOrDigit(e.KeyChar))
                 return;
 
-            // Opcional: permitir underline e ponto
             if (e.KeyChar == '.')
                 return;
 
-            // Se não passou em nenhuma condição acima, bloqueia
             e.Handled = true;
         }
 
@@ -61,7 +57,16 @@ namespace TechStart.App
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult resp = MessageBox.Show(
+                "Deseja realmente sair?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+            if (resp == DialogResult.No)
+                return;
+            else
+                this.Close();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -91,7 +96,6 @@ namespace TechStart.App
                 return;
             }
 
-            // 3) Verifica se o arquivo de usuários existe
             if (!File.Exists(caminhoArquivo))
             {
                 MessageBox.Show(
@@ -103,7 +107,6 @@ namespace TechStart.App
                 return;
             }
 
-            // 4) Verifica se o usuário já existe
             string[] linhas = File.ReadAllLines(caminhoArquivo);
 
             foreach (string linha in linhas)
@@ -126,7 +129,6 @@ namespace TechStart.App
                 }
             }
 
-            // 5) Se chegou até aqui, pode cadastrar
             try
             {
                 using (StreamWriter sw = new StreamWriter(caminhoArquivo, append: true))

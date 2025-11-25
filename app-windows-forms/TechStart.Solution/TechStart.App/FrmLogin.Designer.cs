@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.lblFrase = new System.Windows.Forms.Label();
             this.pnlBrand = new System.Windows.Forms.Panel();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblDoLogin = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
@@ -46,10 +47,9 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblErro = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.picLogo = new System.Windows.Forms.PictureBox();
             this.pnlBrand.SuspendLayout();
-            this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblFrase
@@ -74,6 +74,17 @@
             this.pnlBrand.Size = new System.Drawing.Size(375, 561);
             this.pnlBrand.TabIndex = 92;
             this.pnlBrand.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBrand_Paint);
+            // 
+            // picLogo
+            // 
+            this.picLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
+            this.picLogo.Location = new System.Drawing.Point(-63, -61);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(500, 500);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogo.TabIndex = 1;
+            this.picLogo.TabStop = false;
             // 
             // lblTitulo
             // 
@@ -171,8 +182,6 @@
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
-            this.btnEntrar.MouseEnter += new System.EventHandler(this.btnEntrar_MouseEnter);
-            this.btnEntrar.MouseLeave += new System.EventHandler(this.btnEntrar_MouseLeave);
             // 
             // btnSair
             // 
@@ -254,17 +263,6 @@
             this.lblErro.Text = "Usuário ou senha inválidos.";
             this.lblErro.Visible = false;
             // 
-            // picLogo
-            // 
-            this.picLogo.BackColor = System.Drawing.Color.Transparent;
-            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
-            this.picLogo.Location = new System.Drawing.Point(-63, -61);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(500, 500);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 1;
-            this.picLogo.TabStop = false;
-            // 
             // FrmLogin
             // 
             this.AcceptButton = this.btnEntrar;
@@ -281,9 +279,9 @@
             this.Text = "TechStart - Login";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.pnlBrand.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
