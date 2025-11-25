@@ -132,7 +132,7 @@
             this.lblInformacao1.BackColor = System.Drawing.Color.Transparent;
             this.lblInformacao1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInformacao1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblInformacao1.Location = new System.Drawing.Point(101, 157);
+            this.lblInformacao1.Location = new System.Drawing.Point(127, 157);
             this.lblInformacao1.Name = "lblInformacao1";
             this.lblInformacao1.Size = new System.Drawing.Size(301, 21);
             this.lblInformacao1.TabIndex = 107;

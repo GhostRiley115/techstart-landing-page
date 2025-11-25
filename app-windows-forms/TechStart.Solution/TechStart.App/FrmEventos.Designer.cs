@@ -64,14 +64,15 @@
             // 
             // lvEventos
             // 
-            this.lvEventos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.lvEventos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(8)))), ((int)(((byte)(22)))));
+            this.lvEventos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvEventos.ForeColor = System.Drawing.Color.White;
             this.lvEventos.FullRowSelect = true;
             this.lvEventos.GridLines = true;
             this.lvEventos.HideSelection = false;
-            this.lvEventos.Location = new System.Drawing.Point(12, 269);
+            this.lvEventos.Location = new System.Drawing.Point(12, 288);
             this.lvEventos.Name = "lvEventos";
-            this.lvEventos.Size = new System.Drawing.Size(670, 249);
+            this.lvEventos.Size = new System.Drawing.Size(670, 230);
             this.lvEventos.TabIndex = 6;
             this.lvEventos.UseCompatibleStateImageBehavior = false;
             this.lvEventos.View = System.Windows.Forms.View.Details;
@@ -79,7 +80,7 @@
             // 
             // grpDadosEvento
             // 
-            this.grpDadosEvento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.grpDadosEvento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(8)))), ((int)(((byte)(22)))));
             this.grpDadosEvento.Controls.Add(this.cmbTipo);
             this.grpDadosEvento.Controls.Add(this.btnSalvar);
             this.grpDadosEvento.Controls.Add(this.btnLimpar);
@@ -97,82 +98,93 @@
             this.grpDadosEvento.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.grpDadosEvento.Location = new System.Drawing.Point(12, 12);
             this.grpDadosEvento.Name = "grpDadosEvento";
-            this.grpDadosEvento.Size = new System.Drawing.Size(670, 251);
+            this.grpDadosEvento.Size = new System.Drawing.Size(670, 270);
             this.grpDadosEvento.TabIndex = 0;
             this.grpDadosEvento.TabStop = false;
             this.grpDadosEvento.Text = "Dados do evento";
             // 
             // cmbTipo
             // 
-            this.cmbTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.cmbTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.cmbTipo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipo.ForeColor = System.Drawing.Color.White;
             this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Location = new System.Drawing.Point(141, 102);
+            this.cmbTipo.Location = new System.Drawing.Point(141, 117);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(407, 21);
+            this.cmbTipo.Size = new System.Drawing.Size(407, 25);
             this.cmbTipo.TabIndex = 9;
             // 
             // btnSalvar
             // 
+            this.btnSalvar.BackColor = System.Drawing.Color.Transparent;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.Black;
-            this.btnSalvar.Location = new System.Drawing.Point(6, 222);
+            this.btnSalvar.Location = new System.Drawing.Point(9, 241);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 2;
             this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnLimpar
             // 
+            this.btnLimpar.BackColor = System.Drawing.Color.Transparent;
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnLimpar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpar.Location = new System.Drawing.Point(589, 222);
+            this.btnLimpar.Location = new System.Drawing.Point(589, 241);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // dtpDataEvento
             // 
             this.dtpDataEvento.CalendarMonthBackground = System.Drawing.Color.White;
-            this.dtpDataEvento.Location = new System.Drawing.Point(141, 50);
+            this.dtpDataEvento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataEvento.Location = new System.Drawing.Point(141, 55);
             this.dtpDataEvento.Name = "dtpDataEvento";
-            this.dtpDataEvento.Size = new System.Drawing.Size(407, 20);
+            this.dtpDataEvento.Size = new System.Drawing.Size(407, 25);
             this.dtpDataEvento.TabIndex = 8;
             // 
             // btnEditar
             // 
+            this.btnEditar.BackColor = System.Drawing.Color.Transparent;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.Black;
-            this.btnEditar.Location = new System.Drawing.Point(198, 222);
+            this.btnEditar.Location = new System.Drawing.Point(199, 241);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
+            this.btnExcluir.BackColor = System.Drawing.Color.Transparent;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.Color.Black;
-            this.btnExcluir.Location = new System.Drawing.Point(404, 222);
+            this.btnExcluir.Location = new System.Drawing.Point(402, 241);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // txtDescricao
             // 
-            this.txtDescricao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.txtDescricao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.txtDescricao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.ForeColor = System.Drawing.Color.White;
-            this.txtDescricao.Location = new System.Drawing.Point(141, 129);
+            this.txtDescricao.Location = new System.Drawing.Point(141, 148);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(407, 87);
@@ -180,74 +192,81 @@
             // 
             // txtLocal
             // 
-            this.txtLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.txtLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.txtLocal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLocal.ForeColor = System.Drawing.Color.White;
-            this.txtLocal.Location = new System.Drawing.Point(141, 76);
+            this.txtLocal.Location = new System.Drawing.Point(141, 86);
             this.txtLocal.Name = "txtLocal";
-            this.txtLocal.Size = new System.Drawing.Size(407, 20);
+            this.txtLocal.Size = new System.Drawing.Size(407, 25);
             this.txtLocal.TabIndex = 6;
             // 
             // txtNomeEvento
             // 
-            this.txtNomeEvento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.txtNomeEvento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.txtNomeEvento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeEvento.ForeColor = System.Drawing.Color.White;
             this.txtNomeEvento.Location = new System.Drawing.Point(141, 24);
             this.txtNomeEvento.Name = "txtNomeEvento";
-            this.txtNomeEvento.Size = new System.Drawing.Size(407, 20);
+            this.txtNomeEvento.Size = new System.Drawing.Size(407, 25);
             this.txtNomeEvento.TabIndex = 5;
             // 
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescricao.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescricao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescricao.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDescricao.Location = new System.Drawing.Point(11, 129);
+            this.lblDescricao.Location = new System.Drawing.Point(6, 151);
             this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(68, 17);
+            this.lblDescricao.Size = new System.Drawing.Size(71, 17);
             this.lblDescricao.TabIndex = 4;
             this.lblDescricao.Text = "Descrição:";
             // 
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.BackColor = System.Drawing.Color.Transparent;
+            this.lblTipo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipo.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTipo.Location = new System.Drawing.Point(11, 106);
+            this.lblTipo.Location = new System.Drawing.Point(6, 120);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(37, 17);
+            this.lblTipo.Size = new System.Drawing.Size(40, 17);
             this.lblTipo.TabIndex = 3;
             this.lblTipo.Text = "Tipo:";
             // 
             // lblLocal
             // 
             this.lblLocal.AutoSize = true;
-            this.lblLocal.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocal.BackColor = System.Drawing.Color.Transparent;
+            this.lblLocal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocal.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblLocal.Location = new System.Drawing.Point(11, 79);
+            this.lblLocal.Location = new System.Drawing.Point(6, 89);
             this.lblLocal.Name = "lblLocal";
-            this.lblLocal.Size = new System.Drawing.Size(41, 17);
+            this.lblLocal.Size = new System.Drawing.Size(44, 17);
             this.lblLocal.TabIndex = 2;
             this.lblLocal.Text = "Local:";
             // 
             // lblDataEvento
             // 
             this.lblDataEvento.AutoSize = true;
-            this.lblDataEvento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataEvento.BackColor = System.Drawing.Color.Transparent;
+            this.lblDataEvento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataEvento.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDataEvento.Location = new System.Drawing.Point(11, 50);
+            this.lblDataEvento.Location = new System.Drawing.Point(6, 61);
             this.lblDataEvento.Name = "lblDataEvento";
-            this.lblDataEvento.Size = new System.Drawing.Size(39, 17);
+            this.lblDataEvento.Size = new System.Drawing.Size(41, 17);
             this.lblDataEvento.TabIndex = 1;
             this.lblDataEvento.Text = "Data:";
             // 
             // lblNomeEvento
             // 
             this.lblNomeEvento.AutoSize = true;
-            this.lblNomeEvento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeEvento.BackColor = System.Drawing.Color.Transparent;
+            this.lblNomeEvento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomeEvento.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblNomeEvento.Location = new System.Drawing.Point(11, 24);
+            this.lblNomeEvento.Location = new System.Drawing.Point(6, 27);
             this.lblNomeEvento.Name = "lblNomeEvento";
-            this.lblNomeEvento.Size = new System.Drawing.Size(114, 17);
+            this.lblNomeEvento.Size = new System.Drawing.Size(115, 17);
             this.lblNomeEvento.TabIndex = 0;
             this.lblNomeEvento.Text = "Nome do evento:";
             // 

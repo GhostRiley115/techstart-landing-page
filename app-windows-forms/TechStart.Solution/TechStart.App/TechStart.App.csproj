@@ -251,6 +251,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dados\eventos.txt" />
+    <Content Include="dados\produtos.txt.txt" />
     <Content Include="dados\Usuarios.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

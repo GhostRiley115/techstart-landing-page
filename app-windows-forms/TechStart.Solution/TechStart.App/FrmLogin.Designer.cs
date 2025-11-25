@@ -47,6 +47,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblErro = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lblRodape = new System.Windows.Forms.Label();
             this.pnlBrand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlLogin.SuspendLayout();
@@ -89,6 +90,7 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
+            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(123, 85);
@@ -100,6 +102,7 @@
             // lblDoLogin
             // 
             this.lblDoLogin.AutoSize = true;
+            this.lblDoLogin.BackColor = System.Drawing.Color.Transparent;
             this.lblDoLogin.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDoLogin.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblDoLogin.Location = new System.Drawing.Point(126, 130);
@@ -111,6 +114,7 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.Transparent;
             this.lblUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblUser.Location = new System.Drawing.Point(126, 184);
@@ -133,6 +137,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
+            this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblPassword.Location = new System.Drawing.Point(126, 267);
@@ -159,6 +164,7 @@
             this.chkMostrarSenha.BackColor = System.Drawing.Color.Transparent;
             this.chkMostrarSenha.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkMostrarSenha.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkMostrarSenha.ForeColor = System.Drawing.Color.Black;
             this.chkMostrarSenha.Location = new System.Drawing.Point(131, 346);
             this.chkMostrarSenha.Name = "chkMostrarSenha";
             this.chkMostrarSenha.Size = new System.Drawing.Size(103, 27);
@@ -170,11 +176,11 @@
             // 
             // btnEntrar
             // 
-            this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(147)))), ((int)(((byte)(233)))));
+            this.btnEntrar.BackColor = System.Drawing.Color.Transparent;
             this.btnEntrar.FlatAppearance.BorderSize = 0;
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnEntrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnEntrar.ForeColor = System.Drawing.Color.Black;
             this.btnEntrar.Location = new System.Drawing.Point(131, 394);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(160, 45);
@@ -185,11 +191,11 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
+            this.btnSair.BackColor = System.Drawing.Color.Transparent;
             this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnSair.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.ForeColor = System.Drawing.Color.White;
+            this.btnSair.ForeColor = System.Drawing.Color.Black;
             this.btnSair.Location = new System.Drawing.Point(362, 394);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 45);
@@ -202,6 +208,7 @@
             // 
             this.lnkEsqueciSenha.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(155)))), ((int)(((byte)(233)))));
             this.lnkEsqueciSenha.AutoSize = true;
+            this.lnkEsqueciSenha.BackColor = System.Drawing.Color.Transparent;
             this.lnkEsqueciSenha.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lnkEsqueciSenha.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkEsqueciSenha.LinkArea = new System.Windows.Forms.LinkArea(0, 19);
@@ -218,6 +225,7 @@
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(8)))), ((int)(((byte)(22)))));
+            this.pnlLogin.Controls.Add(this.lblRodape);
             this.pnlLogin.Controls.Add(this.linkLabel1);
             this.pnlLogin.Controls.Add(this.lblErro);
             this.pnlLogin.Controls.Add(this.lnkEsqueciSenha);
@@ -239,6 +247,7 @@
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(155)))), ((int)(((byte)(233)))));
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
             this.linkLabel1.Location = new System.Drawing.Point(126, 506);
@@ -262,6 +271,18 @@
             this.lblErro.TabIndex = 99;
             this.lblErro.Text = "Usuário ou senha inválidos.";
             this.lblErro.Visible = false;
+            // 
+            // lblRodape
+            // 
+            this.lblRodape.AutoSize = true;
+            this.lblRodape.BackColor = System.Drawing.Color.Transparent;
+            this.lblRodape.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRodape.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(130)))), ((int)(((byte)(150)))));
+            this.lblRodape.Location = new System.Drawing.Point(225, 543);
+            this.lblRodape.Name = "lblRodape";
+            this.lblRodape.Size = new System.Drawing.Size(190, 18);
+            this.lblRodape.TabIndex = 110;
+            this.lblRodape.Text = "TechStart Júnior versão 1.0";
             // 
             // FrmLogin
             // 
@@ -305,5 +326,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lblErro;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label lblRodape;
     }
 }

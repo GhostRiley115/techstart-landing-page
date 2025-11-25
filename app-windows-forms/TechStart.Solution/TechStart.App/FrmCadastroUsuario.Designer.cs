@@ -40,7 +40,6 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblErro = new System.Windows.Forms.Label();
             this.chkMostrarSenha1 = new System.Windows.Forms.CheckBox();
-            this.chkMostrarSenha2 = new System.Windows.Forms.CheckBox();
             this.picLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +62,7 @@
             this.lblNovaSenha.BackColor = System.Drawing.Color.Transparent;
             this.lblNovaSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNovaSenha.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblNovaSenha.Location = new System.Drawing.Point(9, 108);
+            this.lblNovaSenha.Location = new System.Drawing.Point(9, 111);
             this.lblNovaSenha.Name = "lblNovaSenha";
             this.lblNovaSenha.Size = new System.Drawing.Size(147, 25);
             this.lblNovaSenha.TabIndex = 97;
@@ -75,7 +74,7 @@
             this.lblConfirmarSenha.BackColor = System.Drawing.Color.Transparent;
             this.lblConfirmarSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmarSenha.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblConfirmarSenha.Location = new System.Drawing.Point(9, 174);
+            this.lblConfirmarSenha.Location = new System.Drawing.Point(9, 165);
             this.lblConfirmarSenha.Name = "lblConfirmarSenha";
             this.lblConfirmarSenha.Size = new System.Drawing.Size(186, 25);
             this.lblConfirmarSenha.TabIndex = 96;
@@ -85,8 +84,8 @@
             // 
             this.txtNovaSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             this.txtNovaSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNovaSenha.ForeColor = System.Drawing.Color.White;
-            this.txtNovaSenha.Location = new System.Drawing.Point(201, 105);
+            this.txtNovaSenha.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNovaSenha.Location = new System.Drawing.Point(201, 108);
             this.txtNovaSenha.Name = "txtNovaSenha";
             this.txtNovaSenha.Size = new System.Drawing.Size(230, 33);
             this.txtNovaSenha.TabIndex = 2;
@@ -96,8 +95,8 @@
             // 
             this.txtConfirmarSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             this.txtConfirmarSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmarSenha.ForeColor = System.Drawing.Color.White;
-            this.txtConfirmarSenha.Location = new System.Drawing.Point(201, 171);
+            this.txtConfirmarSenha.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.txtConfirmarSenha.Location = new System.Drawing.Point(201, 162);
             this.txtConfirmarSenha.Name = "txtConfirmarSenha";
             this.txtConfirmarSenha.Size = new System.Drawing.Size(230, 33);
             this.txtConfirmarSenha.TabIndex = 3;
@@ -107,7 +106,7 @@
             // 
             this.txtNovoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             this.txtNovoUsuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNovoUsuario.ForeColor = System.Drawing.Color.White;
+            this.txtNovoUsuario.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtNovoUsuario.Location = new System.Drawing.Point(201, 55);
             this.txtNovoUsuario.Name = "txtNovoUsuario";
             this.txtNovoUsuario.Size = new System.Drawing.Size(230, 33);
@@ -116,26 +115,30 @@
             // 
             // btnSalvar
             // 
+            this.btnSalvar.BackColor = System.Drawing.Color.Transparent;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnSalvar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.ForeColor = System.Drawing.Color.Black;
             this.btnSalvar.Location = new System.Drawing.Point(95, 243);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 30);
             this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
             this.btnCancelar.Location = new System.Drawing.Point(265, 246);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(85, 25);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblTitulo
@@ -153,6 +156,7 @@
             // lblErro
             // 
             this.lblErro.AutoSize = true;
+            this.lblErro.BackColor = System.Drawing.Color.Transparent;
             this.lblErro.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
             this.lblErro.Location = new System.Drawing.Point(89, 276);
@@ -169,28 +173,13 @@
             this.chkMostrarSenha1.BackColor = System.Drawing.Color.Transparent;
             this.chkMostrarSenha1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkMostrarSenha1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkMostrarSenha1.Location = new System.Drawing.Point(201, 144);
+            this.chkMostrarSenha1.Location = new System.Drawing.Point(201, 201);
             this.chkMostrarSenha1.Name = "chkMostrarSenha1";
             this.chkMostrarSenha1.Size = new System.Drawing.Size(91, 23);
             this.chkMostrarSenha1.TabIndex = 95;
             this.chkMostrarSenha1.Text = "Mostrar senha";
             this.chkMostrarSenha1.UseVisualStyleBackColor = false;
             this.chkMostrarSenha1.CheckedChanged += new System.EventHandler(this.chkMostrarSenha1_CheckedChanged);
-            // 
-            // chkMostrarSenha2
-            // 
-            this.chkMostrarSenha2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkMostrarSenha2.AutoSize = true;
-            this.chkMostrarSenha2.BackColor = System.Drawing.Color.Transparent;
-            this.chkMostrarSenha2.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkMostrarSenha2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkMostrarSenha2.Location = new System.Drawing.Point(201, 210);
-            this.chkMostrarSenha2.Name = "chkMostrarSenha2";
-            this.chkMostrarSenha2.Size = new System.Drawing.Size(91, 23);
-            this.chkMostrarSenha2.TabIndex = 94;
-            this.chkMostrarSenha2.Text = "Mostrar senha";
-            this.chkMostrarSenha2.UseVisualStyleBackColor = false;
-            this.chkMostrarSenha2.CheckedChanged += new System.EventHandler(this.chkMostrarSenha2_CheckedChanged);
             // 
             // picLogo
             // 
@@ -209,7 +198,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(8)))), ((int)(((byte)(22)))));
             this.ClientSize = new System.Drawing.Size(459, 311);
-            this.Controls.Add(this.chkMostrarSenha2);
             this.Controls.Add(this.chkMostrarSenha1);
             this.Controls.Add(this.lblErro);
             this.Controls.Add(this.lblTitulo);
@@ -249,6 +237,5 @@
         private System.Windows.Forms.Label lblErro;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.CheckBox chkMostrarSenha1;
-        private System.Windows.Forms.CheckBox chkMostrarSenha2;
     }
 }

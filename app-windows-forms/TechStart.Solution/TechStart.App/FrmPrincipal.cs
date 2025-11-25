@@ -301,5 +301,40 @@ namespace TechStart.App
         {
             mnuConEventos_Click(sender, e);
         }
+
+        private void lblEventos_Click(object sender, EventArgs e)
+        {
+            mnuConEventos_Click(sender, e);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            using (FrmConsultaProdutos frm = new FrmConsultaProdutos())
+            {
+                frm.ShowDialog();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void lblLojinha_Click(object sender, EventArgs e)
+        {
+            using (FrmConsultaProdutos frm = new FrmConsultaProdutos())
+            {
+                frm.ShowDialog();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void pnlLojinha_Click(object sender, EventArgs e)
+        {
+            using (FrmConsultaProdutos frm = new FrmConsultaProdutos())
+            {
+                frm.ShowDialog();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
     }
 }

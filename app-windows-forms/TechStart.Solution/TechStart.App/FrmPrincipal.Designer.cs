@@ -62,7 +62,7 @@
             this.picJujuba = new System.Windows.Forms.PictureBox();
             this.lblDesign = new System.Windows.Forms.Label();
             this.lblRodape = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSubTitulo = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlLojinha = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -282,7 +282,7 @@
             // 
             this.mnuTrocarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("mnuTrocarUsuario.Image")));
             this.mnuTrocarUsuario.Name = "mnuTrocarUsuario";
-            this.mnuTrocarUsuario.Size = new System.Drawing.Size(149, 22);
+            this.mnuTrocarUsuario.Size = new System.Drawing.Size(180, 22);
             this.mnuTrocarUsuario.Text = "Trocar usuário";
             this.mnuTrocarUsuario.Click += new System.EventHandler(this.mnuTrocarUsuario_Click);
             // 
@@ -290,7 +290,7 @@
             // 
             this.mnuSair.Image = ((System.Drawing.Image)(resources.GetObject("mnuSair.Image")));
             this.mnuSair.Name = "mnuSair";
-            this.mnuSair.Size = new System.Drawing.Size(149, 22);
+            this.mnuSair.Size = new System.Drawing.Size(180, 22);
             this.mnuSair.Text = "Sair";
             this.mnuSair.Click += new System.EventHandler(this.mnuSair_Click);
             // 
@@ -302,7 +302,7 @@
             this.pnlDashboard.Controls.Add(this.picJujuba);
             this.pnlDashboard.Controls.Add(this.lblDesign);
             this.pnlDashboard.Controls.Add(this.lblRodape);
-            this.pnlDashboard.Controls.Add(this.label1);
+            this.pnlDashboard.Controls.Add(this.lblSubTitulo);
             this.pnlDashboard.Controls.Add(this.lblTitulo);
             this.pnlDashboard.Controls.Add(this.pnlLojinha);
             this.pnlDashboard.Controls.Add(this.pnlEventos);
@@ -437,17 +437,17 @@
             this.lblRodape.TabIndex = 109;
             this.lblRodape.Text = "TechStart Júnior • Sistema interno de apoio ao cliente";
             // 
-            // label1
+            // lblSubTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(244, 156);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(924, 37);
-            this.label1.TabIndex = 100;
-            this.label1.Text = "Gerencie eventos, produtos da lojinha e confira as novidades da startup.";
+            this.lblSubTitulo.AutoSize = true;
+            this.lblSubTitulo.BackColor = System.Drawing.Color.Transparent;
+            this.lblSubTitulo.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTitulo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblSubTitulo.Location = new System.Drawing.Point(244, 156);
+            this.lblSubTitulo.Name = "lblSubTitulo";
+            this.lblSubTitulo.Size = new System.Drawing.Size(924, 37);
+            this.lblSubTitulo.TabIndex = 100;
+            this.lblSubTitulo.Text = "Gerencie eventos, produtos da lojinha e confira as novidades da startup.";
             // 
             // lblTitulo
             // 
@@ -470,6 +470,7 @@
             this.pnlLojinha.Name = "pnlLojinha";
             this.pnlLojinha.Size = new System.Drawing.Size(250, 420);
             this.pnlLojinha.TabIndex = 106;
+            this.pnlLojinha.Click += new System.EventHandler(this.pnlLojinha_Click);
             this.pnlLojinha.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLojinha_Paint);
             // 
             // pictureBox2
@@ -482,6 +483,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 113;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // lblLojinha
             // 
@@ -494,6 +496,7 @@
             this.lblLojinha.Size = new System.Drawing.Size(135, 19);
             this.lblLojinha.TabIndex = 109;
             this.lblLojinha.Text = "Lojinha TechStart";
+            this.lblLojinha.Click += new System.EventHandler(this.lblLojinha_Click);
             // 
             // pnlEventos
             // 
@@ -530,6 +533,7 @@
             this.lblEventos.Size = new System.Drawing.Size(140, 19);
             this.lblEventos.TabIndex = 110;
             this.lblEventos.Text = "Eventos TechStart";
+            this.lblEventos.Click += new System.EventHandler(this.lblEventos_Click);
             // 
             // pnlNovidades
             // 
@@ -628,7 +632,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuExer10;
         private System.Windows.Forms.Panel pnlDashboard;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSubTitulo;
         private System.Windows.Forms.ToolStripButton tsbEventos;
         private System.Windows.Forms.ToolStripButton tsbProdutos;
         private System.Windows.Forms.ToolStripButton tsbExercicios;

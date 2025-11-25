@@ -45,13 +45,9 @@ namespace TechStart.App
             e.Handled = true;
         }
 
-        private void chkMostrarSenha2_CheckedChanged(object sender, EventArgs e)
-        {
-            txtConfirmarSenha.UseSystemPasswordChar = !chkMostrarSenha2.Checked;
-        }
-
         private void chkMostrarSenha1_CheckedChanged(object sender, EventArgs e)
         {
+            txtConfirmarSenha.UseSystemPasswordChar = !chkMostrarSenha1.Checked;
             txtNovaSenha.UseSystemPasswordChar = !chkMostrarSenha1.Checked;
         }
 
