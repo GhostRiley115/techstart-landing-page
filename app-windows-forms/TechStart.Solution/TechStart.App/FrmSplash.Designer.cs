@@ -74,7 +74,6 @@
             this.Name = "FrmSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TechStart - Carregando...";
-            this.Load += new System.EventHandler(this.FrmSplash_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picSplash)).EndInit();
             this.ResumeLayout(false);
 

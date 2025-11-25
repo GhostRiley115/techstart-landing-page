@@ -12,20 +12,22 @@ namespace TechStart.App
     {
         private readonly string caminhoArquivo;
         private List<Evento> listaEventos = new List<Evento>();
-        private int idEmEdicao = 0; // 0 = novo, >0 = editando esse ID
+        private int idEmEdicao = 0; 
 
         public FrmEventos()
         {
             InitializeComponent();
 
-            caminhoArquivo = Path.Combine(
-                Application.StartupPath,
-                "dados",
-                "eventos.txt"
-            );
+            caminhoArquivo = Path.Combine(Application.StartupPath,"dados","eventos.txt");
+        }
+        private void FrmEventos_Load(object sender, EventArgs e)
+        {
+            ConfigurarListView();
+            PopularComboTipo();
+            GarantirArquivoEventos();
+            CarregarEventosDoArquivo();
         }
 
-        // Classe que representa um evento
         public class Evento
         {
             public int Id { get; set; }
@@ -36,42 +38,9 @@ namespace TechStart.App
             public string Descricao { get; set; }
         }
 
-        // ====== EVENTOS DO FORM ======
-
-        private void FrmEventos_Load(object sender, EventArgs e)
-        {
-            ConfigurarListView();
-            PopularComboTipo();
-            GarantirArquivoEventos();
-            CarregarEventosDoArquivo();
-        }
-
-        // Seu gradiente do panel1
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            Rectangle rect = new Rectangle(0, 0, panel1.Width, panel1.Height);
-
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                rect,
-                Color.FromArgb(47, 72, 122),  // TOPO
-                Color.FromArgb(5, 8, 22),     // BASE
-                LinearGradientMode.Vertical)) // de cima pra baixo
-            {
-                e.Graphics.FillRectangle(brush, rect);
-            }
-        }
-
-        // ====== CONFIGURAÇÕES INICIAIS ======
-
         private void ConfigurarListView()
         {
             lvEventos.Columns.Clear();
-            lvEventos.View = View.Details;
-            lvEventos.FullRowSelect = true;
-            lvEventos.GridLines = true;
-
             lvEventos.Columns.Add("ID", 50);
             lvEventos.Columns.Add("Nome", 200);
             lvEventos.Columns.Add("Data", 100);
@@ -89,6 +58,24 @@ namespace TechStart.App
             cmbTipo.Items.Add("Meetup");
             cmbTipo.Items.Add("Outro");
         }
+        private void LimparCampos()
+        {
+            txtNomeEvento.Clear();
+            txtLocal.Clear();
+            txtDescricao.Clear();
+            cmbTipo.SelectedIndex = -1;
+            dtpDataEvento.Value = DateTime.Today;
+
+            idEmEdicao = 0;
+            lvEventos.SelectedItems.Clear();
+        }
+        private int ObterProximoId()
+        {
+            if (listaEventos.Count == 0)
+                return 1;
+
+            return listaEventos.Max(e => e.Id) + 1;
+        }
 
         private void GarantirArquivoEventos()
         {
@@ -98,8 +85,6 @@ namespace TechStart.App
                 File.Create(caminhoArquivo).Close();
             }
         }
-
-        // ====== CARREGAR / SALVAR TXT ======
 
         private void CarregarEventosDoArquivo()
         {
@@ -171,30 +156,6 @@ namespace TechStart.App
             }
         }
 
-        // ====== FUNÇÕES DE APOIO ======
-
-        private void LimparCampos()
-        {
-            txtNomeEvento.Clear();
-            txtLocal.Clear();
-            txtDescricao.Clear();
-            cmbTipo.SelectedIndex = -1;
-            dtpDataEvento.Value = DateTime.Today;
-
-            idEmEdicao = 0;
-            lvEventos.SelectedItems.Clear();
-        }
-
-        private int ObterProximoId()
-        {
-            if (listaEventos.Count == 0)
-                return 1;
-
-            return listaEventos.Max(e => e.Id) + 1;
-        }
-
-        // ====== EVENTOS DE BOTÃO (CRUD) ======
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             string nome = txtNomeEvento.Text.Trim();
@@ -205,31 +166,27 @@ namespace TechStart.App
 
             if (string.IsNullOrEmpty(nome))
             {
-                MessageBox.Show("Informe o nome do evento.", "Atenção",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Informe o nome do evento.", "Atenção",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNomeEvento.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(local))
             {
-                MessageBox.Show("Informe o local do evento.", "Atenção",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Informe o local do evento.", "Atenção",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtLocal.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(tipo))
             {
-                MessageBox.Show("Selecione o tipo do evento.", "Atenção",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione o tipo do evento.", "Atenção",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbTipo.DroppedDown = true;
                 return;
             }
 
             if (idEmEdicao == 0)
             {
-                // Novo evento
                 Evento novo = new Evento
                 {
                     Id = ObterProximoId(),
@@ -244,7 +201,6 @@ namespace TechStart.App
             }
             else
             {
-                // Editando evento existente
                 Evento existente = listaEventos.FirstOrDefault(ev => ev.Id == idEmEdicao);
                 if (existente != null)
                 {
@@ -259,20 +215,14 @@ namespace TechStart.App
             SalvarEventosNoArquivo();
             CarregarEventosDoArquivo();
 
-            MessageBox.Show("Evento salvo com sucesso!", "Sucesso",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Evento salvo com sucesso!", "Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (lvEventos.SelectedItems.Count == 0 || idEmEdicao == 0)
             {
-                MessageBox.Show(
-                    "Selecione um evento na lista para editar.",
-                    "Atenção",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                MessageBox.Show("Selecione um evento na lista para editar.","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
 
@@ -293,20 +243,14 @@ namespace TechStart.App
         {
             if (lvEventos.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Selecione um evento na lista para excluir.", "Atenção",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione um evento na lista para excluir.", "Atenção",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             ListViewItem item = lvEventos.SelectedItems[0];
             int id = int.Parse(item.SubItems[0].Text);
 
-            DialogResult resp = MessageBox.Show(
-                "Deseja realmente excluir este evento?",
-                "Confirmação",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+            DialogResult resp = MessageBox.Show("Deseja realmente excluir este evento?","Confirmação",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (resp == DialogResult.No)
                 return;
@@ -325,8 +269,6 @@ namespace TechStart.App
             LimparCampos();
         }
 
-        // ====== SELEÇÃO NO LISTVIEW ======
-
         private void lvEventos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvEventos.SelectedItems.Count == 0)
@@ -337,6 +279,21 @@ namespace TechStart.App
 
             ListViewItem item = lvEventos.SelectedItems[0];
             idEmEdicao = int.Parse(item.SubItems[0].Text);
+        }
+        private void pnlFundo_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            Rectangle rect = new Rectangle(0, 0, pnlFundo.Width, pnlFundo.Height);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rect,
+                Color.FromArgb(47, 72, 122),  
+                Color.FromArgb(5, 8, 22),     
+                LinearGradientMode.Vertical)) 
+            {
+                e.Graphics.FillRectangle(brush, rect);
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ namespace TechStart.App
     {
         private readonly string caminhoArquivo;
         private List<Produto> listaProdutos = new List<Produto>();
-        private int idEmEdicao = 0; // 0 = novo
+        private int idEmEdicao = 0; 
         public FrmProdutos()
         {
             InitializeComponent();
@@ -136,7 +136,7 @@ namespace TechStart.App
                         p.Id,
                         p.Nome,
                         p.Categoria,
-                        p.Preco.ToString(),   // usa vírgula do sistema
+                        p.Preco.ToString(),   
                         p.Estoque,
                         p.CaminhoImagem ?? "",
                         (p.Descricao ?? "").Replace(";", ",")

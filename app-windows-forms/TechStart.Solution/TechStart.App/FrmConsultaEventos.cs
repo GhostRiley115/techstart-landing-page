@@ -19,12 +19,7 @@ namespace TechStart.App
         private List<Evento> listaEventos = new List<Evento>();
         public FrmConsultaEventos()
         {
-            InitializeComponent();
-            caminhoArquivo = Path.Combine(
-            Application.StartupPath,
-            "dados",
-            "eventos.txt"
-            );
+            InitializeComponent();caminhoArquivo = Path.Combine(Application.StartupPath,"dados","eventos.txt");
             toolTip1.SetToolTip(btnFiltrar, "Filtrar eventos por nome ou local");
             toolTip1.SetToolTip(btnLimpar, "Limpar filtro e mostrar todos os eventos");
         }
@@ -39,21 +34,6 @@ namespace TechStart.App
             public string Descricao { get; set; }
         }
 
-        private void pnlDashboard_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
-
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                rect,
-                Color.FromArgb(47, 72, 122),
-                Color.FromArgb(5, 8, 22),
-                LinearGradientMode.Vertical))
-            {
-                e.Graphics.FillRectangle(brush, rect);
-            }
-        }
 
         private void FrmConsultaEventos_Load(object sender, EventArgs e)
         {
@@ -157,6 +137,21 @@ namespace TechStart.App
         {
             txtBusca.Clear();
             PreencherListView(listaEventos);
+        }
+        private void pnlDashboard_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rect,
+                Color.FromArgb(47, 72, 122),
+                Color.FromArgb(5, 8, 22),
+                LinearGradientMode.Vertical))
+            {
+                e.Graphics.FillRectangle(brush, rect);
+            }
         }
     }
 }

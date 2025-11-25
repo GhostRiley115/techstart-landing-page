@@ -19,11 +19,7 @@ namespace TechStart.App
         {
             InitializeComponent();
 
-            caminhoArquivo = Path.Combine(
-                Application.StartupPath,
-                "dados",
-                "usuarios.txt"
-            );
+            caminhoArquivo = Path.Combine(Application.StartupPath,"dados","usuarios.txt");
         }
 
         private void FrmCadastroUsuario_Load(object sender, EventArgs e)
@@ -31,19 +27,6 @@ namespace TechStart.App
             txtNovoUsuario.Focus();
         }
 
-        private void txtNovoUsuario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (char.IsLetterOrDigit(e.KeyChar))
-                return;
-
-            if (e.KeyChar == '.')
-                return;
-
-            e.Handled = true;
-        }
 
         private void chkMostrarSenha1_CheckedChanged(object sender, EventArgs e)
         {
@@ -51,19 +34,6 @@ namespace TechStart.App
             txtNovaSenha.UseSystemPasswordChar = !chkMostrarSenha1.Checked;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            DialogResult resp = MessageBox.Show(
-                "Deseja realmente sair?",
-                "Confirmação",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-            if (resp == DialogResult.No)
-                return;
-            else
-                this.Close();
-        }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -73,17 +43,13 @@ namespace TechStart.App
             lblErro.Visible = false;
             lblErro.Text = string.Empty;
 
-            // 1) Valida campos vazios
-            if (string.IsNullOrEmpty(usuario) ||
-                string.IsNullOrEmpty(senha) ||
-                string.IsNullOrEmpty(confirmar))
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(senha) || string.IsNullOrEmpty(confirmar))
             {
                 lblErro.Text = "Preencha todos os campos.";
                 lblErro.Visible = true;
                 return;
             }
 
-            // 2) Confirmação de senha
             if (senha != confirmar)
             {
                 lblErro.Text = "A confirmação de senha não confere.";
@@ -94,12 +60,7 @@ namespace TechStart.App
 
             if (!File.Exists(caminhoArquivo))
             {
-                MessageBox.Show(
-                    "Arquivo de usuários não encontrado.\nVerifique a pasta 'dados'.",
-                    "Erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show("Arquivo de usuários não encontrado.\nVerifique a pasta 'dados'.","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
@@ -132,24 +93,35 @@ namespace TechStart.App
                     sw.WriteLine($"{usuario};{senha}");
                 }
 
-                MessageBox.Show(
-                    "Usuário cadastrado com sucesso!",
-                    "Sucesso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                MessageBox.Show("Usuário cadastrado com sucesso!","Sucesso",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Erro ao gravar o usuário.\nDetalhes: " + ex.Message,
-                    "Erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show("Erro ao gravar o usuário.\nDetalhes: " + ex.Message,"Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult resp = MessageBox.Show("Deseja realmente sair?","Confirmação",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (resp == DialogResult.No)
+                return;
+            else
+                this.Close();
+        }
+        private void txtNovoUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsLetterOrDigit(e.KeyChar))
+                return;
+
+            if (e.KeyChar == '.')
+                return;
+
+            e.Handled = true;
         }
     }
 }

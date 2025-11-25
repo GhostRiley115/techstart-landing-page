@@ -44,10 +44,10 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.lnkEsqueciSenha = new System.Windows.Forms.LinkLabel();
             this.pnlLogin = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lblRodape = new System.Windows.Forms.Label();
+            this.lnklblEsqueciSenha = new System.Windows.Forms.LinkLabel();
             this.lblErro = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lblRodape = new System.Windows.Forms.Label();
             this.pnlBrand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlLogin.SuspendLayout();
@@ -226,7 +226,7 @@
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(8)))), ((int)(((byte)(22)))));
             this.pnlLogin.Controls.Add(this.lblRodape);
-            this.pnlLogin.Controls.Add(this.linkLabel1);
+            this.pnlLogin.Controls.Add(this.lnklblEsqueciSenha);
             this.pnlLogin.Controls.Add(this.lblErro);
             this.pnlLogin.Controls.Add(this.lnkEsqueciSenha);
             this.pnlLogin.Controls.Add(this.btnSair);
@@ -243,21 +243,33 @@
             this.pnlLogin.Size = new System.Drawing.Size(609, 561);
             this.pnlLogin.TabIndex = 99;
             // 
-            // linkLabel1
+            // lblRodape
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(155)))), ((int)(((byte)(233)))));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
-            this.linkLabel1.Location = new System.Drawing.Point(126, 506);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(215, 21);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Não tem conta? Cadastre-se";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lblRodape.AutoSize = true;
+            this.lblRodape.BackColor = System.Drawing.Color.Transparent;
+            this.lblRodape.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRodape.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(130)))), ((int)(((byte)(150)))));
+            this.lblRodape.Location = new System.Drawing.Point(225, 543);
+            this.lblRodape.Name = "lblRodape";
+            this.lblRodape.Size = new System.Drawing.Size(190, 18);
+            this.lblRodape.TabIndex = 110;
+            this.lblRodape.Text = "TechStart Júnior versão 1.0";
+            // 
+            // lnklblEsqueciSenha
+            // 
+            this.lnklblEsqueciSenha.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(155)))), ((int)(((byte)(233)))));
+            this.lnklblEsqueciSenha.AutoSize = true;
+            this.lnklblEsqueciSenha.BackColor = System.Drawing.Color.Transparent;
+            this.lnklblEsqueciSenha.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnklblEsqueciSenha.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
+            this.lnklblEsqueciSenha.Location = new System.Drawing.Point(126, 506);
+            this.lnklblEsqueciSenha.Name = "lnklblEsqueciSenha";
+            this.lnklblEsqueciSenha.Size = new System.Drawing.Size(215, 21);
+            this.lnklblEsqueciSenha.TabIndex = 7;
+            this.lnklblEsqueciSenha.TabStop = true;
+            this.lnklblEsqueciSenha.Text = "Não tem conta? Cadastre-se";
+            this.lnklblEsqueciSenha.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
+            this.lnklblEsqueciSenha.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // lblErro
             // 
@@ -271,18 +283,6 @@
             this.lblErro.TabIndex = 99;
             this.lblErro.Text = "Usuário ou senha inválidos.";
             this.lblErro.Visible = false;
-            // 
-            // lblRodape
-            // 
-            this.lblRodape.AutoSize = true;
-            this.lblRodape.BackColor = System.Drawing.Color.Transparent;
-            this.lblRodape.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRodape.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(130)))), ((int)(((byte)(150)))));
-            this.lblRodape.Location = new System.Drawing.Point(225, 543);
-            this.lblRodape.Name = "lblRodape";
-            this.lblRodape.Size = new System.Drawing.Size(190, 18);
-            this.lblRodape.TabIndex = 110;
-            this.lblRodape.Text = "TechStart Júnior versão 1.0";
             // 
             // FrmLogin
             // 
@@ -325,7 +325,7 @@
         private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lblErro;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lnklblEsqueciSenha;
         private System.Windows.Forms.Label lblRodape;
     }
 }

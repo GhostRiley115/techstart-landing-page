@@ -65,10 +65,10 @@
             this.lblSubTitulo = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlLojinha = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picLojinha = new System.Windows.Forms.PictureBox();
             this.lblLojinha = new System.Windows.Forms.Label();
             this.pnlEventos = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picEventos = new System.Windows.Forms.PictureBox();
             this.lblEventos = new System.Windows.Forms.Label();
             this.pnlNovidades = new System.Windows.Forms.Panel();
             this.picNovidades = new System.Windows.Forms.PictureBox();
@@ -78,9 +78,9 @@
             this.toolStripPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picJujuba)).BeginInit();
             this.pnlLojinha.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLojinha)).BeginInit();
             this.pnlEventos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEventos)).BeginInit();
             this.pnlNovidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picNovidades)).BeginInit();
             this.SuspendLayout();
@@ -282,7 +282,7 @@
             // 
             this.mnuTrocarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("mnuTrocarUsuario.Image")));
             this.mnuTrocarUsuario.Name = "mnuTrocarUsuario";
-            this.mnuTrocarUsuario.Size = new System.Drawing.Size(180, 22);
+            this.mnuTrocarUsuario.Size = new System.Drawing.Size(149, 22);
             this.mnuTrocarUsuario.Text = "Trocar usuário";
             this.mnuTrocarUsuario.Click += new System.EventHandler(this.mnuTrocarUsuario_Click);
             // 
@@ -290,7 +290,7 @@
             // 
             this.mnuSair.Image = ((System.Drawing.Image)(resources.GetObject("mnuSair.Image")));
             this.mnuSair.Name = "mnuSair";
-            this.mnuSair.Size = new System.Drawing.Size(180, 22);
+            this.mnuSair.Size = new System.Drawing.Size(149, 22);
             this.mnuSair.Text = "Sair";
             this.mnuSair.Click += new System.EventHandler(this.mnuSair_Click);
             // 
@@ -463,7 +463,7 @@
             // 
             // pnlLojinha
             // 
-            this.pnlLojinha.Controls.Add(this.pictureBox2);
+            this.pnlLojinha.Controls.Add(this.picLojinha);
             this.pnlLojinha.Controls.Add(this.lblLojinha);
             this.pnlLojinha.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlLojinha.Location = new System.Drawing.Point(240, 228);
@@ -473,17 +473,17 @@
             this.pnlLojinha.Click += new System.EventHandler(this.pnlLojinha_Click);
             this.pnlLojinha.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLojinha_Paint);
             // 
-            // pictureBox2
+            // picLojinha
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 97);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(250, 323);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 113;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.picLojinha.BackColor = System.Drawing.Color.Transparent;
+            this.picLojinha.Image = ((System.Drawing.Image)(resources.GetObject("picLojinha.Image")));
+            this.picLojinha.Location = new System.Drawing.Point(0, 97);
+            this.picLojinha.Name = "picLojinha";
+            this.picLojinha.Size = new System.Drawing.Size(250, 323);
+            this.picLojinha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLojinha.TabIndex = 113;
+            this.picLojinha.TabStop = false;
+            this.picLojinha.Click += new System.EventHandler(this.picLojinha_Click);
             // 
             // lblLojinha
             // 
@@ -500,7 +500,7 @@
             // 
             // pnlEventos
             // 
-            this.pnlEventos.Controls.Add(this.pictureBox1);
+            this.pnlEventos.Controls.Add(this.picEventos);
             this.pnlEventos.Controls.Add(this.lblEventos);
             this.pnlEventos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlEventos.Location = new System.Drawing.Point(584, 228);
@@ -510,17 +510,17 @@
             this.pnlEventos.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlEventos_Paint);
             this.pnlEventos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlEventos_MouseClick);
             // 
-            // pictureBox1
+            // picEventos
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 97);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 323);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 113;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picEventos.BackColor = System.Drawing.Color.Transparent;
+            this.picEventos.Image = ((System.Drawing.Image)(resources.GetObject("picEventos.Image")));
+            this.picEventos.Location = new System.Drawing.Point(0, 97);
+            this.picEventos.Name = "picEventos";
+            this.picEventos.Size = new System.Drawing.Size(250, 323);
+            this.picEventos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEventos.TabIndex = 113;
+            this.picEventos.TabStop = false;
+            this.picEventos.Click += new System.EventHandler(this.picEventos_Click);
             // 
             // lblEventos
             // 
@@ -595,10 +595,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picJujuba)).EndInit();
             this.pnlLojinha.ResumeLayout(false);
             this.pnlLojinha.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLojinha)).EndInit();
             this.pnlEventos.ResumeLayout(false);
             this.pnlEventos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEventos)).EndInit();
             this.pnlNovidades.ResumeLayout(false);
             this.pnlNovidades.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picNovidades)).EndInit();
@@ -644,8 +644,8 @@
         private System.Windows.Forms.Label lblEventos;
         private System.Windows.Forms.Label lblLojinha;
         private System.Windows.Forms.PictureBox picNovidades;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picLojinha;
+        private System.Windows.Forms.PictureBox picEventos;
         private System.Windows.Forms.Label lblRodape;
         private System.Windows.Forms.Label lblDesign;
         private System.Windows.Forms.PictureBox picJujuba;

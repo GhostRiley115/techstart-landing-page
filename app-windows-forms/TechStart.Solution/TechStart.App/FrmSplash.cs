@@ -17,11 +17,6 @@ namespace TechStart.App
             InitializeComponent();
         }
 
-        private void FrmSplash_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();

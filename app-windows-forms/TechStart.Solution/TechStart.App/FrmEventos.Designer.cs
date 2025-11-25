@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEventos));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlFundo = new System.Windows.Forms.Panel();
             this.lvEventos = new System.Windows.Forms.ListView();
             this.grpDadosEvento = new System.Windows.Forms.GroupBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
@@ -46,21 +46,21 @@
             this.lblLocal = new System.Windows.Forms.Label();
             this.lblDataEvento = new System.Windows.Forms.Label();
             this.lblNomeEvento = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pnlFundo.SuspendLayout();
             this.grpDadosEvento.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlFundo
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.lvEventos);
-            this.panel1.Controls.Add(this.grpDadosEvento);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(694, 530);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pnlFundo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlFundo.Controls.Add(this.lvEventos);
+            this.pnlFundo.Controls.Add(this.grpDadosEvento);
+            this.pnlFundo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFundo.Location = new System.Drawing.Point(0, 0);
+            this.pnlFundo.Name = "pnlFundo";
+            this.pnlFundo.Size = new System.Drawing.Size(694, 530);
+            this.pnlFundo.TabIndex = 0;
+            this.pnlFundo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFundo_Paint);
             // 
             // lvEventos
             // 
@@ -275,14 +275,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 530);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlFundo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmEventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eventos TechStart";
             this.Load += new System.EventHandler(this.FrmEventos_Load);
-            this.panel1.ResumeLayout(false);
+            this.pnlFundo.ResumeLayout(false);
             this.grpDadosEvento.ResumeLayout(false);
             this.grpDadosEvento.PerformLayout();
             this.ResumeLayout(false);
@@ -291,7 +291,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlFundo;
         private System.Windows.Forms.GroupBox grpDadosEvento;
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.Label lblTipo;

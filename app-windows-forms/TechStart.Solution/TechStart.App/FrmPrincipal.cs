@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,17 +16,11 @@ namespace TechStart.App
         public FrmPrincipal()
         {
             InitializeComponent();
-
         }
 
         private void mnuSair_Click(object sender, EventArgs e)
         {
-            DialogResult resp = MessageBox.Show(
-                "Deseja realmente sair?",
-                "Confirmação",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+            DialogResult resp = MessageBox.Show("Deseja realmente sair?","Confirmação",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (resp == DialogResult.No)
                 return;
             else
@@ -39,8 +32,8 @@ namespace TechStart.App
             using (FrmProdutos frm = new FrmProdutos())
             {
                 frm.ShowDialog();
-                frm.MdiParent = this;   
-                frm.Show();             
+                frm.MdiParent = this;
+                frm.Show();
             }
         }
 
@@ -59,8 +52,8 @@ namespace TechStart.App
             using (FrmConsultaProdutos frm = new FrmConsultaProdutos())
             {
                 frm.ShowDialog();
-                frm.MdiParent = this;  
-                frm.Show();            
+                frm.MdiParent = this;
+                frm.Show();
             }
         }
 
@@ -106,70 +99,6 @@ namespace TechStart.App
         private void tsbSair_Click(object sender, EventArgs e)
         {
             mnuSair_Click(sender, e);
-        }
-
-        private void pnlDashboard_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
-
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                rect,
-                Color.FromArgb(47, 72, 122),  
-                Color.FromArgb(5, 8, 22),     
-                LinearGradientMode.Vertical)) 
-            {
-                e.Graphics.FillRectangle(brush, rect);
-            }
-        }
-
-        private void pnlEventos_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
-
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                rect,
-                Color.FromArgb(30, 38, 74),  
-                Color.FromArgb(18, 27, 51),     
-                LinearGradientMode.Vertical)) 
-            {
-                e.Graphics.FillRectangle(brush, rect);
-            }
-        }
-
-        private void pnlLojinha_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
-
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                rect,
-                Color.FromArgb(30, 38, 74),  
-                Color.FromArgb(18, 27, 51),     
-                LinearGradientMode.Vertical)) 
-            {
-                e.Graphics.FillRectangle(brush, rect);
-            }
-        }
-
-        private void pnlNovidades_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
-
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                rect,
-                Color.FromArgb(30, 38, 74), 
-                Color.FromArgb(18, 27, 51),    
-                LinearGradientMode.Vertical)) 
-            {
-                e.Graphics.FillRectangle(brush, rect);
-            }
         }
 
         private void mnuExer1_Click(object sender, EventArgs e)
@@ -274,12 +203,7 @@ namespace TechStart.App
 
         private void mnuTrocarUsuario_Click(object sender, EventArgs e)
         {
-            var resposta = MessageBox.Show(
-            "Deseja trocar de usuário?",
-            "Trocar usuário",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question
-            );
+            var resposta = MessageBox.Show("Deseja trocar de usuário?","Trocar usuário",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (resposta == DialogResult.No)
                 return;
@@ -292,7 +216,7 @@ namespace TechStart.App
             mnuTrocarUsuario_Click(sender, e);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void picEventos_Click(object sender, EventArgs e)
         {
             mnuConEventos_Click(sender, e);
         }
@@ -307,7 +231,7 @@ namespace TechStart.App
             mnuConEventos_Click(sender, e);
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void picLojinha_Click(object sender, EventArgs e)
         {
             using (FrmConsultaProdutos frm = new FrmConsultaProdutos())
             {
@@ -334,6 +258,66 @@ namespace TechStart.App
                 frm.ShowDialog();
                 frm.MdiParent = this;
                 frm.Show();
+            }
+        }
+        private void pnlDashboard_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rect,
+                Color.FromArgb(47, 72, 122),  
+                Color.FromArgb(5, 8, 22),     
+                LinearGradientMode.Vertical)) 
+            {
+                e.Graphics.FillRectangle(brush, rect);
+            }
+        }
+        private void pnlEventos_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rect,
+                Color.FromArgb(30, 38, 74),  
+                Color.FromArgb(18, 27, 51),     
+                LinearGradientMode.Vertical)) 
+            {
+                e.Graphics.FillRectangle(brush, rect);
+            }
+        }
+        private void pnlLojinha_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rect,
+                Color.FromArgb(30, 38, 74),  
+                Color.FromArgb(18, 27, 51),     
+                LinearGradientMode.Vertical)) 
+            {
+                e.Graphics.FillRectangle(brush, rect);
+            }
+        }
+        private void pnlNovidades_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            Rectangle rect = new Rectangle(0, 0, pnlDashboard.Width, pnlDashboard.Height);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rect,
+                Color.FromArgb(30, 38, 74), 
+                Color.FromArgb(18, 27, 51),    
+                LinearGradientMode.Vertical)) 
+            {
+                e.Graphics.FillRectangle(brush, rect);
             }
         }
     }

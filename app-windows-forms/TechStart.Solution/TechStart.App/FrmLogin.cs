@@ -14,18 +14,25 @@ namespace TechStart.App
 {
     public partial class FrmLogin : Form
     {
+        public FrmLogin()
+        {
+            
+            InitializeComponent();
+            toolTip1.SetToolTip(txtUser, "Digite o nome de usuário que você cadastrou.");
+            toolTip1.SetToolTip(txtPassword, "Digite a senha correspondente ao seu usuário.");
+
+        }
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            txtUser.Focus();
+        }
         private bool ValidarLogin(string usuario, string senha)
         {
             string caminhoArquivo = Path.Combine(Application.StartupPath, "dados", "usuarios.txt");
 
             if (!File.Exists(caminhoArquivo))
             {
-                MessageBox.Show(
-                    "Arquivo de usuários não encontrado.\nVerifique a pasta 'dados'.",
-                    "Erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show("Arquivo de usuários não encontrado.\nVerifique a pasta 'dados'.","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return false;
             }
 
@@ -52,14 +59,6 @@ namespace TechStart.App
             }
 
             return false;
-        }
-        public FrmLogin()
-        {
-            
-            InitializeComponent();
-            toolTip1.SetToolTip(txtUser, "Digite o nome de usuário que você cadastrou.");
-            toolTip1.SetToolTip(txtPassword, "Digite a senha correspondente ao seu usuário.");
-
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -120,16 +119,38 @@ namespace TechStart.App
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult resp = MessageBox.Show(
-                "Deseja realmente sair?",
-                "Confirmação",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+            DialogResult resp = MessageBox.Show("Deseja realmente sair?","Confirmação",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (resp == DialogResult.No)
                 return;
             else
                 Application.Exit();
+        }
+
+        private void lnkEsqueciSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmEsqueciSenha frm = new FrmEsqueciSenha();
+            frm.ShowDialog(); 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using (FrmCadastroUsuario cadastro = new FrmCadastroUsuario())
+            {
+                cadastro.ShowDialog(); 
+            }
+        }
+        private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsLetterOrDigit(e.KeyChar))
+                return;
+
+            if (e.KeyChar == '.')
+                return;
+
+            e.Handled = true;
         }
 
         private void pnlBrand_Paint(object sender, PaintEventArgs e)
@@ -145,39 +166,6 @@ namespace TechStart.App
                 LinearGradientMode.Vertical)) 
             {
                 e.Graphics.FillRectangle(brush, rect);
-            }
-        }
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-            txtUser.Focus();
-        }
-
-        private void lnkEsqueciSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FrmEsqueciSenha frm = new FrmEsqueciSenha();
-            frm.ShowDialog(); 
-        }
-
-        private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (char.IsLetterOrDigit(e.KeyChar))
-                return;
-
-            if (e.KeyChar == '.')
-                return;
-
-            e.Handled = true;
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            using (FrmCadastroUsuario cadastro = new FrmCadastroUsuario())
-            {
-                cadastro.ShowDialog(); 
             }
         }
     }

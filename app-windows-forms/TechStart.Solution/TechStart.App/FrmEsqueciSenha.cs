@@ -17,41 +17,8 @@ namespace TechStart.App
         public FrmEsqueciSenha()
         {
             InitializeComponent();
-            caminhoArquivo = Path.Combine(
-            Application.StartupPath,
-            "dados",
-            "usuarios.txt"
-             );
+            caminhoArquivo = Path.Combine(Application.StartupPath,"dados","usuarios.txt");
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            DialogResult resp = MessageBox.Show(
-                "Deseja realmente sair?",
-                "Confirmação",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-            if (resp == DialogResult.No)
-                return;
-            else
-                this.Close();
-        }
-
-        private void txtUsuarioEsqueci_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsControl(e.KeyChar))
-                return;
-
-            if (char.IsLetterOrDigit(e.KeyChar))
-                return;
-
-            if (e.KeyChar == '.')
-                return;
-
-            e.Handled = true;
-        }
-
         private void FrmEsqueciSenha_Load(object sender, EventArgs e)
         {
             txtUsuarioEsqueci.Focus();
@@ -63,24 +30,14 @@ namespace TechStart.App
 
             if (string.IsNullOrEmpty(usuario))
             {
-                MessageBox.Show(
-                    "Digite o usuário.",
-                    "Atenção",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                MessageBox.Show("Digite o usuário.","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 txtUsuarioEsqueci.Focus();
                 return;
             }
 
             if (!File.Exists(caminhoArquivo))
             {
-                MessageBox.Show(
-                    "Arquivo de usuários não encontrado.\nVerifique a pasta 'dados'.",
-                    "Erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show("Arquivo de usuários não encontrado.\nVerifique a pasta 'dados'.","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
@@ -108,22 +65,33 @@ namespace TechStart.App
 
             if (senhaEncontrada == null)
             {
-                MessageBox.Show(
-                    "Usuário não encontrado.",
-                    "Resultado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                MessageBox.Show("Usuário não encontrado.","Resultado",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show(
-                    $"A senha cadastrada para o usuário '{usuario}' é:\n\n{senhaEncontrada}",
-                    "Senha encontrada",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                MessageBox.Show($"A senha cadastrada para o usuário '{usuario}' é:\n\n{senhaEncontrada}","Senha encontrada",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult resp = MessageBox.Show("Deseja realmente sair?","Confirmação",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (resp == DialogResult.No)
+                return;
+            else
+                this.Close();
+        }
+        private void txtUsuarioEsqueci_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsLetterOrDigit(e.KeyChar))
+                return;
+
+            if (e.KeyChar == '.')
+                return;
+
+            e.Handled = true;
         }
     }
 }

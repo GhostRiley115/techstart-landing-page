@@ -21,22 +21,11 @@ namespace TechStart.App
             InitializeComponent();
             caminhoArquivo = Path.Combine(Application.StartupPath,"dados","produtos.txt");
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void FrmConsultaProdutos_Load(object sender, EventArgs e)
         {
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            Rectangle rect = new Rectangle(0, 0, panel1.Width, panel1.Height);
-
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                rect,
-                Color.FromArgb(47, 72, 122),
-                Color.FromArgb(5, 8, 22),
-                LinearGradientMode.Vertical))
-            {
-                e.Graphics.FillRectangle(brush, rect);
-            }
+            CarregarProdutos();
         }
+
         public class Produto
         {
             public int Id { get; set; }
@@ -50,14 +39,12 @@ namespace TechStart.App
 
         private Panel CriarCardProduto(Produto p)
         {
-            // painel “card”
             Panel card = new Panel();
             card.Width = 200;
             card.Height = 260;
             card.Margin = new Padding(10);
-            card.BackColor = Color.FromArgb(20, 28, 40); // um pouco mais claro que o fundo
+            card.BackColor = Color.FromArgb(20, 28, 40); 
 
-            // imagem do produto
             PictureBox pic = new PictureBox();
             pic.Width = 160;
             pic.Height = 140;
@@ -68,7 +55,6 @@ namespace TechStart.App
             if (!string.IsNullOrEmpty(p.CaminhoImagem) && System.IO.File.Exists(p.CaminhoImagem))
                 pic.Image = Image.FromFile(p.CaminhoImagem);
 
-            // nome
             Label lblNome = new Label();
             lblNome.Text = p.Nome;
             lblNome.AutoSize = false;
@@ -78,7 +64,6 @@ namespace TechStart.App
             lblNome.ForeColor = Color.White;
             lblNome.Font = new Font("Segoe UI", 10, FontStyle.Bold);
 
-            // categoria (opcional)
             Label lblCategoria = new Label();
             lblCategoria.Text = p.Categoria;
             lblCategoria.AutoSize = false;
@@ -88,7 +73,6 @@ namespace TechStart.App
             lblCategoria.ForeColor = Color.FromArgb(160, 170, 190);
             lblCategoria.Font = new Font("Segoe UI", 8, FontStyle.Regular);
 
-            // preço
             Label lblPreco = new Label();
             lblPreco.Text = p.Preco.ToString("C");
             lblPreco.AutoSize = false;
@@ -98,22 +82,14 @@ namespace TechStart.App
             lblPreco.ForeColor = Color.FromArgb(0, 200, 140);
             lblPreco.Font = new Font("Segoe UI", 11, FontStyle.Bold);
 
-            // adiciona tudo no card
             card.Controls.Add(pic);
             card.Controls.Add(lblNome);
             card.Controls.Add(lblCategoria);
             card.Controls.Add(lblPreco);
 
-            // se quiser, você pode adicionar um evento de clique no card:
-            // card.Click += (s, e) => MessageBox.Show($"Você clicou em {p.Nome}");
-
             return card;
         }
 
-        private void flpProdutos_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
         private void CarregarProdutos()
         {
             listaProdutos.Clear();
@@ -158,18 +134,24 @@ namespace TechStart.App
 
             foreach (Produto p in listaProdutos)
             {
-                Panel card = CriarCardProduto(p); // aquela função de card que você já fez
+                Panel card = CriarCardProduto(p); 
                 flpProdutos.Controls.Add(card);
             }
         }
-        private void FrmConsultaProdutos_Load(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            CarregarProdutos();
-        }
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
+            Rectangle rect = new Rectangle(0, 0, panel1.Width, panel1.Height);
 
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rect,
+                Color.FromArgb(47, 72, 122),
+                Color.FromArgb(5, 8, 22),
+                LinearGradientMode.Vertical))
+            {
+                e.Graphics.FillRectangle(brush, rect);
+            }
         }
     }
 }
