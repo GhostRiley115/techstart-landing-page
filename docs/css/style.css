@@ -1,0 +1,247 @@
+/* configuração de cores padrão*/
+:root {
+  --bg-main: #050816; 
+  --bg-elevated: #0b1121;
+  --accent: #39c6ff;
+  --accent-2: #9b5cff;
+  --text-main: #ffffff;
+  --text-muted: #a3b2d1;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* scroll suave*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0; /* removendo a margem padrão do body*/
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif; /*configurando a fonte*/
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* classe para centralizar tudo, tipo um "frame"*/
+
+.container {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/*  HEADER / NAV  */
+
+.header {
+  position: fixed; /*barra colada no topo*/
+  inset-inline: 0;
+  top: 0;
+  z-index: 999;
+  background: linear-gradient(to bottom,rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.2)); /*degradê da barra do topo*/
+  backdrop-filter: blur(10px); /*blur de fundo */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /*sombra com transição*/
+}
+
+.header--scrolled {
+  background: rgba(5, 8, 22, 0.98);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.nav {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo img {
+  height: 32px; /*tamanho da logo*/
+  display: block;
+}
+
+/* Botão hamburguer */
+
+.nav__toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(163, 178, 209, 0.3);
+  background: rgba(5, 8, 22, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.nav__toggle-line {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text-main);
+  transition: transform 0.25s ease, opacity 0.2s ease; /*aplica transição suave ao menu em x quando aberto usando js*/
+}
+
+/* Hambúrguer vira X quando body.nav-open */
+
+.nav-open .nav__toggle-line:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.nav-open .nav__toggle-line:nth-child(2) {
+  opacity: 0; /*Esconde a linha do meio*/
+}
+
+.nav-open .nav__toggle-line:nth-child(3) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Menu overlay (mobile-first) */
+
+.nav__menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;   /* largura total */
+  height: 100vh;  /* altura total */
+
+  /* fundo sólido + gradient */
+  background-color: #050816;
+  background-image: radial-gradient(circle at top,#111827 0,#050816 45%,#020617 100%);
+
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* espaço pra não colar nos cantos */
+  padding: calc(64px + 1.75rem) 1.5rem 2.25rem;
+
+  z-index: 998; /* acima de tudo que é "normal" */
+}
+
+/* quando o body tiver .nav-open o menu desce e fica clicável */
+.nav-open .nav__menu {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*Pra ficar bem “app” e evitar que o fundo role enquanto o menu está aberto*/
+body.nav-open {
+  overflow: hidden;
+}
+
+.nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nav__link:active {
+  color: var(--accent);
+}
+
+/* Botão padrão */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn--gradient {
+  background-image: linear-gradient(90deg, var(--accent-2), var(--accent));
+  color: var(--text-main);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.nav__cta {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* Espaço pro conteúdo não ficar escondido atrás da nav */
+main {
+  padding-top: 64px;
+}
+
+/* ========= HERO (bem simples só pra teste) ========= */
+
+.hero {
+  padding-block: 4rem 3rem;
+}
+
+.hero__eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.hero__title {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.hero__subtitle {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  max-width: 32rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ========= Seções placeholder ========= */
+
+.section-placeholder {
+  padding-block: 4rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.section-placeholder h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+body.nav-open .nav__toggle {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 1100;
+}
