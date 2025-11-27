@@ -24,7 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== HEADER SCROLL =====
   if (header) {
     window.addEventListener("scroll", () => {
-      header.classList.toggle("header--scrolled", window.scrollY > SCROLL_LIMIT);
+      header.classList.toggle(
+        "header--scrolled",
+        window.scrollY > SCROLL_LIMIT
+      );
     });
   }
 
@@ -37,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    // Acessibilidade: se o usuário prefere menos animação, já mostra tudo direto
     if (prefersReducedMotion) {
       recursosCards.forEach((card) => card.classList.add("is-visible"));
     } else {
@@ -46,22 +48,52 @@ document.addEventListener("DOMContentLoaded", () => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               recursosCards.forEach((card, index) => {
-                // atraso em cascata (stagger) – 0ms, 120ms, 240ms...
                 card.style.transitionDelay = `${index * 120}ms`;
                 card.classList.add("is-visible");
               });
 
-              // não precisa observar mais depois que mostrou
               obs.unobserve(entry.target);
             }
           });
         },
         {
-          threshold: 0.2, // quando ~20% da seção aparecer na tela
+          threshold: 0.2,
         }
       );
 
       observer.observe(recursosSection);
+    }
+  }
+
+  // ===== REVEAL ON SCROLL – COMO FUNCIONA (steps + mockup) =====
+  const stepEls = document.querySelectorAll("[data-reveal='step']");
+
+  if (stepEls.length) {
+    const prefersReducedMotionSteps = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotionSteps) {
+      stepEls.forEach((el) => el.classList.add("is-visible"));
+    } else {
+      const stepObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            const el = entry.target;
+            const delay = el.dataset.revealDelay || 0;
+            el.style.transitionDelay = `${delay}ms`;
+            el.classList.add("is-visible");
+            obs.unobserve(el);
+          });
+        },
+        {
+          threshold: 0.25,
+        }
+      );
+
+      stepEls.forEach((el) => stepObserver.observe(el));
     }
   }
 
@@ -75,7 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = gallery.querySelector(".sobre-gallery__control--next");
     const viewport = gallery.querySelector(".sobre-gallery__viewport");
 
-    // se faltar alguma parte, nem inicializa
     if (!images.length || !dots.length || !prevBtn || !nextBtn || !viewport) {
       return;
     }
@@ -93,7 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
       dots[currentIndex].classList.add("is-active");
     }
 
-    // botões anterior/próximo
     prevBtn.addEventListener("click", () => {
       showSlide(currentIndex - 1);
     });
@@ -102,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showSlide(currentIndex + 1);
     });
 
-    // dots
     dots.forEach((dot) => {
       dot.addEventListener("click", () => {
         const targetIndex = Number(dot.dataset.index);
@@ -135,13 +164,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const diffX = touch.clientX - startX;
         const diffY = touch.clientY - startY;
 
-        // garante que é swipe horizontal, não scroll vertical
         if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
           if (diffX < 0) {
-            // arrastou para a esquerda → próxima foto
             showSlide(currentIndex + 1);
           } else {
-            // arrastou para a direita → foto anterior
             showSlide(currentIndex - 1);
           }
         }
