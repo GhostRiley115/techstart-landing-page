@@ -5,21 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const navMenu = document.getElementById("navMenu");
   const navLinks = document.querySelectorAll(".nav__link");
 
-  // Abrir/fechar menu mobile
-  navToggle.addEventListener("click", () => {
-    const isOpen = body.classList.toggle("nav-open");
-    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
+  // ===== NAVBAR MOBILE =====
 
-  // Fechar menu ao clicar em um link
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      body.classList.remove("nav-open");
-      navToggle.setAttribute("aria-expanded", "false");
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = body.classList.toggle("nav-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
-  });
 
-  // Mudar estilo do header ao rolar
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        body.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
   const SCROLL_LIMIT = 10;
 
   window.addEventListener("scroll", () => {
@@ -29,9 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
       header.classList.remove("header--scrolled");
     }
   });
-});
 
-// ====== CARROSSEL DA GALERIA (SEÇÃO SOBRE) ======
+  // ===== CARROSSEL DA GALERIA (SEÇÃO SOBRE) =====
   const gallery = document.querySelector(".sobre-gallery");
 
   if (gallery) {
@@ -40,18 +40,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = gallery.querySelector(".sobre-gallery__control--prev");
     const nextBtn = gallery.querySelector(".sobre-gallery__control--next");
 
+    if (!images.length || !dots.length || !prevBtn || !nextBtn) {
+      return;
+    }
+
     let currentIndex = 0;
 
     function showSlide(index) {
-      // remove estado atual
+      const total = images.length;
+
       images[currentIndex].classList.remove("is-active");
       dots[currentIndex].classList.remove("is-active");
 
-      // calcula novo índice (loop infinito)
-      const total = images.length;
       currentIndex = (index + total) % total;
 
-      // ativa novo slide
       images[currentIndex].classList.add("is-active");
       dots[currentIndex].classList.add("is-active");
     }
@@ -71,3 +73,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+});

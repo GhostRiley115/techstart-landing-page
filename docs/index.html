@@ -131,44 +131,68 @@
 
             <!-- Card: Galeria -->
             <article class="sobre-card sobre-card--gallery">
-              <h3 class="sobre-card__title">Galeria</h3>
+            <h3 class="sobre-card__title">Galeria</h3>
 
-              <div class="sobre-gallery">
-                <button class="sobre-gallery__control sobre-gallery__control--prev" type="button" aria-label="Foto anterior">‹</button>
+            <div class="sobre-gallery">
+              <div class="sobre-gallery__viewport">
+                <!-- Botões AGORA ficam dentro do viewport -->
+                <button
+                  class="sobre-gallery__control sobre-gallery__control--prev"
+                  type="button"
+                  aria-label="Foto anterior"
+                >
+                  ‹
+                </button>
 
-                <div class="sobre-gallery__viewport">
-                  <img
-                    src="img/Imagem-carrossel1.png"
-                    alt="Equipe da TechStart Júnior em reunião."
-                    class="sobre-gallery__image is-active"
-                  />
-                  <img
-                    src="img/Imagem-carrossel2.png"
-                    alt="Jovens trabalhando em computadores."
-                    class="sobre-gallery__image"
-                  />
-                  <img src="img/Imagem-carrossel3.png" alt="Apresentação de projeto para a turma." class="sobre-gallery__image"/>
-                  <img src="img/imagem-carrossel4.png" alt="Foto 4 da galeria da TechStart Júnior." class="sobre-gallery__image" />
+                <button
+                  class="sobre-gallery__control sobre-gallery__control--next"
+                  type="button"
+                  aria-label="Próxima foto"
+                >
+                  ›
+                </button>
 
-                  <img src="img/Imagem-carrossel5.png" alt="Foto 5 da galeria da TechStart Júnior." class="sobre-gallery__image" />
-                </div>
-
-                <button class="sobre-gallery__control sobre-gallery__control--next" type="button" aria-label="Próxima foto">›</button>
-
-                <div class="sobre-gallery__dots">
-                  <button class="sobre-gallery__dot is-active" type="button" data-index="0"></button>
-                  <button class="sobre-gallery__dot" type="button" data-index="1"></button>
-                  <button class="sobre-gallery__dot" type="button" data-index="2"></button>
-                  <button class="sobre-gallery__dot" type="button" data-index="3"></button>
-                  <button class="sobre-gallery__dot" type="button" data-index="4"></button>
-                </div>
+                <img
+                  src="img/Imagem-carrossel1.png"
+                  alt="Equipe da TechStart Júnior em reunião."
+                  class="sobre-gallery__image is-active"
+                />
+                <img
+                  src="img/Imagem-carrossel2.png"
+                  alt="Jovens trabalhando em computadores."
+                  class="sobre-gallery__image"
+                />
+                <img
+                  src="img/Imagem-carrossel3.png"
+                  alt="Apresentação de projeto para a turma."
+                  class="sobre-gallery__image"
+                />
+                <img
+                  src="img/imagem-carrossel4.png"
+                  alt="Foto 4 da galeria da TechStart Júnior."
+                  class="sobre-gallery__image"
+                />
+                <img
+                  src="img/Imagem-carrossel5.png"
+                  alt="Foto 5 da galeria da TechStart Júnior."
+                  class="sobre-gallery__image"
+                />
               </div>
 
-              <p class="sobre-card__text sobre-card__text--small">
-                Bastidores, projetos e momentos que mostram como é construir o ecossistema
-                da TechStart Júnior no dia a dia.
-              </p>
-            </article>
+              <div class="sobre-gallery__dots">
+                <button class="sobre-gallery__dot is-active" type="button" data-index="0"></button>
+                <button class="sobre-gallery__dot" type="button" data-index="1"></button>
+                <button class="sobre-gallery__dot" type="button" data-index="2"></button>
+                <button class="sobre-gallery__dot" type="button" data-index="3"></button>
+                <button class="sobre-gallery__dot" type="button" data-index="4"></button>
+              </div>
+            </div>
+
+            <p class="sobre-card__text sobre-card__text--small">
+              Bastidores, projetos e momentos que mostram como é construir o ecossistema
+              da TechStart Júnior no dia a dia.
+            </p>
+          </article>
           </div>
         </div>
       </section>
