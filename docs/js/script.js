@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
   const navLinks = document.querySelectorAll(".nav__link");
+  const SCROLL_LIMIT = 10;
 
   // ===== NAVBAR MOBILE =====
-
   if (navToggle && navMenu) {
     navToggle.addEventListener("click", () => {
       const isOpen = body.classList.toggle("nav-open");
@@ -21,56 +21,106 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const SCROLL_LIMIT = 10;
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > SCROLL_LIMIT) {
-      header.classList.add("header--scrolled");
-    } else {
-      header.classList.remove("header--scrolled");
-    }
-  });
+  // ===== HEADER SCROLL =====
+  if (header) {
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("header--scrolled", window.scrollY > SCROLL_LIMIT);
+    });
+  }
 
   // ===== CARROSSEL DA GALERIA (SEÇÃO SOBRE) =====
   const gallery = document.querySelector(".sobre-gallery");
 
-  if (gallery) {
-    const images = gallery.querySelectorAll(".sobre-gallery__image");
-    const dots = gallery.querySelectorAll(".sobre-gallery__dot");
-    const prevBtn = gallery.querySelector(".sobre-gallery__control--prev");
-    const nextBtn = gallery.querySelector(".sobre-gallery__control--next");
+  if (!gallery) return;
 
-    if (!images.length || !dots.length || !prevBtn || !nextBtn) {
-      return;
-    }
+  const images = gallery.querySelectorAll(".sobre-gallery__image");
+  const dots = gallery.querySelectorAll(".sobre-gallery__dot");
+  const prevBtn = gallery.querySelector(".sobre-gallery__control--prev");
+  const nextBtn = gallery.querySelector(".sobre-gallery__control--next");
+  const viewport = gallery.querySelector(".sobre-gallery__viewport");
 
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      const total = images.length;
-
-      images[currentIndex].classList.remove("is-active");
-      dots[currentIndex].classList.remove("is-active");
-
-      currentIndex = (index + total) % total;
-
-      images[currentIndex].classList.add("is-active");
-      dots[currentIndex].classList.add("is-active");
-    }
-
-    prevBtn.addEventListener("click", () => {
-      showSlide(currentIndex - 1);
-    });
-
-    nextBtn.addEventListener("click", () => {
-      showSlide(currentIndex + 1);
-    });
-
-    dots.forEach((dot) => {
-      dot.addEventListener("click", () => {
-        const targetIndex = Number(dot.dataset.index);
-        showSlide(targetIndex);
-      });
-    });
+  // se faltar alguma peça, nem inicializa
+  if (
+    !images.length ||
+    !dots.length ||
+    !prevBtn ||
+    !nextBtn ||
+    !viewport
+  ) {
+    return;
   }
+
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    // remove estado atual
+    images[currentIndex].classList.remove("is-active");
+    dots[currentIndex].classList.remove("is-active");
+
+    // calcula novo índice (loop infinito)
+    const total = images.length;
+    currentIndex = (index + total) % total;
+
+    // ativa novo slide
+    images[currentIndex].classList.add("is-active");
+    dots[currentIndex].classList.add("is-active");
+  }
+
+  // botões anterior/próximo
+  prevBtn.addEventListener("click", () => {
+    showSlide(currentIndex - 1);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    showSlide(currentIndex + 1);
+  });
+
+  // dots
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const targetIndex = Number(dot.dataset.index);
+      showSlide(targetIndex);
+    });
+  });
+
+  // ===== SWIPE NO CELULAR =====
+  let startX = 0;
+  let startY = 0;
+  let isSwiping = false;
+
+  viewport.addEventListener(
+    "touchstart",
+    (event) => {
+      const touch = event.touches[0];
+      startX = touch.clientX;
+      startY = touch.clientY;
+      isSwiping = true;
+    },
+    { passive: true }
+  );
+
+  viewport.addEventListener(
+    "touchend",
+    (event) => {
+      if (!isSwiping) return;
+
+      const touch = event.changedTouches[0];
+      const diffX = touch.clientX - startX;
+      const diffY = touch.clientY - startY;
+
+      // garante que é swipe horizontal, não scroll
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX < 0) {
+          // arrastou para a esquerda → próxima foto
+          showSlide(currentIndex + 1);
+        } else {
+          // arrastou para a direita → foto anterior
+          showSlide(currentIndex - 1);
+        }
+      }
+
+      isSwiping = false;
+    },
+    { passive: true }
+  );
 });

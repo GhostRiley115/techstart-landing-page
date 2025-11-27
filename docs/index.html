@@ -2,12 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>TechStart Júnior • Plataforma interna</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
     <link rel="stylesheet" href="css/style.css" />
@@ -17,22 +17,17 @@
     <header class="header" id="topo">
       <nav class="nav container">
         <a href="#inicio" class="nav__logo">
-          <img src="img/TechStart_neutro.png" alt="TechStart Júnior"/>
+          <img src="img/TechStart_neutro.png" alt="TechStart Júnior" />
         </a>
 
-        <button
-          class="nav__toggle"
-          id="navToggle"
-          aria-label="Abrir menu de navegação"
-          aria-expanded="false"
-        >
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu de navegação" aria-expanded="false" type="button">
           <span class="nav__toggle-line"></span>
           <span class="nav__toggle-line"></span>
           <span class="nav__toggle-line"></span>
         </button>
 
         <div class="nav__menu" id="navMenu">
-          <div class="nav__lang" aria-label="Selecionar idioma">
+          <div class="nav__lang" role="group" aria-label="Selecionar idioma"> 
             <button class="nav__lang-btn nav__lang-btn--active" type="button" data-lang="pt">PT</button>
             <button class="nav__lang-btn" type="button" data-lang="en">EN</button>
           </div>
@@ -54,6 +49,7 @@
     </header>
 
     <main>
+      <!-- HERO -->
       <section id="inicio" class="hero">
         <div class="container hero__grid">
           <div class="hero__content">
@@ -61,30 +57,32 @@
 
             <h1 class="hero__title">O centro de comando<br/>do app Juntaê.</h1>
 
-            <p class="hero__subtitle">Uma plataforma interna para organizar eventos, testar ideias e apoiar o desenvolvimento do aplicativo Juntaê, criada pela TechStart Júnior.</p>
+            <p class="hero__subtitle">
+              Uma plataforma interna para organizar eventos, testar ideias e
+              apoiar o desenvolvimento do aplicativo Juntaê, criada pela TechStart Júnior.
+            </p>
 
             <div class="hero__actions">
-              <a
-                href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms" class="btn btn--gradient" target="_blank">Acessar plataforma</a>
+              <a href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms" class="btn btn--gradient" target="_blank" rel="noopener noreferrer">Acessar plataforma</a>
             </div>
           </div>
 
           <div class="hero__media">
-            <img
-              src="img/Mockup-Forms.png" alt="Sistema interno TechStart aberto em um notebook" class="hero__notebook"/>
+            <img src="img/Mockup-Forms.png" alt="Sistema interno TechStart aberto em um notebook" class="hero__notebook"/>
           </div>
         </div>
       </section>
 
+      <!-- SOBRE -->
       <section id="sobre" class="section section--sobre">
         <div class="container">
           <header class="section__header">
             <p class="section__eyebrow">Sobre a TechStart Júnior</p>
             <h2 class="section__title">Quem somos na TechStart</h2>
             <p class="section__subtitle">
-              A TechStart Júnior é um estúdio jovem que transforma ideias em produtos
-              digitais. Unimos velocidade, capricho e transparência para lançar
-              experiências que funcionam de verdade.
+              A TechStart Júnior é um estúdio jovem que transforma ideias em
+              produtos digitais. Unimos velocidade, capricho e transparência
+              para lançar experiências que funcionam de verdade.
             </p>
           </header>
 
@@ -92,8 +90,10 @@
             <!-- Card: Nossa cultura -->
             <article class="sobre-card sobre-card--culture">
               <h3 class="sobre-card__title">Nossa cultura</h3>
-              <p class="sobre-card__text">Construímos com pessoas, dados e acessibilidade desde o primeiro rascunho. 
-                Cada entrega é uma oportunidade de aprender e evoluir.
+              <p class="sobre-card__text">
+                Construímos com pessoas, dados e acessibilidade desde o
+                primeiro rascunho. Cada entrega é uma oportunidade de aprender
+                e evoluir.
               </p>
 
               <div class="sobre-pill-grid">
@@ -131,72 +131,43 @@
 
             <!-- Card: Galeria -->
             <article class="sobre-card sobre-card--gallery">
-            <h3 class="sobre-card__title">Galeria</h3>
+              <h3 class="sobre-card__title">Galeria</h3>
 
-            <div class="sobre-gallery">
-              <div class="sobre-gallery__viewport">
-                <!-- Botões AGORA ficam dentro do viewport -->
-                <button
-                  class="sobre-gallery__control sobre-gallery__control--prev"
-                  type="button"
-                  aria-label="Foto anterior"
-                >
-                  ‹
-                </button>
+              <div class="sobre-gallery">
+                <div class="sobre-gallery__viewport">
+                  <!-- seta anterior -->
+                  <button class="sobre-gallery__control sobre-gallery__control--prev" type="button" aria-label="Foto anterior">‹</button>
 
-                <button
-                  class="sobre-gallery__control sobre-gallery__control--next"
-                  type="button"
-                  aria-label="Próxima foto"
-                >
-                  ›
-                </button>
+                  <!-- Imagens -->
+                  <img src="img/Imagem-carrossel1.png" alt="Equipe da TechStart Júnior em reunião." class="sobre-gallery__image is-active"/>
+                  <img src="img/Imagem-carrossel2.png" alt="Jovem mostrando seu trabalho." class="sobre-gallery__image"/>
+                  <img src="img/Imagem-carrossel3.png" alt="Outdoor com logo da empresa." class="sobre-gallery__image"/>
+                  <img src="img/Imagem-carrossel4.png" alt="Outdoor com logo da empresa." class="sobre-gallery__image"/>
+                  <img src="img/Imagem-carrossel5.png" alt="Apresentação de projeto para a turma.." class="sobre-gallery__image"/>
 
-                <img
-                  src="img/Imagem-carrossel1.png"
-                  alt="Equipe da TechStart Júnior em reunião."
-                  class="sobre-gallery__image is-active"
-                />
-                <img
-                  src="img/Imagem-carrossel2.png"
-                  alt="Jovens trabalhando em computadores."
-                  class="sobre-gallery__image"
-                />
-                <img
-                  src="img/Imagem-carrossel3.png"
-                  alt="Apresentação de projeto para a turma."
-                  class="sobre-gallery__image"
-                />
-                <img
-                  src="img/imagem-carrossel4.png"
-                  alt="Foto 4 da galeria da TechStart Júnior."
-                  class="sobre-gallery__image"
-                />
-                <img
-                  src="img/Imagem-carrossel5.png"
-                  alt="Foto 5 da galeria da TechStart Júnior."
-                  class="sobre-gallery__image"
-                />
+                  <!-- seta próxima -->
+                  <button class="sobre-gallery__control sobre-gallery__control--next" type="button" aria-label="Próxima foto">›</button>
+                </div>
+
+                <div class="sobre-gallery__dots">
+                  <button class="sobre-gallery__dot is-active" type="button" data-index="0"></button>
+                  <button class="sobre-gallery__dot" type="button" data-index="1"></button>
+                  <button class="sobre-gallery__dot" type="button" data-index="2"></button>
+                  <button class="sobre-gallery__dot" type="button" data-index="3"></button>
+                  <button class="sobre-gallery__dot" type="button" data-index="4"></button>
+                </div>
               </div>
 
-              <div class="sobre-gallery__dots">
-                <button class="sobre-gallery__dot is-active" type="button" data-index="0"></button>
-                <button class="sobre-gallery__dot" type="button" data-index="1"></button>
-                <button class="sobre-gallery__dot" type="button" data-index="2"></button>
-                <button class="sobre-gallery__dot" type="button" data-index="3"></button>
-                <button class="sobre-gallery__dot" type="button" data-index="4"></button>
-              </div>
-            </div>
-
-            <p class="sobre-card__text sobre-card__text--small">
-              Bastidores, projetos e momentos que mostram como é construir o ecossistema
-              da TechStart Júnior no dia a dia.
-            </p>
-          </article>
+              <p class="sobre-card__text sobre-card__text--small">
+                Bastidores, projetos e momentos que mostram como é construir o
+                ecossistema da TechStart Júnior no dia a dia.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
+      <!-- PLACEHOLDERS -->
       <section id="recursos" class="section-placeholder container">
         <h2>Recursos</h2>
         <p>Conteúdo da seção Recursos...</p>

@@ -1,6 +1,6 @@
-/* configuração de cores padrão*/
+/* ========= VARIÁVEIS ========= */
 :root {
-  --bg-main: #050816; 
+  --bg-main: #050816;
   --bg-elevated: #0b1121;
   --accent: #39c6ff;
   --accent-2: #9b5cff;
@@ -8,6 +8,7 @@
   --text-muted: #a3b2d1;
 }
 
+/* ========= BASE GLOBAL ========= */
 
 *,
 *::before,
@@ -15,19 +16,16 @@
   box-sizing: border-box;
 }
 
-/* scroll suave*/
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0; /* removendo a margem padrão do body*/
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif; /*configurando a fonte*/
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-main);
   color: var(--text-main);
 }
-
-/* classe para centralizar tudo, tipo um "frame"*/
 
 .container {
   max-width: 1120px;
@@ -35,16 +33,20 @@ body {
   padding-inline: 1.5rem;
 }
 
-/*  HEADER / NAV  */
+/* ========= HEADER / NAV ========= */
 
 .header {
-  position: fixed; /*barra colada no topo*/
+  position: fixed;
   inset-inline: 0;
   top: 0;
   z-index: 999;
-  background: linear-gradient(to bottom,rgba(5, 8, 22, 0.9), rgba(5, 8, 22, 0.2)); /*degradê da barra do topo*/
-  backdrop-filter: blur(10px); /*blur de fundo */
-  transition: background 0.3s ease, box-shadow 0.3s ease; /*sombra com transição*/
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 8, 22, 0.9),
+    rgba(5, 8, 22, 0.2)
+  );
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header--scrolled {
@@ -60,11 +62,11 @@ body {
 }
 
 .nav__logo img {
-  height: 32px; /*tamanho da logo*/
+  height: 32px;
   display: block;
 }
 
-/* Botão hamburguer */
+/* Botão hambúrguer */
 
 .nav__toggle {
   width: 40px;
@@ -87,59 +89,55 @@ body {
   height: 2px;
   border-radius: 999px;
   background: var(--text-main);
-  transition: transform 0.25s ease, opacity 0.2s ease; /*aplica transição suave ao menu em x quando aberto usando js*/
+  transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
-/* Hambúrguer vira X quando body.nav-open */
+/* Hambúrguer vira X */
 
 .nav-open .nav__toggle-line:nth-child(1) {
   transform: translateY(4px) rotate(45deg);
 }
 
 .nav-open .nav__toggle-line:nth-child(2) {
-  opacity: 0; /*Esconde a linha do meio*/
+  opacity: 0;
 }
 
 .nav-open .nav__toggle-line:nth-child(3) {
   transform: translateY(-4px) rotate(-45deg);
 }
 
-/* Menu overlay (mobile-first) */
+/* Menu overlay */
 
 .nav__menu {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;   /* largura total */
-  height: 100vh;  /* altura total */
-
-  /* fundo sólido + gradient */
+  width: 100vw;
+  height: 100vh;
   background-color: #050816;
-  background-image: radial-gradient(circle at top,#111827 0,#050816 45%,#020617 100%);
-
+  background-image: radial-gradient(
+    circle at top,
+    #111827 0,
+    #050816 45%,
+    #020617 100%
+  );
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
   transition: transform 0.35s ease, opacity 0.35s ease;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  /* espaço pra não colar nos cantos */
   padding: calc(64px + 1.75rem) 1.5rem 2.25rem;
-
   z-index: 998;
 }
 
-/* quando o body tiver .nav-open o menu desce e fica clicável */
 .nav-open .nav__menu {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
 
-/*evitar que o fundo role enquanto o menu está aberto*/
 body.nav-open {
   overflow: hidden;
 }
@@ -164,7 +162,7 @@ body.nav-open {
   color: var(--accent);
 }
 
-/*  Seletor de idioma  */
+/* Seletor de idioma */
 
 .nav__lang {
   display: flex;
@@ -193,19 +191,12 @@ body.nav-open {
     border-color 0.2s ease;
 }
 
-.nav__lang-btn--active {
-  background-image: linear-gradient(90deg, var(--accent-2), var(--accent));
-  color: var(--text-main);
-  border-color: transparent;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-}
-
 .nav__lang-btn:hover:not(.nav__lang-btn--active) {
   border-color: var(--accent);
   color: var(--text-main);
 }
 
-/* Botão padrão */
+/* ========= BOTÕES ========= */
 
 .btn {
   display: inline-flex;
@@ -220,10 +211,16 @@ body.nav-open {
   font-size: 0.95rem;
 }
 
-.btn--gradient {
+/* Reuso do gradiente em botões e idioma ativo */
+.btn--gradient,
+.nav__lang-btn--active {
   background-image: linear-gradient(90deg, var(--accent-2), var(--accent));
   color: var(--text-main);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.nav__lang-btn--active {
+  border-color: transparent;
 }
 
 .nav__cta {
@@ -231,15 +228,17 @@ body.nav-open {
   width: 100%;
 }
 
-/* Espaço pro conteúdo não ficar escondido atrás da nav */
+/* ========= LAYOUT GERAL ========= */
+
 main {
   padding-top: 64px;
 }
 
-/*  HERO  */
+/* ========= HERO ========= */
+
 .hero {
   position: relative;
-  padding-block: 4rem 3rem;
+  padding-block: 5rem 4rem;
   overflow: hidden;
 }
 
@@ -247,16 +246,20 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/img/Fundo-Hero.png");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.10; /* ajusta até ficar suave como no Figma */
+  background-image: url("../img/Fundo-Hero.png");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 1400px auto;
+  opacity: 0.1;
   pointer-events: none;
   z-index: -1;
 }
 
-.hero {
-  padding-block: 5rem 4rem;
+@media (max-width: 768px) {
+  .hero::before {
+    background-size: 1000px auto;
+    background-position: top center;
+  }
 }
 
 .hero__grid {
@@ -270,12 +273,22 @@ main {
   max-width: 32rem;
 }
 
-.hero__eyebrow {
+/* eyebrow reutilizado */
+
+.hero__eyebrow,
+.section__eyebrow {
   font-size: 0.8rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
+}
+
+.hero__eyebrow {
   margin-bottom: 0.75rem;
+}
+
+.section__eyebrow {
+  margin: 0 0 0.6rem;
 }
 
 .hero__title {
@@ -295,8 +308,6 @@ main {
   gap: 1rem;
 }
 
-/* bloco da imagem */
-
 .hero__media {
   width: 100%;
   display: flex;
@@ -313,8 +324,6 @@ main {
   animation: heroFloat 7s ease-in-out infinite;
 }
 
-/* animação suave de flutuar */
-
 @keyframes heroFloat {
   0% {
     transform: translateY(0);
@@ -327,49 +336,16 @@ main {
   }
 }
 
-/* ========== SEÇÃO SOBRE ========== */
+/* ========= SEÇÕES GENÉRICAS ========= */
 
-.section--sobre {
-  position: relative;
-  padding-block: 4.5rem 4rem;
-  overflow: hidden; /* garante que o fundo não “vaze” */
-}
-
-.section--sobre::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("../img/Fundo-Sobre.png") center/cover no-repeat;
-  opacity: 0.10;          /* controla a força das formas */
-  pointer-events: none;   /* não atrapalha clique em nada */
-  z-index: -1;
-}
-
-/* garante que o conteúdo fique acima do fundo */
-.section--sobre > .container {
-  position: relative;
-  z-index: 1;
-}
 .section {
   padding-block: 4rem;
   border-top: 1px solid rgba(148, 163, 184, 0.12);
 }
 
-.section--sobre {
-  padding-block: 4.5rem 4rem;
-}
-
 .section__header {
   max-width: 40rem;
   margin-bottom: 2.5rem;
-}
-
-.section__eyebrow {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--accent);
-  margin: 0 0 0.6rem;
 }
 
 .section__title {
@@ -384,7 +360,38 @@ main {
   color: var(--text-muted);
 }
 
-/* grid dos cards (empilhados no mobile) */
+/* ========= SEÇÃO SOBRE ========= */
+
+.section--sobre {
+  position: relative;
+  padding-block: 4.5rem 4rem;
+  overflow: hidden;
+}
+
+.section--sobre::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/Fundo-Sobre.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 1200px auto;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.section--sobre > .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .section--sobre::before {
+    background-size: 900px auto;
+    background-position: top center;
+  }
+}
 
 .sobre__grid {
   display: flex;
@@ -392,19 +399,12 @@ main {
   gap: 1.75rem;
 }
 
-/* card base */
+/* Card base */
 
 .sobre-card {
-  background: radial-gradient(
-      circle at top left,
-      rgba(59, 130, 246, 0.12),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(147, 51, 234, 0.12),
-      transparent 60%
-    ),
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(147, 51, 234, 0.12), transparent 60%),
     #020617;
   border-radius: 24px;
   padding: 1.75rem 1.5rem;
@@ -428,7 +428,7 @@ main {
   font-size: 0.85rem;
 }
 
-/* pills da cultura */
+/* Pills cultura */
 
 .sobre-pill-grid {
   margin-top: 1.6rem;
@@ -456,7 +456,7 @@ main {
   color: var(--text-muted);
 }
 
-/* galeria */
+/* Galeria */
 
 .sobre-gallery {
   margin-top: 0.9rem;
@@ -473,10 +473,9 @@ main {
   position: relative;
   border-radius: 14px;
   overflow: hidden;
-  height: 210px; /* levemente menor no mobile */
+  height: 220px;
 }
 
-/* Imagens continuam cobertas, mas dentro do card */
 .sobre-gallery__image {
   position: absolute;
   inset: 0;
@@ -485,6 +484,7 @@ main {
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.35s ease;
+  z-index: 1;
 }
 
 .sobre-gallery__image.is-active {
@@ -507,6 +507,7 @@ main {
   justify-content: center;
   font-size: 1rem;
   backdrop-filter: blur(6px);
+  z-index: 2;
 }
 
 .sobre-gallery__control--prev {
@@ -539,7 +540,7 @@ main {
   background: linear-gradient(90deg, var(--accent-2), var(--accent));
 }
 
-/*  Seções placeholder */
+/* ========= SEÇÕES PLACEHOLDER ========= */
 
 .section-placeholder {
   padding-block: 4rem;
@@ -550,6 +551,8 @@ main {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
+
+/* ========= AJUSTE DO TOGGLE QUANDO MENU ABERTO ========= */
 
 body.nav-open .nav__toggle {
   position: fixed;
