@@ -129,7 +129,7 @@ body {
   /* espaço pra não colar nos cantos */
   padding: calc(64px + 1.75rem) 1.5rem 2.25rem;
 
-  z-index: 998; /* acima de tudo que é "normal" */
+  z-index: 998;
 }
 
 /* quando o body tiver .nav-open o menu desce e fica clicável */
@@ -139,7 +139,7 @@ body {
   pointer-events: auto;
 }
 
-/*Pra ficar bem “app” e evitar que o fundo role enquanto o menu está aberto*/
+/*evitar que o fundo role enquanto o menu está aberto*/
 body.nav-open {
   overflow: hidden;
 }
@@ -162,6 +162,47 @@ body.nav-open {
 
 .nav__link:active {
   color: var(--accent);
+}
+
+/*  Seletor de idioma  */
+
+.nav__lang {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.nav__lang-btn {
+  flex: 0 0 auto;
+  min-width: 3.2rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(163, 178, 209, 0.4);
+  background: rgba(5, 8, 22, 0.8);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.nav__lang-btn--active {
+  background-image: linear-gradient(90deg, var(--accent-2), var(--accent));
+  color: var(--text-main);
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.nav__lang-btn:hover:not(.nav__lang-btn--active) {
+  border-color: var(--accent);
+  color: var(--text-main);
 }
 
 /* Botão padrão */
@@ -195,14 +236,25 @@ main {
   padding-top: 64px;
 }
 
-/* ========= HERO (bem simples só pra teste) ========= */
+/*  HERO  */
 
 .hero {
-  padding-block: 4rem 3rem;
+  padding-block: 5rem 4rem;
+}
+
+.hero__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.hero__content {
+  max-width: 32rem;
 }
 
 .hero__eyebrow {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
@@ -218,8 +270,7 @@ main {
 .hero__subtitle {
   font-size: 0.98rem;
   color: var(--text-muted);
-  max-width: 32rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
 }
 
 .hero__actions {
@@ -227,7 +278,39 @@ main {
   gap: 1rem;
 }
 
-/* ========= Seções placeholder ========= */
+/* bloco da imagem */
+
+.hero__media {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__notebook {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 24px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(148, 163, 184, 0.25);
+  animation: heroFloat 7s ease-in-out infinite;
+}
+
+/* animação suave de flutuar */
+
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/*  Seções placeholder */
 
 .section-placeholder {
   padding-block: 4rem;

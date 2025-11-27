@@ -32,6 +32,11 @@
         </button>
 
         <div class="nav__menu" id="navMenu">
+          <div class="nav__lang" aria-label="Selecionar idioma">
+            <button class="nav__lang-btn nav__lang-btn--active" type="button" data-lang="pt">PT</button>
+            <button class="nav__lang-btn" type="button" data-lang="en">EN</button>
+          </div>
+
           <ul class="nav__list">
             <li><a href="#inicio" class="nav__link">Início</a></li>
             <li><a href="#sobre" class="nav__link">Sobre</a></li>
@@ -43,19 +48,31 @@
             <li><a href="#contato" class="nav__link">Contato</a></li>
           </ul>
 
-          <a href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms" class="btn btn--gradient nav__cta">Baixar App</a>
+          <a href="#download" class="btn btn--gradient nav__cta">Baixar App</a>
         </div>
       </nav>
     </header>
 
     <main>
-      <section id="inicio" class="hero container">
-        <p class="hero__eyebrow">TechStart Júnior</p>
-        <h1 class="hero__title">O futuro da organização<br/>de eventos começou.</h1>
-        <p class="hero__subtitle">Crie, conecte e inove com a Juntaê – a plataforma criada por jovens apaixonados por tecnologia.</p>
+      <section id="inicio" class="hero">
+        <div class="container hero__grid">
+          <div class="hero__content">
+            <p class="hero__eyebrow">Plataforma interna • TechStart Júnior</p>
 
-        <div class="hero__actions">
-          <a href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms" class="btn btn--gradient">Acesse no GitHub</a>
+            <h1 class="hero__title">O centro de comando<br/>do app Juntaê.</h1>
+
+            <p class="hero__subtitle">Uma plataforma interna para organizar eventos, testar ideias e apoiar o desenvolvimento do aplicativo Juntaê, criada pela TechStart Júnior.</p>
+
+            <div class="hero__actions">
+              <a
+                href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms" class="btn btn--gradient" target="_blank">Acessar plataforma</a>
+            </div>
+          </div>
+
+          <div class="hero__media">
+            <img
+              src="img/Mockup-Forms.png" alt="Sistema interno TechStart aberto em um notebook" class="hero__notebook"/>
+          </div>
         </div>
       </section>
 
