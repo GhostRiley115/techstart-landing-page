@@ -368,29 +368,9 @@ main {
   overflow: hidden;
 }
 
-.section--sobre::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../img/Fundo-Sobre.png");
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: 1200px auto;
-  opacity: 0.1;
-  pointer-events: none;
-  z-index: -1;
-}
-
 .section--sobre > .container {
   position: relative;
   z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .section--sobre::before {
-    background-size: 900px auto;
-    background-position: top center;
-  }
 }
 
 .sobre__grid {
@@ -569,19 +549,6 @@ body.nav-open .nav__toggle {
   overflow: hidden;
 }
 
-.section--recursos::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../img/fundo-Recursos.png");
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: 1200px auto;
-  opacity: 0.10;
-  pointer-events: none;
-  z-index: -1;
-}
-
 
 .section--recursos > .container {
   position: relative;
@@ -668,27 +635,6 @@ body.nav-open .nav__toggle {
   padding-block: 4.5rem 4rem;
   overflow: hidden;
   border-top: 1px solid rgba(148, 163, 184, 0.12);
-}
-
-.section--steps::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../img/Fundo-Como-funciona.png"); 
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: 1200px auto;
-  opacity: 0.1;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* mobile: puxa o fundo pro centro e reduz um pouco */
-@media (max-width: 768px) {
-  .section--steps::before {
-    background-size: 900px auto;
-    background-position: top center;
-  }
 }
 
 /* garante que o conteúdo fique acima do fundo */
@@ -871,7 +817,7 @@ body.nav-open .nav__toggle {
     opacity 0.6s ease,
     transform 0.6s ease;
 }
-step-card[data-reveal] {
+.step-card[data-reveal] {
   transform: translateY(32px);
 }
 
