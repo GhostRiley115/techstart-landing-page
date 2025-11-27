@@ -30,3 +30,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// ====== CARROSSEL DA GALERIA (SEÇÃO SOBRE) ======
+  const gallery = document.querySelector(".sobre-gallery");
+
+  if (gallery) {
+    const images = gallery.querySelectorAll(".sobre-gallery__image");
+    const dots = gallery.querySelectorAll(".sobre-gallery__dot");
+    const prevBtn = gallery.querySelector(".sobre-gallery__control--prev");
+    const nextBtn = gallery.querySelector(".sobre-gallery__control--next");
+
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      // remove estado atual
+      images[currentIndex].classList.remove("is-active");
+      dots[currentIndex].classList.remove("is-active");
+
+      // calcula novo índice (loop infinito)
+      const total = images.length;
+      currentIndex = (index + total) % total;
+
+      // ativa novo slide
+      images[currentIndex].classList.add("is-active");
+      dots[currentIndex].classList.add("is-active");
+    }
+
+    prevBtn.addEventListener("click", () => {
+      showSlide(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      showSlide(currentIndex + 1);
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const targetIndex = Number(dot.dataset.index);
+        showSlide(targetIndex);
+      });
+    });
+  }
