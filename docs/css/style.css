@@ -844,7 +844,6 @@ body.nav-open .nav__toggle {
 }
 
 /* área que segura o card ativo */
-/* área que segura o card ativo */
 .testimonials__viewport {
   position: relative;
   border-radius: 22px;
@@ -852,25 +851,23 @@ body.nav-open .nav__toggle {
   padding: 1.5rem 1.4rem 1.6rem;
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.22);
-  overflow: hidden;            /* volta a esconder o que passar da borda */
-  transition: height 0.25s ease-out;
+  overflow: visible; /* deixa as setas "saírem" um pouco */
 }
 
 /* cada depoimento é um "slide" */
 .testimonial-card {
-  position: absolute;
-  inset: 0;
+  display: none;               /* esconde por padrão */
   padding: 1.2rem 1.1rem 1.3rem;
-  display: flex;
   flex-direction: column;
   gap: 0.9rem;
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(8px);
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 /* card visível */
 .testimonial-card.is-active {
+  display: flex;               /* entra no fluxo normal, altura automática */
   opacity: 1;
   transform: translateY(0);
 }
@@ -919,10 +916,11 @@ body.nav-open .nav__toggle {
   color: var(--text-muted);
 }
 
-/* setas do carrossel – “pra fora” do card usando translateX */
+/* setas do carrossel */
 .testimonials__control {
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   width: 30px;
   height: 30px;
   border-radius: 999px;
@@ -936,18 +934,14 @@ body.nav-open .nav__toggle {
   font-size: 1rem;
   backdrop-filter: blur(6px);
   z-index: 3;
-  transform: translateY(-50%); /* base: só centraliza verticalmente */
 }
 
-/* esquerda e direita “meio pra fora” */
 .testimonials__control--prev {
-  left: 0;
-  transform: translate(-50%, -50%);  /* metade pra fora, metade pra dentro */
+  left: -24px;  /* "pra fora" do card */
 }
 
 .testimonials__control--next {
-  right: 0;
-  transform: translate(50%, -50%);
+  right: -24px; /* "pra fora" do card */
 }
 
 /* bolinhas de navegação */
@@ -973,22 +967,9 @@ body.nav-open .nav__toggle {
   background: linear-gradient(90deg, var(--accent-2), var(--accent));
 }
 
-/* respiro extra no desktop */
-@media (min-width: 900px) {
-  .testimonials__viewport {
-    padding: 2rem;
-  }
-}
-
-/* MOBILE: aproxima um pouco as setas da borda do card */
+/* um pouco mais de “respiro” em telas menores, se quiser */
 @media (max-width: 600px) {
-  .testimonials__control--prev {
-    left: 6px;
-    transform: translate(-50%, -50%);
-  }
-
-  .testimonials__control--next {
-    right: 6px;
-    transform: translate(50%, -50%);
+  .testimonials__viewport {
+    padding: 1.5rem 1.4rem 1.9rem;
   }
 }

@@ -24,10 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== HEADER SCROLL =====
   if (header) {
     window.addEventListener("scroll", () => {
-      header.classList.toggle(
-        "header--scrolled",
-        window.scrollY > SCROLL_LIMIT
-      );
+      header.classList.toggle("header--scrolled", window.scrollY > SCROLL_LIMIT);
     });
   }
 
@@ -97,20 +94,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-    // ===== CARROSSEL DA GALERIA (SEÇÃO SOBRE) =====
-    const gallery = document.querySelector(".sobre-gallery");
+  // ===== CARROSSEL DA GALERIA (SEÇÃO SOBRE) =====
+  const gallery = document.querySelector(".sobre-gallery");
 
-    if (gallery) {
-      const images = gallery.querySelectorAll(".sobre-gallery__image");
-      const dots = gallery.querySelectorAll(".sobre-gallery__dot");
-      const prevBtn = gallery.querySelector(".sobre-gallery__control--prev");
-      const nextBtn = gallery.querySelector(".sobre-gallery__control--next");
-      const viewport = gallery.querySelector(".sobre-gallery__viewport");
+  if (gallery) {
+    const images = gallery.querySelectorAll(".sobre-gallery__image");
+    const dots = gallery.querySelectorAll(".sobre-gallery__dot");
+    const prevBtn = gallery.querySelector(".sobre-gallery__control--prev");
+    const nextBtn = gallery.querySelector(".sobre-gallery__control--next");
+    const viewport = gallery.querySelector(".sobre-gallery__viewport");
 
-      if (!images.length || !dots.length || !prevBtn || !nextBtn || !viewport) {
-        return;
-      }
-
+    if (images.length && dots.length && prevBtn && nextBtn && viewport) {
       let currentIndex = 0;
 
       function showSlide(index) {
@@ -138,104 +132,127 @@ document.addEventListener("DOMContentLoaded", () => {
           showSlide(targetIndex);
         });
       });
-        // ===== CARROSSEL DEPOIMENTOS =====
-    const testimonialsSection = document.querySelector(".section--testimonials");
 
-    if (testimonialsSection) {
-      const viewport = testimonialsSection.querySelector(".testimonials__viewport");
-      const cards = viewport.querySelectorAll(".testimonial-card");
-      const dots = testimonialsSection.querySelectorAll(".testimonials__dot");
-      const prevBtn = testimonialsSection.querySelector(".testimonials__control--prev");
-      const nextBtn = testimonialsSection.querySelector(".testimonials__control--next");
+      // ===== SWIPE NO CELULAR =====
+      let startX = 0;
+      let startY = 0;
+      let isSwiping = false;
 
-      if (cards.length && dots.length && viewport) {
-        let currentIndex = 0;
-        let autoPlayId = null;
-        const AUTO_PLAY_DELAY = 9000; // 9s pra dar tempo de ler
+      viewport.addEventListener(
+        "touchstart",
+        (event) => {
+          const touch = event.touches[0];
+          startX = touch.clientX;
+          startY = touch.clientY;
+          isSwiping = true;
+        },
+        { passive: true }
+      );
 
-        function updateViewportHeight() {
-          const activeCard = cards[currentIndex];
-          if (!activeCard) return;
+      viewport.addEventListener(
+        "touchend",
+        (event) => {
+          if (!isSwiping) return;
 
-          // pega a altura real do card (já com texto quebrado no tamanho atual da tela)
-          const cardHeight = activeCard.offsetHeight;
-          viewport.style.height = cardHeight + "px";
-        }
+          const touch = event.changedTouches[0];
+          const diffX = touch.clientX - startX;
+          const diffY = touch.clientY - startY;
 
-        function setActiveSlide(index) {
-          cards[currentIndex].classList.remove("is-active");
-          dots[currentIndex].classList.remove("is-active");
-
-          const total = cards.length;
-          currentIndex = (index + total) % total;
-
-          cards[currentIndex].classList.add("is-active");
-          dots[currentIndex].classList.add("is-active");
-
-          updateViewportHeight();
-        }
-
-        function goToNext() {
-          setActiveSlide(currentIndex + 1);
-        }
-
-        function goToPrev() {
-          setActiveSlide(currentIndex - 1);
-        }
-
-        function restartAutoPlay() {
-          if (autoPlayId) clearInterval(autoPlayId);
-          autoPlayId = setInterval(goToNext, AUTO_PLAY_DELAY);
-        }
-
-        // eventos das setas
-        if (prevBtn) {
-          prevBtn.addEventListener("click", () => {
-            goToPrev();
-            restartAutoPlay();
-          });
-        }
-
-        if (nextBtn) {
-          nextBtn.addEventListener("click", () => {
-            goToNext();
-            restartAutoPlay();
-          });
-        }
-
-        // eventos dos dots
-        dots.forEach((dot) => {
-          dot.addEventListener("click", () => {
-            const targetIndex = Number(dot.dataset.index);
-            setActiveSlide(targetIndex);
-            restartAutoPlay();
-          });
-        });
-
-        // inicializa
-        // garante que só o primeiro está ativo
-        cards.forEach((card, idx) => {
-          if (idx === 0) {
-            card.classList.add("is-active");
-            dots[idx].classList.add("is-active");
-          } else {
-            card.classList.remove("is-active");
-            dots[idx].classList.remove("is-active");
+          // garante que é swipe horizontal, não scroll vertical
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+            if (diffX < 0) {
+              // arrastou para a esquerda → próxima foto
+              showSlide(currentIndex + 1);
+            } else {
+              // arrastou para a direita → foto anterior
+              showSlide(currentIndex - 1);
+            }
           }
-        });
 
-        // calcula a altura depois que o layout estiver pronto
-        window.setTimeout(updateViewportHeight, 0);
+          isSwiping = false;
+        },
+        { passive: true }
+      );
+    }
+  }
 
-        // recalcula sempre que a tela mudar de tamanho (mobile, rotação, etc.)
-        window.addEventListener("resize", () => {
-          // pequeno delay pra deixar o navegador terminar de quebrar o texto
-          window.setTimeout(updateViewportHeight, 100);
-        });
+  // ===== CARROSSEL DEPOIMENTOS =====
+  const testimonialsSection = document.querySelector(".section--testimonials");
 
-        // autoplay
-        restartAutoPlay();
+  if (testimonialsSection) {
+    const viewport = testimonialsSection.querySelector(".testimonials__viewport");
+    const cards = viewport.querySelectorAll(".testimonial-card");
+    const dots = testimonialsSection.querySelectorAll(".testimonials__dot");
+    const prevBtn = testimonialsSection.querySelector(
+      ".testimonials__control--prev"
+    );
+    const nextBtn = testimonialsSection.querySelector(
+      ".testimonials__control--next"
+    );
+
+    if (cards.length && dots.length) {
+      let currentIndex = 0;
+      let autoplayId = null;
+      const AUTO_PLAY_DELAY = 9000; // 9s
+
+      function setActiveSlide(index) {
+        cards[currentIndex].classList.remove("is-active");
+        dots[currentIndex].classList.remove("is-active");
+
+        const total = cards.length;
+        currentIndex = (index + total) % total;
+
+        cards[currentIndex].classList.add("is-active");
+        dots[currentIndex].classList.add("is-active");
       }
+
+      function goToNext() {
+        setActiveSlide(currentIndex + 1);
+      }
+
+      function goToPrev() {
+        setActiveSlide(currentIndex - 1);
+      }
+
+      function restartAutoPlay() {
+        if (autoplayId) clearInterval(autoplayId);
+        autoplayId = setInterval(goToNext, AUTO_PLAY_DELAY);
+      }
+
+      // inicializa: deixa só o primeiro visível
+      cards.forEach((card, idx) => {
+        card.classList.toggle("is-active", idx === 0);
+        if (dots[idx]) {
+          dots[idx].classList.toggle("is-active", idx === 0);
+        }
+      });
+
+      // setas
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+          goToPrev();
+          restartAutoPlay();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          goToNext();
+          restartAutoPlay();
+        });
+      }
+
+      // dots
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const targetIndex = Number(dot.dataset.index);
+          setActiveSlide(targetIndex);
+          restartAutoPlay();
+        });
+      });
+
+      // autoplay
+      restartAutoPlay();
     }
   }
 });
