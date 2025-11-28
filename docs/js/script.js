@@ -97,70 +97,72 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ===== CARROSSEL DA GALERIA (SEÇÃO SOBRE) =====
-  const gallery = document.querySelector(".sobre-gallery");
+    // ===== CARROSSEL DA GALERIA (SEÇÃO SOBRE) =====
+    const gallery = document.querySelector(".sobre-gallery");
 
-  if (gallery) {
-    const images = gallery.querySelectorAll(".sobre-gallery__image");
-    const dots = gallery.querySelectorAll(".sobre-gallery__dot");
-    const prevBtn = gallery.querySelector(".sobre-gallery__control--prev");
-    const nextBtn = gallery.querySelector(".sobre-gallery__control--next");
-    const viewport = gallery.querySelector(".sobre-gallery__viewport");
+    if (gallery) {
+      const images = gallery.querySelectorAll(".sobre-gallery__image");
+      const dots = gallery.querySelectorAll(".sobre-gallery__dot");
+      const prevBtn = gallery.querySelector(".sobre-gallery__control--prev");
+      const nextBtn = gallery.querySelector(".sobre-gallery__control--next");
+      const viewport = gallery.querySelector(".sobre-gallery__viewport");
 
-    if (!images.length || !dots.length || !prevBtn || !nextBtn || !viewport) {
-      return;
-    }
+      if (!images.length || !dots.length || !prevBtn || !nextBtn || !viewport) {
+        return;
+      }
 
-    let currentIndex = 0;
+      let currentIndex = 0;
 
-    function showSlide(index) {
-      images[currentIndex].classList.remove("is-active");
-      dots[currentIndex].classList.remove("is-active");
+      function showSlide(index) {
+        images[currentIndex].classList.remove("is-active");
+        dots[currentIndex].classList.remove("is-active");
 
-      const total = images.length;
-      currentIndex = (index + total) % total;
+        const total = images.length;
+        currentIndex = (index + total) % total;
 
-      images[currentIndex].classList.add("is-active");
-      dots[currentIndex].classList.add("is-active");
-    }
+        images[currentIndex].classList.add("is-active");
+        dots[currentIndex].classList.add("is-active");
+      }
 
-    prevBtn.addEventListener("click", () => {
-      showSlide(currentIndex - 1);
-    });
-
-    nextBtn.addEventListener("click", () => {
-      showSlide(currentIndex + 1);
-    });
-
-    dots.forEach((dot) => {
-      dot.addEventListener("click", () => {
-        const targetIndex = Number(dot.dataset.index);
-        showSlide(targetIndex);
+      prevBtn.addEventListener("click", () => {
+        showSlide(currentIndex - 1);
       });
-    });
-    // ===== CARROSSEL DE DEPOIMENTOS =====
-    const testimonials = document.querySelector(".testimonials");
 
-    if (testimonials) {
-      const cards = testimonials.querySelectorAll(".testimonial-card");
-      const dots = testimonials.querySelectorAll(".testimonials__dot");
-      const viewport = testimonials.querySelector(".testimonials__viewport");
-      // prev/next viram opcionais (se não existirem, tudo continua funcionando)
-      const prevBtn = testimonials.querySelector(".testimonials__control--prev");
-      const nextBtn = testimonials.querySelector(".testimonials__control--next");
+      nextBtn.addEventListener("click", () => {
+        showSlide(currentIndex + 1);
+      });
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const targetIndex = Number(dot.dataset.index);
+          showSlide(targetIndex);
+        });
+      });
+        // ===== CARROSSEL DEPOIMENTOS =====
+    const testimonialsSection = document.querySelector(".section--testimonials");
+
+    if (testimonialsSection) {
+      const viewport = testimonialsSection.querySelector(".testimonials__viewport");
+      const cards = viewport.querySelectorAll(".testimonial-card");
+      const dots = testimonialsSection.querySelectorAll(".testimonials__dot");
+      const prevBtn = testimonialsSection.querySelector(".testimonials__control--prev");
+      const nextBtn = testimonialsSection.querySelector(".testimonials__control--next");
 
       if (cards.length && dots.length && viewport) {
         let currentIndex = 0;
-        const AUTO_DELAY = 10000; // 10 segundos entre um depoimento e outro
         let autoPlayId = null;
+        const AUTO_PLAY_DELAY = 9000; // 9s pra dar tempo de ler
 
-        function updateHeight() {
+        function updateViewportHeight() {
           const activeCard = cards[currentIndex];
           if (!activeCard) return;
-          viewport.style.height = activeCard.offsetHeight + "px";
+
+          // pega a altura real do card (já com texto quebrado no tamanho atual da tela)
+          const cardHeight = activeCard.offsetHeight;
+          viewport.style.height = cardHeight + "px";
         }
 
-        function showTestimonial(index) {
+        function setActiveSlide(index) {
           cards[currentIndex].classList.remove("is-active");
           dots[currentIndex].classList.remove("is-active");
 
@@ -170,84 +172,69 @@ document.addEventListener("DOMContentLoaded", () => {
           cards[currentIndex].classList.add("is-active");
           dots[currentIndex].classList.add("is-active");
 
-          updateHeight();
+          updateViewportHeight();
         }
 
-        // ===== AUTOPLAY =====
-        function startAutoplay() {
+        function goToNext() {
+          setActiveSlide(currentIndex + 1);
+        }
+
+        function goToPrev() {
+          setActiveSlide(currentIndex - 1);
+        }
+
+        function restartAutoPlay() {
           if (autoPlayId) clearInterval(autoPlayId);
-          autoPlayId = setInterval(() => {
-            showTestimonial(currentIndex + 1);
-          }, AUTO_DELAY);
+          autoPlayId = setInterval(goToNext, AUTO_PLAY_DELAY);
         }
 
-        // inicializa altura e autoplay
-        window.setTimeout(() => {
-          updateHeight();
-          startAutoplay();
-        }, 0);
-
-        // se ainda existirem botões (caso você volte com eles no futuro)
-        if (prevBtn && nextBtn) {
+        // eventos das setas
+        if (prevBtn) {
           prevBtn.addEventListener("click", () => {
-            showTestimonial(currentIndex - 1);
-            startAutoplay(); // reseta o timer depois da interação
-          });
-
-          nextBtn.addEventListener("click", () => {
-            showTestimonial(currentIndex + 1);
-            startAutoplay();
+            goToPrev();
+            restartAutoPlay();
           });
         }
 
-        // dots
-        dots.forEach((dot, index) => {
+        if (nextBtn) {
+          nextBtn.addEventListener("click", () => {
+            goToNext();
+            restartAutoPlay();
+          });
+        }
+
+        // eventos dos dots
+        dots.forEach((dot) => {
           dot.addEventListener("click", () => {
-            showTestimonial(index);
-            startAutoplay(); // reseta o timer depois da interação
+            const targetIndex = Number(dot.dataset.index);
+            setActiveSlide(targetIndex);
+            restartAutoPlay();
           });
         });
 
-        window.addEventListener("resize", updateHeight);
+        // inicializa
+        // garante que só o primeiro está ativo
+        cards.forEach((card, idx) => {
+          if (idx === 0) {
+            card.classList.add("is-active");
+            dots[idx].classList.add("is-active");
+          } else {
+            card.classList.remove("is-active");
+            dots[idx].classList.remove("is-active");
+          }
+        });
 
-        // Swipe nos depoimentos (mobile)
-        let startX = 0;
-        let startY = 0;
-        let isSwiping = false;
+        // calcula a altura depois que o layout estiver pronto
+        window.setTimeout(updateViewportHeight, 0);
 
-        viewport.addEventListener(
-          "touchstart",
-          (event) => {
-            const touch = event.touches[0];
-            startX = touch.clientX;
-            startY = touch.clientY;
-            isSwiping = true;
-          },
-          { passive: true }
-        );
+        // recalcula sempre que a tela mudar de tamanho (mobile, rotação, etc.)
+        window.addEventListener("resize", () => {
+          // pequeno delay pra deixar o navegador terminar de quebrar o texto
+          window.setTimeout(updateViewportHeight, 100);
+        });
 
-        viewport.addEventListener(
-          "touchend",
-          (event) => {
-            if (!isSwiping) return;
-
-            const touch = event.changedTouches[0];
-            const diffX = touch.clientX - startX;
-            const diffY = touch.clientY - startY;
-
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
-              if (diffX < 0) {
-                showTestimonial(currentIndex + 1);
-              } else {
-                showTestimonial(currentIndex - 1);
-              }
-              startAutoplay(); // também reseta depois do swipe
-            }
-
-            isSwiping = false;
-          },
-          { passive: true }
-        );
+        // autoplay
+        restartAutoPlay();
       }
     }
   }
