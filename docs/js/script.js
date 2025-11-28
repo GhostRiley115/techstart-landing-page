@@ -138,142 +138,117 @@ document.addEventListener("DOMContentLoaded", () => {
         showSlide(targetIndex);
       });
     });
-      // ===== CARROSSEL DE DEPOIMENTOS =====
-  const testimonials = document.querySelector(".testimonials");
+    // ===== CARROSSEL DE DEPOIMENTOS =====
+    const testimonials = document.querySelector(".testimonials");
 
-  if (testimonials) {
-    const cards = testimonials.querySelectorAll(".testimonial-card");
-    const dots = testimonials.querySelectorAll(".testimonials__dot");
-    const prevBtn = testimonials.querySelector(".testimonials__control--prev");
-    const nextBtn = testimonials.querySelector(".testimonials__control--next");
-    const viewport = testimonials.querySelector(".testimonials__viewport");
+    if (testimonials) {
+      const cards = testimonials.querySelectorAll(".testimonial-card");
+      const dots = testimonials.querySelectorAll(".testimonials__dot");
+      const viewport = testimonials.querySelector(".testimonials__viewport");
+      // prev/next viram opcionais (se não existirem, tudo continua funcionando)
+      const prevBtn = testimonials.querySelector(".testimonials__control--prev");
+      const nextBtn = testimonials.querySelector(".testimonials__control--next");
 
-    // garante que tudo existe antes de iniciar
-    if (cards.length && dots.length && prevBtn && nextBtn && viewport) {
-      let currentIndex = 0;
+      if (cards.length && dots.length && viewport) {
+        let currentIndex = 0;
+        const AUTO_DELAY = 10000; // 10 segundos entre um depoimento e outro
+        let autoPlayId = null;
 
-      function updateHeight() {
-        const activeCard = cards[currentIndex];
-        if (!activeCard) return;
-        viewport.style.height = activeCard.offsetHeight + "px";
-      }
-
-      function showTestimonial(index) {
-        // remove estado ativo atual
-        cards[currentIndex].classList.remove("is-active");
-        dots[currentIndex].classList.remove("is-active");
-
-        const total = cards.length;
-        currentIndex = (index + total) % total;
-
-        // ativa o novo
-        cards[currentIndex].classList.add("is-active");
-        dots[currentIndex].classList.add("is-active");
-
-        updateHeight();
-      }
-
-      // inicializa altura com o primeiro card
-      window.setTimeout(updateHeight, 0);
-
-      // botões anterior / próximo
-      prevBtn.addEventListener("click", () => {
-        showTestimonial(currentIndex - 1);
-      });
-
-      nextBtn.addEventListener("click", () => {
-        showTestimonial(currentIndex + 1);
-      });
-
-      // dots
-      dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-          showTestimonial(index);
-        });
-      });
-
-      // ajusta altura quando a tela muda de tamanho
-      window.addEventListener("resize", updateHeight);
-
-      // ===== SWIPE NO CELULAR =====
-      let startX = 0;
-      let startY = 0;
-      let isSwiping = false;
-
-      viewport.addEventListener(
-        "touchstart",
-        (event) => {
-          const touch = event.touches[0];
-          startX = touch.clientX;
-          startY = touch.clientY;
-          isSwiping = true;
-        },
-        { passive: true }
-      );
-
-      viewport.addEventListener(
-        "touchend",
-        (event) => {
-          if (!isSwiping) return;
-
-          const touch = event.changedTouches[0];
-          const diffX = touch.clientX - startX;
-          const diffY = touch.clientY - startY;
-
-          // garante que é swipe horizontal, não scroll
-          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
-            if (diffX < 0) {
-              // arrastou para a esquerda → próximo depoimento
-              showTestimonial(currentIndex + 1);
-            } else {
-              // arrastou para a direita → depoimento anterior
-              showTestimonial(currentIndex - 1);
-            }
-          }
-
-          isSwiping = false;
-        },
-        { passive: true }
-      );
-    }
-  }
-
-    // ===== SWIPE NO CELULAR =====
-    let startX = 0;
-    let startY = 0;
-    let isSwiping = false;
-
-    viewport.addEventListener(
-      "touchstart",
-      (event) => {
-        const touch = event.touches[0];
-        startX = touch.clientX;
-        startY = touch.clientY;
-        isSwiping = true;
-      },
-      { passive: true }
-    );
-
-    viewport.addEventListener(
-      "touchend",
-      (event) => {
-        if (!isSwiping) return;
-
-        const touch = event.changedTouches[0];
-        const diffX = touch.clientX - startX;
-        const diffY = touch.clientY - startY;
-
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
-          if (diffX < 0) {
-            showSlide(currentIndex + 1);
-          } else {
-            showSlide(currentIndex - 1);
-          }
+        function updateHeight() {
+          const activeCard = cards[currentIndex];
+          if (!activeCard) return;
+          viewport.style.height = activeCard.offsetHeight + "px";
         }
 
-        isSwiping = false;
-      },
-      { passive: true }
-    );
+        function showTestimonial(index) {
+          cards[currentIndex].classList.remove("is-active");
+          dots[currentIndex].classList.remove("is-active");
+
+          const total = cards.length;
+          currentIndex = (index + total) % total;
+
+          cards[currentIndex].classList.add("is-active");
+          dots[currentIndex].classList.add("is-active");
+
+          updateHeight();
+        }
+
+        // ===== AUTOPLAY =====
+        function startAutoplay() {
+          if (autoPlayId) clearInterval(autoPlayId);
+          autoPlayId = setInterval(() => {
+            showTestimonial(currentIndex + 1);
+          }, AUTO_DELAY);
+        }
+
+        // inicializa altura e autoplay
+        window.setTimeout(() => {
+          updateHeight();
+          startAutoplay();
+        }, 0);
+
+        // se ainda existirem botões (caso você volte com eles no futuro)
+        if (prevBtn && nextBtn) {
+          prevBtn.addEventListener("click", () => {
+            showTestimonial(currentIndex - 1);
+            startAutoplay(); // reseta o timer depois da interação
+          });
+
+          nextBtn.addEventListener("click", () => {
+            showTestimonial(currentIndex + 1);
+            startAutoplay();
+          });
+        }
+
+        // dots
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            showTestimonial(index);
+            startAutoplay(); // reseta o timer depois da interação
+          });
+        });
+
+        window.addEventListener("resize", updateHeight);
+
+        // Swipe nos depoimentos (mobile)
+        let startX = 0;
+        let startY = 0;
+        let isSwiping = false;
+
+        viewport.addEventListener(
+          "touchstart",
+          (event) => {
+            const touch = event.touches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+            isSwiping = true;
+          },
+          { passive: true }
+        );
+
+        viewport.addEventListener(
+          "touchend",
+          (event) => {
+            if (!isSwiping) return;
+
+            const touch = event.changedTouches[0];
+            const diffX = touch.clientX - startX;
+            const diffY = touch.clientY - startY;
+
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+              if (diffX < 0) {
+                showTestimonial(currentIndex + 1);
+              } else {
+                showTestimonial(currentIndex - 1);
+              }
+              startAutoplay(); // também reseta depois do swipe
+            }
+
+            isSwiping = false;
+          },
+          { passive: true }
+        );
+      }
+    }
   }
 });
