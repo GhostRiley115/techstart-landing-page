@@ -138,6 +138,105 @@ document.addEventListener("DOMContentLoaded", () => {
         showSlide(targetIndex);
       });
     });
+      // ===== CARROSSEL DE DEPOIMENTOS =====
+  const testimonials = document.querySelector(".testimonials");
+
+  if (testimonials) {
+    const cards = testimonials.querySelectorAll(".testimonial-card");
+    const dots = testimonials.querySelectorAll(".testimonials__dot");
+    const prevBtn = testimonials.querySelector(".testimonials__control--prev");
+    const nextBtn = testimonials.querySelector(".testimonials__control--next");
+    const viewport = testimonials.querySelector(".testimonials__viewport");
+
+    // garante que tudo existe antes de iniciar
+    if (cards.length && dots.length && prevBtn && nextBtn && viewport) {
+      let currentIndex = 0;
+
+      function updateHeight() {
+        const activeCard = cards[currentIndex];
+        if (!activeCard) return;
+        viewport.style.height = activeCard.offsetHeight + "px";
+      }
+
+      function showTestimonial(index) {
+        // remove estado ativo atual
+        cards[currentIndex].classList.remove("is-active");
+        dots[currentIndex].classList.remove("is-active");
+
+        const total = cards.length;
+        currentIndex = (index + total) % total;
+
+        // ativa o novo
+        cards[currentIndex].classList.add("is-active");
+        dots[currentIndex].classList.add("is-active");
+
+        updateHeight();
+      }
+
+      // inicializa altura com o primeiro card
+      window.setTimeout(updateHeight, 0);
+
+      // botões anterior / próximo
+      prevBtn.addEventListener("click", () => {
+        showTestimonial(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener("click", () => {
+        showTestimonial(currentIndex + 1);
+      });
+
+      // dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          showTestimonial(index);
+        });
+      });
+
+      // ajusta altura quando a tela muda de tamanho
+      window.addEventListener("resize", updateHeight);
+
+      // ===== SWIPE NO CELULAR =====
+      let startX = 0;
+      let startY = 0;
+      let isSwiping = false;
+
+      viewport.addEventListener(
+        "touchstart",
+        (event) => {
+          const touch = event.touches[0];
+          startX = touch.clientX;
+          startY = touch.clientY;
+          isSwiping = true;
+        },
+        { passive: true }
+      );
+
+      viewport.addEventListener(
+        "touchend",
+        (event) => {
+          if (!isSwiping) return;
+
+          const touch = event.changedTouches[0];
+          const diffX = touch.clientX - startX;
+          const diffY = touch.clientY - startY;
+
+          // garante que é swipe horizontal, não scroll
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+            if (diffX < 0) {
+              // arrastou para a esquerda → próximo depoimento
+              showTestimonial(currentIndex + 1);
+            } else {
+              // arrastou para a direita → depoimento anterior
+              showTestimonial(currentIndex - 1);
+            }
+          }
+
+          isSwiping = false;
+        },
+        { passive: true }
+      );
+    }
+  }
 
     // ===== SWIPE NO CELULAR =====
     let startX = 0;
