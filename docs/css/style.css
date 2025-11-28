@@ -844,6 +844,7 @@ body.nav-open .nav__toggle {
 }
 
 /* área que segura o card ativo */
+/* área que segura o card ativo */
 .testimonials__viewport {
   position: relative;
   border-radius: 22px;
@@ -851,12 +852,7 @@ body.nav-open .nav__toggle {
   padding: 1.5rem 1.4rem 1.6rem;
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.22);
-
-  /* IMPORTANTE: garante altura mínima p/ o card
-     e evita as bolinhas "subirem" por cima do depoimento */
-  min-height: 190px;
-
-  overflow: visible;          
+  overflow: hidden;            /* volta a esconder o que passar da borda */
   transition: height 0.25s ease-out;
 }
 
@@ -923,11 +919,10 @@ body.nav-open .nav__toggle {
   color: var(--text-muted);
 }
 
-/* setas do carrossel – FORA do card, como na sua print */
+/* setas do carrossel – “pra fora” do card usando translateX */
 .testimonials__control {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   width: 30px;
   height: 30px;
   border-radius: 999px;
@@ -941,15 +936,18 @@ body.nav-open .nav__toggle {
   font-size: 1rem;
   backdrop-filter: blur(6px);
   z-index: 3;
+  transform: translateY(-50%); /* base: só centraliza verticalmente */
 }
 
-/* posição mantendo o “fora do card” */
+/* esquerda e direita “meio pra fora” */
 .testimonials__control--prev {
-  left: -20px;
+  left: 0;
+  transform: translate(-50%, -50%);  /* metade pra fora, metade pra dentro */
 }
 
 .testimonials__control--next {
-  right: -20px;
+  right: 0;
+  transform: translate(50%, -50%);
 }
 
 /* bolinhas de navegação */
@@ -975,9 +973,22 @@ body.nav-open .nav__toggle {
   background: linear-gradient(90deg, var(--accent-2), var(--accent));
 }
 
-/* um pouco mais de “respiro” em telas maiores */
+/* respiro extra no desktop */
 @media (min-width: 900px) {
   .testimonials__viewport {
     padding: 1.7rem 1.8rem 1.8rem;
+  }
+}
+
+/* MOBILE: aproxima um pouco as setas da borda do card */
+@media (max-width: 600px) {
+  .testimonials__control--prev {
+    left: 6px;
+    transform: translate(-50%, -50%);
+  }
+
+  .testimonials__control--next {
+    right: 6px;
+    transform: translate(50%, -50%);
   }
 }
