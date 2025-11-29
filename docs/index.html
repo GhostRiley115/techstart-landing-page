@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>TechStart Júnior • Plataforma interna</title>
+    <title data-i18n-en="TechStart Júnior • Internal platform">TechStart Júnior • Plataforma interna</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" type="image/png" href="img/TechStart_neutro.png" />
   </head>
 
   <body>
+    <!-- HEADER / NAV -->
     <header class="header" id="topo">
-      <nav class="nav container">
+      <div class="nav container">
+        <!-- Logo -->
         <a href="#inicio" class="nav__logo">
           <img src="img/TechStart_neutro.png" alt="TechStart Júnior" />
         </a>
 
+        <!-- Botão hambúrguer (mobile) -->
         <button class="nav__toggle" id="navToggle" aria-label="Abrir menu de navegação" aria-expanded="false" type="button">
           <span class="nav__toggle-line"></span>
           <span class="nav__toggle-line"></span>
           <span class="nav__toggle-line"></span>
         </button>
 
-        <div class="nav__menu" id="navMenu">
-          <div class="nav__lang" role="group" aria-label="Selecionar idioma"> 
+        <!-- Menu (links + idiomas + CTA) -->
+        <nav class="nav__menu" id="navMenu">
+          <ul class="nav__list">
+            <li><a href="#inicio" class="nav__link" data-i18n-en="Home">Início</a></li>
+            <li><a href="#sobre" class="nav__link" data-i18n-en="About">Sobre</a></li>
+            <li><a href="#recursos" class="nav__link" data-i18n-en="Features">Recursos</a></li>
+            <li><a href="#como-funciona" class="nav__link" data-i18n-en="How it works">Como funciona</a></li>
+            <li><a href="#depoimentos" class="nav__link" data-i18n-en="Testimonials">Depoimentos</a></li>
+            <li><a href="#equipe" class="nav__link" data-i18n-en="Team">Equipe</a></li>
+            <li><a href="#instagram" class="nav__link" data-i18n-en="Instagram">Instagram</a></li>
+            <li><a href="#contato" class="nav__link" data-i18n-en="Contact">Contato</a></li>
+          </ul>
+
+          <!-- Idiomas: ficam logo antes do CTA no desktop -->
+          <div class="nav__lang" role="group" aria-label="Selecionar idioma">
             <button class="nav__lang-btn nav__lang-btn--active" type="button" data-lang="pt">PT</button>
             <button class="nav__lang-btn" type="button" data-lang="en">EN</button>
           </div>
 
-          <ul class="nav__list">
-            <li><a href="#inicio" class="nav__link">Início</a></li>
-            <li><a href="#sobre" class="nav__link">Sobre</a></li>
-            <li><a href="#recursos" class="nav__link">Recursos</a></li>
-            <li><a href="#como-funciona" class="nav__link">Como funciona</a></li>
-            <li><a href="#depoimentos" class="nav__link">Depoimentos</a></li>
-            <li><a href="#equipe" class="nav__link">Equipe</a></li>
-            <li><a href="#instagram" class="nav__link">Instagram</a></li>
-            <li><a href="#contato" class="nav__link">Contato</a></li>
-          </ul>
-
-          <a href="#download" class="btn btn--gradient nav__cta">Baixar App</a>
-        </div>
-      </nav>
+          <!-- CTA -->
+          <a href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms"
+            class="btn btn--gradient nav__cta" data-i18n-en="Download app">
+            Baixar App
+          </a>
+        </nav>
+      </div>
     </header>
 
     <main>
@@ -54,22 +64,28 @@
       <section id="inicio" class="hero">
         <div class="container hero__grid">
           <div class="hero__content">
-            <p class="hero__eyebrow">Plataforma interna • TechStart Júnior</p>
+            <p class="hero__eyebrow" data-i18n-en="Internal platform • TechStart Júnior">Plataforma interna • TechStart Júnior</p>
 
-            <h1 class="hero__title">O centro de comando<br/>do app Juntaê.</h1>
+            <h1 class="hero__title" data-i18n-en="The command center of the Juntaê app.">O centro de comando <br />do app Juntaê.
+            </h1>
 
-            <p class="hero__subtitle">
+            <p class="hero__subtitle"
+              data-i18n-en="An internal platform to organize events, test ideas, and support the development of the Juntaê app, created by TechStart Júnior.">
               Uma plataforma interna para organizar eventos, testar ideias e
-              apoiar o desenvolvimento do aplicativo Juntaê, criada pela TechStart Júnior.
+              apoiar o desenvolvimento do aplicativo Juntaê, criada pela
+              TechStart Júnior.
             </p>
 
             <div class="hero__actions">
-              <a href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms" class="btn btn--gradient" target="_blank" rel="noopener noreferrer">Acessar plataforma</a>
+              <a href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms" class="btn btn--gradient"
+                target="_blank" rel="noopener noreferrer" data-i18n-en="Access platform">
+                Acessar plataforma
+              </a>
             </div>
           </div>
 
           <div class="hero__media">
-            <img src="img/Mockup-Forms.png" alt="Sistema interno TechStart aberto em um notebook" class="hero__notebook"/>
+            <img src="img/Mockup-Forms.png" alt="Sistema interno TechStart aberto em um notebook"class="hero__notebook" />
           </div>
         </div>
       </section>
@@ -78,9 +94,10 @@
       <section id="sobre" class="section section--sobre">
         <div class="container">
           <header class="section__header">
-            <p class="section__eyebrow">Sobre a TechStart Júnior</p>
-            <h2 class="section__title">Quem somos na TechStart</h2>
-            <p class="section__subtitle">
+            <p class="section__eyebrow" data-i18n-en="About TechStart Junior">Sobre a TechStart Júnior</p>
+            <h2 class="section__title" data-i18n-en="Who we are at TechStart">Quem somos na TechStart</h2>
+            <p class="section__subtitle"
+              data-i18n-en="TechStart Júnior is a young studio that turns ideas into digital products. We combine speed, care, and transparency to launch experiences that truly work.">
               A TechStart Júnior é um estúdio jovem que transforma ideias em
               produtos digitais. Unimos velocidade, capricho e transparência
               para lançar experiências que funcionam de verdade.
@@ -89,50 +106,50 @@
 
           <div class="sobre__grid">
             <!-- Card: Nossa cultura -->
-            <article class="sobre-card sobre-card--culture">
-              <h3 class="sobre-card__title">Nossa cultura</h3>
-              <p class="sobre-card__text">
-                Construímos com pessoas, dados e acessibilidade desde o
-                primeiro rascunho. Cada entrega é uma oportunidade de aprender
-                e evoluir.
+            <article class="sobre-card sobre-card--culture" data-reveal data-reveal-delay="0">
+              <h3 class="sobre-card__title" data-i18n-en="Our culture">Nossa cultura</h3>
+              <p class="sobre-card__text"
+                data-i18n-en="We build with people, data, and accessibility from the very first draft. Each delivery is an opportunity to learn and evolve.">
+                Construímos com pessoas, dados e acessibilidade desde o primeiro
+                rascunho. Cada entrega é uma oportunidade de aprender e evoluir.
               </p>
 
               <div class="sobre-pill-grid">
                 <div class="sobre-pill">
-                  <strong>Transparência</strong>
-                  <span>Comunicação aberta e previsível.</span>
+                  <strong data-i18n-en="Transparency">Transparência</strong>
+                  <span data-i18n-en="Open and predictable communication.">Comunicação aberta e previsível.</span>
                 </div>
 
                 <div class="sobre-pill">
-                  <strong>Agilidade com qualidade</strong>
-                  <span>Entregas rápidas, sem perder o capricho.</span>
+                  <strong data-i18n-en="Agility with quality">Agilidade com qualidade</strong>
+                  <span data-i18n-en="Fast deliveries without losing attention to detail.">Entregas rápidas, sem perder o capricho.</span>
                 </div>
 
                 <div class="sobre-pill">
-                  <strong>Acessibilidade</strong>
-                  <span>Interfaces inclusivas desde o início.</span>
+                  <strong data-i18n-en="Accessibility">Acessibilidade</strong>
+                  <span data-i18n-en="Inclusive interfaces from the start.">Interfaces inclusivas desde o início.</span>
                 </div>
 
                 <div class="sobre-pill">
-                  <strong>Documentação</strong>
-                  <span>Iteramos e registramos aprendizados.</span>
+                  <strong data-i18n-en="Documentation">Documentação</strong>
+                  <span data-i18n-en="We iterate and document what we learn.">Iteramos e registramos aprendizados.</span>
                 </div>
 
                 <div class="sobre-pill">
-                  <strong>Ownership</strong>
-                  <span>Compromisso de ponta a ponta.</span>
+                  <strong data-i18n-en="Ownership">Ownership</strong>
+                  <span data-i18n-en="End-to-end commitment.">Compromisso de ponta a ponta.</span>
                 </div>
 
                 <div class="sobre-pill">
-                  <strong>Foco no usuário</strong>
-                  <span>Decisões guiadas por dados e contexto.</span>
+                  <strong data-i18n-en="User-focused">Foco no usuário</strong>
+                  <span data-i18n-en="Decisions guided by data and context.">Decisões guiadas por dados e contexto.</span>
                 </div>
               </div>
             </article>
 
             <!-- Card: Galeria -->
-            <article class="sobre-card sobre-card--gallery">
-              <h3 class="sobre-card__title">Galeria</h3>
+            <article class="sobre-card sobre-card--gallery" data-reveal data-reveal-delay="80">
+              <h3 class="sobre-card__title" data-i18n-en="Gallery">Galeria</h3>
 
               <div class="sobre-gallery">
                 <div class="sobre-gallery__viewport">
@@ -140,15 +157,15 @@
                   <button class="sobre-gallery__control sobre-gallery__control--prev" type="button" aria-label="Foto anterior">‹</button>
 
                   <!-- Imagens -->
-                  <img src="img/Imagem-carrossel1.png" alt="Equipe da TechStart Júnior em reunião." class="sobre-gallery__image is-active"/>
-                  <img src="img/Imagem-carrossel2.png" alt="Jovem mostrando seu trabalho." class="sobre-gallery__image"/>
-                  <img src="img/Imagem-carrossel3.png" alt="Outdoor com logo da empresa." class="sobre-gallery__image"/>
-                  <img src="img/Imagem-carrossel8.png" alt="Noite de teste do aplicativo." class="sobre-gallery__image"/>
-                  <img src="img/Imagem-carrossel7.png" alt="Apresentação de projeto para a turma." class="sobre-gallery__image"/>
-                  <img src="img/Imagem-carrossel6.png" alt="Mini evento “TechStart Meetup” em uma escola técnica." class="sobre-gallery__image"/>
+                  <img src="img/Imagem-carrossel1.png" alt="Equipe da TechStart Júnior em reunião." class="sobre-gallery__image is-active" />
+                  <img src="img/Imagem-carrossel2.png" alt="Jovem mostrando seu trabalho." class="sobre-gallery__image" />
+                  <img src="img/Imagem-carrossel3.png" alt="Outdoor com logo da empresa." class="sobre-gallery__image" />
+                  <img src="img/Imagem-carrossel8.png" alt="Noite de teste do aplicativo." class="sobre-gallery__image" />
+                  <img src="img/Imagem-carrossel7.png" alt="Apresentação de projeto para a turma." class="sobre-gallery__image" />
+                  <img src="img/Imagem-carrossel6.png" alt="Mini evento “TechStart Meetup” em uma escola técnica." class="sobre-gallery__image" />
 
                   <!-- seta próxima -->
-                  <button class="sobre-gallery__control sobre-gallery__control--next" type="button" aria-label="Próxima foto">›</button>
+                  <button class="sobre-gallery__control sobre-gallery__control--next" type="button"aria-label="Próxima foto">›</button>
                 </div>
 
                 <div class="sobre-gallery__dots">
@@ -161,7 +178,8 @@
                 </div>
               </div>
 
-              <p class="sobre-card__text sobre-card__text--small">
+              <p class="sobre-card__text sobre-card__text--small"
+                data-i18n-en="Behind-the-scenes, projects, and moments that show what it’s like to build TechStart Júnior’s ecosystem day to day.">
                 Bastidores, projetos e momentos que mostram como é construir o
                 ecossistema da TechStart Júnior no dia a dia.
               </p>
@@ -174,117 +192,131 @@
       <section id="recursos" class="section section--recursos">
         <div class="container">
           <header class="section__header">
-            <p class="section__eyebrow">Recursos da plataforma</p>
-            <h2 class="section__title">O que a TechStart já construiu aqui dentro</h2>
-            <p class="section__subtitle">
+            <p class="section__eyebrow" data-i18n-en="Platform features">Recursos da plataforma</p>
+            <h2 class="section__title" data-i18n-en="What TechStart has already built here">O que a TechStart já construiu aqui dentro</h2>
+            <p class="section__subtitle"
+              data-i18n-en="The internal platform of TechStart Júnior centralizes tests, registrations, and experiences related to the development of the Juntaê app.">
               A plataforma interna da TechStart Júnior centraliza testes,
-              cadastros e experiências ligadas ao desenvolvimento do app Juntaê.
+              cadastros e experiências ligadas ao desenvolvimento do app
+              Juntaê.
             </p>
           </header>
 
           <div class="recursos-grid">
             <!-- Card 1 -->
-            <article class="recurso-card">
-              <h3 class="recurso-card__title">Gestão de eventos</h3>
-              <p class="recurso-card__text">
+            <article class="recurso-card" data-reveal data-reveal-delay="0">
+              <h3 class="recurso-card__title" data-i18n-en="Event management">Gestão de eventos</h3>
+              <p class="recurso-card__text"
+                data-i18n-en="Register, edit, and delete internal events used to test Juntaê app flows before launching them to the final audience.">
                 Cadastre, edite e exclua eventos internos usados para testar
-                fluxos do aplicativo Juntaê, antes de lançar para o público final.
+                fluxos do aplicativo Juntaê, antes de lançar para o público
+                final.
               </p>
             </article>
 
             <!-- Card 2 -->
-            <article class="recurso-card">
-              <h3 class="recurso-card__title">Lojinha TechStart</h3>
-              <p class="recurso-card__text">
+            <article class="recurso-card" data-reveal data-reveal-delay="80">
+              <h3 class="recurso-card__title" data-i18n-en="TechStart Store">Lojinha TechStart</h3>
+              <p class="recurso-card__text"
+                data-i18n-en="Prototype of a store with branded products, designed to support the app’s promotion and to test cart and catalog concepts.">
                 Protótipo de uma loja com produtos da marca, pensado para apoiar
                 a divulgação do app e testar conceitos de carrinho e catálogo.
               </p>
             </article>
 
             <!-- Card 3 -->
-            <article class="recurso-card">
-              <h3 class="recurso-card__title">Área administrativa</h3>
-              <p class="recurso-card__text">
-                Login de administrador, gerenciamento de cadastros e visualização
-                dos dados de teste que alimentam a evolução do projeto.
+            <article class="recurso-card" data-reveal data-reveal-delay="160">
+              <h3 class="recurso-card__title" data-i18n-en="Admin area">Área administrativa</h3>
+              <p class="recurso-card__text"
+                data-i18n-en="Admin login, management of records, and visualization of test data that fuel the project’s evolution.">
+                Login de administrador, gerenciamento de cadastros e
+                visualização dos dados de teste que alimentam a evolução do
+                projeto.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-            <!-- COMO FUNCIONA -->
+      <!-- COMO FUNCIONA -->
       <section id="como-funciona" class="section section--steps">
         <div class="container">
           <header class="section__header">
-            <p class="section__eyebrow">Como funciona o Juntaê</p>
-            <h2 class="section__title">Do rascunho ao evento em três passos.</h2>
-            <p class="section__subtitle">
-              O processo foi pensado para ser simples, rápido e intuitivo. Em poucos passos,
-              você cria, divulga e gerencia seus eventos sem complicações.
+            <p class="section__eyebrow" data-i18n-en="How Juntaê works">Como funciona o Juntaê</p>
+            <h2 class="section__title" data-i18n-en="From sketch to event in three steps.">Do rascunho ao evento em três passos.</h2>
+            <p class="section__subtitle"
+              data-i18n-en="The process was designed to be simple, fast, and intuitive. In just a few steps, you create, promote, and manage your events with no hassle.">
+              O processo foi pensado para ser simples, rápido e intuitivo. Em
+              poucos passos, você cria, divulga e gerencia seus eventos sem
+              complicações.
             </p>
           </header>
 
           <div class="steps-grid">
             <!-- Passo 1 -->
             <article class="step-card step-card--1" data-reveal="step" data-reveal-delay="0">
-              <p class="step-card__tag">Passo 1</p>
-              <h3 class="step-card__title">Crie seu evento</h3>
-              <p class="step-card__text">
-                Defina nome, data, local e descrição em segundos usando uma interface clara e rápida.
+              <p class="step-card__tag" data-i18n-en="Step 1">Passo 1</p>
+              <h3 class="step-card__title" data-i18n-en="Create your event">Crie seu evento</h3>
+              <p class="step-card__text"
+                data-i18n-en="Define name, date, location, and description in seconds using a clear and fast interface.">
+                Defina nome, data, local e descrição em segundos usando uma
+                interface clara e rápida.
               </p>
             </article>
 
             <!-- Passo 2 -->
             <article class="step-card step-card--2" data-reveal="step" data-reveal-delay="80">
-              <p class="step-card__tag">Passo 2</p>
-              <h3 class="step-card__title">Divulgue para sua comunidade</h3>
-              <p class="step-card__text">
-                Compartilhe o evento com amigos ou grupos usando links, QR Codes e redes sociais.
+              <p class="step-card__tag" data-i18n-en="Step 2">Passo 2</p>
+              <h3 class="step-card__title" data-i18n-en="Share it with your community">Divulgue para sua comunidade</h3>
+              <p class="step-card__text"
+                data-i18n-en="Share the event with friends or groups using links, QR codes, and social media.">
+                Compartilhe o evento com amigos ou grupos usando links, QR Codes
+                e redes sociais.
               </p>
             </article>
 
             <!-- Passo 3 -->
             <article class="step-card step-card--3" data-reveal="step" data-reveal-delay="160">
-              <p class="step-card__tag">Passo 3</p>
-              <h3 class="step-card__title">Gerencie tudo facilmente</h3>
-              <p class="step-card__text">
-                Acompanhe presença, controle convidados, veja estatísticas e mantenha tudo organizado.
+              <p class="step-card__tag" data-i18n-en="Step 3">Passo 3</p>
+              <h3 class="step-card__title" data-i18n-en="Manage everything easily">Gerencie tudo facilmente</h3>
+              <p class="step-card__text"
+                data-i18n-en="Track attendance, manage guests, view statistics, and keep everything organized.">
+                Acompanhe presença, controle convidados, veja estatísticas e
+                mantenha tudo organizado.
               </p>
             </article>
           </div>
-          <div class="container">
-            <div class="steps-grid">
-              <!-- ... três step-card ... -->
+
+          <div class="steps-app" data-reveal="step" data-reveal-delay="220">
+            <div class="steps-app__content">
+              <p class="steps-app__eyebrow" data-i18n-en="Experience in the Juntaê app">Experiência no aplicativo Juntaê</p>
+              <h3 class="steps-app__title" data-i18n-en="See the steps come to life in the app.">Veja os passos ganhando vida no app.</h3>
+              <p class="steps-app__text"
+                data-i18n-en="While TechStart Júnior develops the Juntaê app, the internal platform is already organizing events, tests, and feedback that help improve every screen of the app.">
+                Enquanto a TechStart Júnior desenvolve o aplicativo Juntaê, a
+                plataforma interna já organiza eventos, testes e feedbacks que
+                ajudam a evoluir cada tela do app.
+              </p>
             </div>
-      
-            <div class="steps-app" data-reveal="step" data-reveal-delay="220">
-              <div class="steps-app__content">
-                <p class="steps-app__eyebrow">Experiência no aplicativo Juntaê</p>
-                <h3 class="steps-app__title">Veja os passos ganhando vida no app.</h3>
-                <p class="steps-app__text">
-                  Enquanto a TechStart Júnior desenvolve o aplicativo Juntaê, a plataforma interna
-                  já organiza eventos, testes e feedbacks que ajudam a evoluir cada tela do app.
-                </p>
-              </div>
-        
-              <div class="steps-app__media">
-                <img src="img/Mockup-app.png" alt="Tela inicial do aplicativo Juntaê em um smartphone" class="steps-app__image"/>
-              </div>
+
+            <div class="steps-app__media">
+              <img src="img/Mockup-app.png" alt="Tela inicial do aplicativo Juntaê em um smartphone" class="steps-app__image" />
             </div>
           </div>
         </div>
       </section>
 
-
+      <!-- DEPOIMENTOS -->
       <section id="depoimentos" class="section section--testimonials">
         <div class="container">
           <header class="section__header">
-            <p class="section__eyebrow">Vozes da TechStart Júnior</p>
-            <h2 class="section__title">O que estão dizendo sobre o projeto.</h2>
-            <p class="section__subtitle">
-              Professores, membros da equipe e participantes contam como a plataforma interna
-              e o app Juntaê já fazem parte da rotina de estudos e eventos.
+            <p class="section__eyebrow" data-i18n-en="Voices from TechStart Junior">Vozes da TechStart Júnior</p>
+            <h2 class="section__title" data-i18n-en="What they’re saying about the project.">O que estão dizendo sobre o projeto.</h2>
+            <p class="section__subtitle"
+              data-i18n-en="Teachers, team members, and participants share how the internal platform and the Juntaê app are already part of their study and event routines.">
+              Professores, membros da equipe e participantes contam como a
+              plataforma interna e o app Juntaê já fazem parte da rotina de
+              estudos e eventos.
             </p>
           </header>
 
@@ -296,17 +328,17 @@
                   <div class="testimonial-card__avatar">AN</div>
                   <div>
                     <p class="testimonial-card__name">Ana Nogueira</p>
-                    <p class="testimonial-card__role">Professora de Inglês • Etec</p>
+                    <p class="testimonial-card__role">Repórter de tecnologia • Portal DevNow</p>
                   </div>
                 </div>
                 <p class="testimonial-card__text">
-                  “O projeto TechStart Júnior conecta o conteúdo de sala com situações reais
-                  de tecnologia. Os alunos praticam inglês, programação e apresentação em
-                  um único produto.”
+                  “O projeto da TechStart Júnior foge do protótipo estático: a
+                  plataforma interna e o app Juntaê mostram um ciclo completo de
+                  produto, com testes, iterações e documentação. É o tipo de
+                  iniciativa que aproxima estudantes da rotina real de times de
+                  tecnologia.”
                 </p>
-                <p class="testimonial-card__tagline">
-                  Usa o projeto em atividades de leitura e conversação.
-                </p>
+                <p class="testimonial-card__tagline">Cobriu o projeto em uma matéria sobre iniciativas de inovação em escolas técnicas.</p>
               </article>
 
               <!-- Depoimento 2 -->
@@ -314,18 +346,18 @@
                 <div class="testimonial-card__header">
                   <div class="testimonial-card__avatar">RL</div>
                   <div>
-                    <p class="testimonial-card__name">Rodrigo Lima</p>
-                    <p class="testimonial-card__role">Professor de T.I • Etec</p>
+                    <p class="testimonial-card__name">Lara Fernandes</p>
+                    <p class="testimonial-card__role">Criadora de eventos independentes</p>
                   </div>
                 </div>
                 <p class="testimonial-card__text">
-                  “Ver um sistema com login, cadastros, consultas e documentação completa
-                  mostra que a turma entendeu o ciclo inteiro de desenvolvimento, não só
-                  o código isolado.”
+                  “Antes eu organizava tudo em planilhas soltas e prints. Com a
+                  plataforma interna da TechStart, consigo testar a experiência
+                  dos eventos do Juntaê como se já estivesse no app final. Fica
+                  muito mais fácil visualizar quem confirmou presença e o que
+                  precisa melhorar.”
                 </p>
-                <p class="testimonial-card__tagline">
-                  Orientador técnico do projeto.
-                </p>
+                <p class="testimonial-card__tagline">Organizadora de pequenos eventos culturais e meetups.</p>
               </article>
 
               <!-- Depoimento 3 -->
@@ -338,13 +370,11 @@
                   </div>
                 </div>
                 <p class="testimonial-card__text">
-                  “A plataforma interna virou nosso painel de controle: é onde testamos
-                  eventos, ajustamos telas e registramos tudo que precisa melhorar no app
-                  Juntaê.”
+                  “A plataforma interna virou nosso painel de controle: é onde
+                  testamos eventos, ajustamos telas e registramos tudo que
+                  precisa melhorar no app Juntaê.”
                 </p>
-                <p class="testimonial-card__tagline">
-                  Equipe responsável pela evolução do produto.
-                </p>
+                <p class="testimonial-card__tagline">Equipe responsável pela evolução do produto.</p>
               </article>
 
               <!-- Depoimento 4 -->
@@ -353,17 +383,15 @@
                   <div class="testimonial-card__avatar">LG</div>
                   <div>
                     <p class="testimonial-card__name">Letícia Gomes</p>
-                    <p class="testimonial-card__role">Aluna participante</p>
+                    <p class="testimonial-card__role">Usuário</p>
                   </div>
                 </div>
                 <p class="testimonial-card__text">
-                  “Foi muito mais fácil acompanhar os eventos: datas, locais e novidades
-                  ficam organizados. A sensação é de usar algo que poderia estar em qualquer
-                  app store.”
+                  “Foi muito mais fácil acompanhar os eventos: datas, locais e
+                  novidades ficam organizados. A sensação é de usar algo que
+                  poderia estar em qualquer app store.”
                 </p>
-                <p class="testimonial-card__tagline">
-                  Participou dos primeiros testes do Juntaê.
-                </p>
+                <p class="testimonial-card__tagline">Participou dos primeiros testes do Juntaê.</p>
               </article>
 
               <!-- Depoimento 5 -->
@@ -376,31 +404,17 @@
                   </div>
                 </div>
                 <p class="testimonial-card__text">
-                  “Ter um lugar só para cadastrar eventos, conferir inscrições e revisar
-                  feedbacks economiza tempo e deixa tudo pronto para o lançamento oficial
-                  do app.”
+                  “Ter um lugar só para cadastrar eventos, conferir inscrições e
+                  revisar feedbacks economiza tempo e deixa tudo pronto para o
+                  lançamento oficial do app.”
                 </p>
-                <p class="testimonial-card__tagline">
-                  Usa a plataforma em eventos piloto.
-                </p>
+                <p class="testimonial-card__tagline">Usa a plataforma em eventos piloto.</p>
               </article>
 
               <!-- Controles do carrossel -->
-              <button
-                class="testimonials__control testimonials__control--prev"
-                type="button"
-                aria-label="Depoimento anterior"
-              >
-                ‹
-              </button>
+              <button class="testimonials__control testimonials__control--prev" type="button"aria-label="Depoimento anterior">‹</button>
 
-              <button
-                class="testimonials__control testimonials__control--next"
-                type="button"
-                aria-label="Próximo depoimento"
-              >
-                ›
-              </button>
+              <button class="testimonials__control testimonials__control--next" type="button"aria-label="Próximo depoimento">›</button>
             </div>
 
             <div class="testimonials__dots">
@@ -414,26 +428,319 @@
         </div>
       </section>
 
-      <section id="equipe" class="section-placeholder container">
-        <h2>Equipe</h2>
-        <p>Conteúdo da seção Equipe...</p>
+      <!-- EQUIPE -->
+      <section id="equipe" class="section section--team">
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow" data-i18n-en="TechStart Junior team">Equipe TechStart Júnior</p>
+            <h2 class="section__title" data-i18n-en="Who’s behind Juntaê.">Quem está por trás do Juntaê.</h2>
+            <p class="section__subtitle"
+              data-i18n-en="A multidisciplinary team taking care of product, code, design, and testing to bring the Juntaê app to life with quality.">
+              Uma equipe multidisciplinar cuidando de produto, código, design e
+              testes para fazer o app Juntaê ganhar vida com qualidade.
+            </p>
+          </header>
+
+          <div class="team-grid">
+            <!-- 1. Product Lead -->
+            <article class="team-card" data-reveal="team" data-reveal-delay="0">
+              <header class="team-card__header">
+                <div class="team-card__avatar">MA</div>
+                <div>
+                  <p class="team-card__name">Marina Azevedo</p>
+                  <p class="team-card__role" data-i18n-en="Product Lead">Product Lead</p>
+                </div>
+              </header>
+              <p class="team-card__bio"
+                data-i18n-en="Takes care of the product vision, organizes the backlog, and connects the team with the real needs of TechStart’s users and partners.">
+                Cuida da visão do produto, organiza o backlog e conecta o time
+                com as necessidades reais dos usuários e parceiros da TechStart.
+              </p>
+              <div class="team-card__tags">
+                <span class="team-tag" data-i18n-en="Product">Produto</span>
+                <span class="team-tag" data-i18n-en="Discovery">Discovery</span>
+                <span class="team-tag" data-i18n-en="Roadmap">Roadmap</span>
+              </div>
+            </article>
+
+            <!-- 2. Back-end -->
+            <article class="team-card" data-reveal="team" data-reveal-delay="80">
+              <header class="team-card__header">
+                <div class="team-card__avatar">LA</div>
+                <div>
+                  <p class="team-card__name">Lucas Andrade</p>
+                  <p class="team-card__role" data-i18n-en="Software Engineer • Back-end">Engenheiro de Software • Back-end</p>
+                </div>
+              </header>
+              <p class="team-card__bio"
+                data-i18n-en="Responsible for the architecture, APIs, and integrations that make Juntaê work behind the scenes, from authentication to event registrations.">
+                Responsável pela arquitetura, APIs e integrações que fazem o
+                Juntaê funcionar por trás das telas, da autenticação aos
+                cadastros de eventos.
+              </p>
+              <div class="team-card__tags">
+                <span class="team-tag" data-i18n-en="C# / .NET">C# / .NET</span>
+                <span class="team-tag" data-i18n-en="APIs">APIs</span>
+                <span class="team-tag" data-i18n-en="Database">Banco de dados</span>
+              </div>
+            </article>
+
+            <!-- 3. UX/UI -->
+            <article class="team-card" data-reveal="team" data-reveal-delay="160">
+              <header class="team-card__header">
+                <div class="team-card__avatar">CR</div>
+                <div>
+                  <p class="team-card__name">Camila Rocha</p>
+                  <p class="team-card__role" data-i18n-en="UX/UI Designer">UX/UI Designer</p>
+                </div>
+              </header>
+              <p class="team-card__bio"
+                data-i18n-en="Turns requirements into clear journeys, navigable prototypes, and interfaces aligned with TechStart Junior’s visual identity.">
+                Transforma requisitos em jornadas claras, protótipos navegáveis
+                e interfaces alinhadas à identidade visual da TechStart Júnior.
+              </p>
+              <div class="team-card__tags">
+                <span class="team-tag" data-i18n-en="Figma">Figma</span>
+                <span class="team-tag" data-i18n-en="Design System">Design System</span>
+                <span class="team-tag" data-i18n-en="UX Writing">UX Writing</span>
+              </div>
+            </article>
+
+            <!-- 4. Front/mobile -->
+            <article class="team-card" data-reveal="team" data-reveal-delay="240">
+              <header class="team-card__header">
+                <div class="team-card__avatar">JF</div>
+                <div>
+                  <p class="team-card__name">João Ferreira</p>
+                  <p class="team-card__role" data-i18n-en="Dev Front-end / Mobile">Dev Front-end / Mobile</p>
+                </div>
+              </header>
+              <p class="team-card__bio"
+                data-i18n-en="Implements the app screens, animations, and microinteractions to make the experience of creating and managing events smooth in everyday use.">
+                Implementa as telas do app, animações e microinterações para
+                deixar a experiência de criar e gerenciar eventos fluida no dia
+                a dia.
+              </p>
+              <div class="team-card__tags">
+                <span class="team-tag" data-i18n-en="Interface">Interface</span>
+                <span class="team-tag" data-i18n-en="Accessibility">Acessibilidade</span>
+                <span class="team-tag" data-i18n-en="Performance">Performance</span>
+              </div>
+            </article>
+
+            <!-- 5. QA / Operações -->
+            <article class="team-card" data-reveal="team" data-reveal-delay="320">
+              <header class="team-card__header">
+                <div class="team-card__avatar">BL</div>
+                <div>
+                  <p class="team-card__name">Beatriz Lima</p>
+                  <p class="team-card__role" data-i18n-en="QA &amp; Product Operations">QA &amp; Operações de Produto</p>
+                </div>
+              </header>
+              <p class="team-card__bio"
+                data-i18n-en="Organizes tests, use cases, and follows feedback from the internal platform to prioritize fixes and improvements.">
+                Organiza testes, cenários de uso e acompanha os feedbacks vindos
+                da plataforma interna para priorizar correções e melhorias.
+              </p>
+              <div class="team-card__tags">
+                <span class="team-tag" data-i18n-en="QA">QA</span>
+                <span class="team-tag" data-i18n-en="Testing">Testes</span>
+                <span class="team-tag" data-i18n-en="Operations">Operações</span>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
 
-      <section id="instagram" class="section-placeholder container">
-        <h2>Instagram</h2>
-        <p>Conteúdo da seção Instagram...</p>
-      </section>
+      <!-- INSTAGRAM -->
+      <section id="instagram" class="section section--instagram">
+        <div class="container">
+          <header class="section__header">
+            <p class="section__eyebrow" data-i18n-en="TechStart Júnior Instagram">Instagram TechStart Júnior</p>
+            <h2 class="section__title" data-i18n-en="Behind the scenes, events, and launches in real time.">Bastidores, eventos e lançamentos em tempo real.</h2>
+            <p class="section__subtitle"
+              data-i18n-en="Follow the development of the Juntaê app, the tests on the internal platform, and the behind the scenes at TechStart Junior directly on Instagram.">
+              Acompanhe o desenvolvimento do app Juntaê, os testes da plataforma
+              interna e os bastidores da TechStart Júnior diretamente pelo
+              Instagram.
+            </p>
+          </header>
 
-      <section id="contato" class="section-placeholder container">
-        <h2>Contato</h2>
-        <p>Conteúdo da seção Contato...</p>
-      </section>
+          <div class="instagram-layout">
+            <!-- GRID DE POSTS -->
+            <div class="instagram-feed">
+              <!-- Post 1 -->
+              <article class="instagram-post" data-reveal="step" data-reveal-delay="0">
+                <img src="img/Post-instagram/Post-Instagram7.png" alt="Brindes da TechStart Júnior que acompanham os eventos e ativações do projeto." class="instagram-post__image" />
+                <div class="instagram-post__overlay">
+                  <span class="instagram-post__badge" data-i18n-en="Gifts &amp; Events">Brindes &amp; eventos</span>
+                  <p class="instagram-post__text" data-i18n-en="TechStart Junior giveaways that go along with the project’s events and activations.">
+                    Brindes da TechStart Júnior que acompanham os eventos e
+                    ativações do projeto.
+                  </p>
+                </div>
+              </article>
 
-      <section id="download" class="section-placeholder container">
-        <h2>Download</h2>
+              <!-- Post 2 -->
+              <article class="instagram-post" data-reveal="step" data-reveal-delay="60">
+                <img src="img/Post-instagram/Post-Instagram8.png" alt="Evento piloto." class="instagram-post__image" />
+                <div class="instagram-post__overlay">
+                  <span class="instagram-post__badge" data-i18n-en="Pilot event">Evento piloto</span>
+                  <p class="instagram-post__text" data-i18n-en="A night organized with the support of Juntaê, from line-up to check-in.">
+                    Uma noite organizada com o apoio do Juntaê, do line-up ao
+                    check-in.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Post 3 -->
+              <article class="instagram-post" data-reveal="step" data-reveal-delay="120">
+                <img src="img/Post-instagram/Post-Instagram3.jpg" alt="Nossa fachada oficial ganhando as cores da TechStart Júnior." class="instagram-post__image" />
+                <div class="instagram-post__overlay">
+                  <span class="instagram-post__badge" data-i18n-en="TechStart brand">Marca TechStart</span>
+                  <p class="instagram-post__text" data-i18n-en="Our official storefront getting TechStart Junior’s colors.">Nossa fachada oficial ganhando as cores da TechStart Júnior.</p>
+                </div>
+              </article>
+
+              <!-- Post 4 -->
+              <article class="instagram-post" data-reveal="step" data-reveal-delay="180">
+                <img src="img/Post-instagram/Post-Instagram4.png" alt="Squad focado em testar novas features do app Juntaê na plataforma interna." class="instagram-post__image" />
+                <div class="instagram-post__overlay">
+                  <span class="instagram-post__badge" data-i18n-en="Dev life">Dev life</span>
+                  <p class="instagram-post__text" data-i18n-en="Squad focused on testing new Juntaê app features in the internal platform.">
+                    Squad focado em testar novas features do app Juntaê na
+                    plataforma interna.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Post 5 -->
+              <article class="instagram-post" data-reveal="step" data-reveal-delay="240">
+                <img src="img/Post-instagram/Post-Instagram5.png" alt="App em teste." class="instagram-post__image" />
+                <div class="instagram-post__overlay">
+                  <span class="instagram-post__badge" data-i18n-en="App in testing">App em teste</span>
+                  <p class="instagram-post__text" data-i18n-en="Prototype of Juntaê running in real-world street tests with actual events.">
+                    Protótipo do Juntaê rodando em testes de rua com eventos
+                    reais.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Post 6 -->
+              <article class="instagram-post" data-reveal="step" data-reveal-delay="300">
+                <img src="img/Post-instagram/Post-Instagram6.png" alt="Merch oficial." class="instagram-post__image" />
+                <div class="instagram-post__overlay">
+                  <span class="instagram-post__badge" data-i18n-en="Official Merch">Merch oficial</span>
+                  <p class="instagram-post__text" data-i18n-en="The first TechStart Junior T-shirts for the team and the community.">
+                    As primeiras camisetas da TechStart Júnior para o time e
+                    para a comunidade.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <!-- CTA PERFIL -->
+            <aside class="instagram-cta" data-reveal="step" data-reveal-delay="360">
+              <p class="instagram-cta__eyebrow" data-i18n-en="Official profile">Perfil oficial</p>
+              <h3 class="instagram-cta__title" data-i18n-en="Watch Juntaê evolve screen by screen.">Veja o Juntaê evoluindo tela a tela.</h3>
+              <p class="instagram-cta__text"
+                data-i18n-en="Stories with behind-the-scenes from sprints, usability tests, pilot events, and news from TechStart Junior’s internal platform.">
+                Stories com bastidores de sprints, testes de usabilidade,
+                eventos piloto e novidades da plataforma interna da TechStart
+                Júnior.
+              </p>
+
+              <div class="instagram-cta__handle">
+                <img src="img/TechStart_claro.png" alt="Foto de perfil da TechStart Júnior no Instagram" class="instagram-cta__avatar" />
+
+                <div>
+                  <p class="instagram-cta__user">@techstart_junior</p>
+                  <p class="instagram-cta__hint" data-i18n-en="Follow the project on Instagram.">Acompanhe o projeto no Instagram.</p>
+                </div>
+              </div>
+
+              <a href="https://www.instagram.com/techstart.junior/" class="btn btn--gradient instagram-cta__button" target="_blank" 
+                rel="noopener noreferrer" data-i18n-en="View profile on Instagram">
+                Ver perfil no Instagram
+              </a>
+            </aside>
+          </div>
+        </div>
       </section>
     </main>
 
+    <!-- CONTATO / RODAPÉ -->
+    <footer id="contato" class="section section--footer">
+      <div class="container">
+        <div class="footer-card">
+          <div class="footer-grid">
+            <!-- Coluna 1: TechStart -->
+            <div class="footer-brand" data-reveal>
+              <img src="img/TechStart_nome_neutro.png" alt="TechStart Júnior" class="footer-brand__logo" />
+              <p class="footer-brand__text" data-i18n-en="Internal platform created by TechStart Junior to support the development and testing of the Juntaê app.">
+                Plataforma interna criada pela TechStart Júnior para apoiar o
+                desenvolvimento e os testes do aplicativo Juntaê.
+              </p>
+            </div>
+
+            <!-- Coluna 2: Contato -->
+            <div class="footer-contact" data-reveal data-reveal-delay="80">
+              <h3 class="footer-title" data-i18n-en="Contact">Contato</h3>
+              <ul class="footer-list">
+                <li><a href="mailto:contato.techstart@gmail.com" class="footer-link">contato.techstart@gmail.com</a></li>
+                <li>
+                  <a href="https://wa.me/5511942764888?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20TechStart" class="footer-link" 
+                    target="_blank" rel="noopener noreferrer">
+                    WhatsApp: (11) 94276-4888
+                  </a>
+                </li>
+                <li><a href="https://instagram.com/techstart.junior" class="footer-link" target="_blank" rel="noopener noreferrer">Instagram: @techstart_junior</a></li>
+                <li>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Etec+Basilides+de+Godoy" class="footer-link"
+                    target="_blank" rel="noopener noreferrer">
+                    Etec Basilides de Godoy – Av. General MacArthur, 709 – Lapa,
+                    São Paulo – SP
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Coluna 3: Navegação -->
+            <div class="footer-links" data-reveal data-reveal-delay="160">
+              <h3 class="footer-title" data-i18n-en="Explore">Navegue</h3>
+              <ul class="footer-list">
+                <li><a href="#inicio" class="footer-link" data-i18n-en="Home">Início</a></li>
+                <li><a href="#sobre" class="footer-link" data-i18n-en="About">Sobre</a></li>
+                <li><a href="#recursos" class="footer-link" data-i18n-en="Features">Recursos</a></li>
+                <li><a href="#como-funciona" class="footer-link" data-i18n-en="How it works">Como funciona</a></li>
+                <li><a href="#depoimentos" class="footer-link" data-i18n-en="Testimonials">Depoimentos</a></li>
+                <li><a href="#equipe" class="footer-link" data-i18n-en="Team">Equipe</a></li>
+                <li><a href="#instagram" class="footer-link" data-i18n-en="Instagram">Instagram</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Linha final -->
+          <div class="footer-bottom">
+            <p class="footer-bottom__text"
+              data-i18n-en="© 2025 TechStart Junior. Academic project developed at Etec Basilides de Godoy.">
+              © 2025 TechStart Júnior. Projeto acadêmico desenvolvido na Etec
+              Basilides de Godoy.
+            </p>
+
+            <div class="footer-bottom__right">
+              <span class="footer-bottom__text" data-i18n-en="Developed by Jujuba’s Dev">Desenvolvido por Jujuba's Dev</span>
+              <img src="img/Jujuba_neutro.png" alt="Jujuba's Dev" class="footer-jujuba-logo" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão voltar ao topo -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Voltar para o topo" type="button">↑</button>
+
     <script src="js/script.js" defer></script>
   </body>
+
 </html>

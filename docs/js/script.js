@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const header = document.querySelector(".header");
   const navToggle = document.getElementById("navToggle");
-  const navMenu = document.getElementById("navMenu");
+  const navMenu = document.getElementById("navMenu"); // ✅ agora declarado
   const navLinks = document.querySelectorAll(".nav__link");
   const SCROLL_LIMIT = 10;
 
@@ -21,59 +21,94 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== HEADER SCROLL =====
-  if (header) {
-    window.addEventListener("scroll", () => {
-      header.classList.toggle("header--scrolled", window.scrollY > SCROLL_LIMIT);
+  // ===== TROCA DE IDIOMA (PT / EN) =====
+  const langButtons = document.querySelectorAll(".nav__lang-btn[data-lang]");
+  const translatableEls = document.querySelectorAll("[data-i18n-en]");
+
+  // guarda o conteúdo original (PT) com HTML
+  translatableEls.forEach((el) => {
+    if (!el.dataset.i18nPt) {
+      el.dataset.i18nPt = el.innerHTML.trim();
+    }
+  });
+
+  function setLanguage(lang) {
+    const isEnglish = lang === "en";
+
+    // atributo lang da página (acessibilidade / SEO)
+    document.documentElement.lang = isEnglish ? "en" : "pt-BR";
+
+    // estado visual dos botões PT / EN
+    langButtons.forEach((btn) => {
+      btn.classList.toggle(
+        "nav__lang-btn--active",
+        btn.dataset.lang === lang
+      );
+    });
+
+    // troca o texto
+    translatableEls.forEach((el) => {
+      const ptText = el.dataset.i18nPt;
+      const enText = el.dataset.i18nEn;
+
+      if (isEnglish && enText) {
+        el.innerHTML = enText; // permite <br> nos títulos
+      } else if (ptText) {
+        el.innerHTML = ptText;
+      }
     });
   }
 
-  // ===== SCROLL REVEAL – SEÇÃO RECURSOS =====
-  const recursosSection = document.querySelector(".section--recursos");
-  const recursosCards = document.querySelectorAll(".recurso-card");
+  // clique nos botões PT / EN
+  langButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lang = btn.dataset.lang === "en" ? "en" : "pt";
+      setLanguage(lang);
+    });
+  });
 
-  if (recursosSection && recursosCards.length) {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+  // idioma inicial: PT
+  setLanguage("pt");
 
-    if (prefersReducedMotion) {
-      recursosCards.forEach((card) => card.classList.add("is-visible"));
-    } else {
-      const observer = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              recursosCards.forEach((card, index) => {
-                card.style.transitionDelay = `${index * 120}ms`;
-                card.classList.add("is-visible");
-              });
-
-              obs.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.2,
-        }
+  // ===== HEADER SCROLL (muda fundo da navbar ao rolar) =====
+  if (header) {
+    window.addEventListener("scroll", () => {
+      header.classList.toggle(
+        "header--scrolled",
+        window.scrollY > SCROLL_LIMIT
       );
-
-      observer.observe(recursosSection);
-    }
+    });
   }
 
-  // ===== REVEAL ON SCROLL – COMO FUNCIONA (steps + mockup) =====
-  const stepEls = document.querySelectorAll("[data-reveal='step']");
+  // ===== BOTÃO VOLTAR AO TOPO =====
+  const scrollTopBtn = document.querySelector(".scroll-top");
 
-  if (stepEls.length) {
-    const prefersReducedMotionSteps = window.matchMedia(
+  if (scrollTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add("is-visible");
+      } else {
+        scrollTopBtn.classList.remove("is-visible");
+      }
+    });
+
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  // ===== REVEAL ON SCROLL – BLOCO GENÉRICO (steps, equipe, etc.) =====
+  const revealEls = document.querySelectorAll("[data-reveal]");
+
+  if (revealEls.length) {
+    const prefersReducedMotionReveal = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    if (prefersReducedMotionSteps) {
-      stepEls.forEach((el) => el.classList.add("is-visible"));
+    if (prefersReducedMotionReveal) {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
     } else {
-      const stepObserver = new IntersectionObserver(
+      const revealObserver = new IntersectionObserver(
         (entries, obs) => {
           entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
@@ -90,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       );
 
-      stepEls.forEach((el) => stepObserver.observe(el));
+      revealEls.forEach((el) => revealObserver.observe(el));
     }
   }
 
@@ -158,13 +193,10 @@ document.addEventListener("DOMContentLoaded", () => {
           const diffX = touch.clientX - startX;
           const diffY = touch.clientY - startY;
 
-          // garante que é swipe horizontal, não scroll vertical
           if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
             if (diffX < 0) {
-              // arrastou para a esquerda → próxima foto
               showSlide(currentIndex + 1);
             } else {
-              // arrastou para a direita → foto anterior
               showSlide(currentIndex - 1);
             }
           }
@@ -181,6 +213,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (testimonialsSection) {
     const viewport = testimonialsSection.querySelector(".testimonials__viewport");
+    if (!viewport) return;
+
     const cards = viewport.querySelectorAll(".testimonial-card");
     const dots = testimonialsSection.querySelectorAll(".testimonials__dot");
     const prevBtn = testimonialsSection.querySelector(
@@ -193,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cards.length && dots.length) {
       let currentIndex = 0;
       let autoplayId = null;
-      const AUTO_PLAY_DELAY = 9000; // 9s
+      const AUTO_PLAY_DELAY = 9000;
 
       function setActiveSlide(index) {
         cards[currentIndex].classList.remove("is-active");
@@ -219,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
         autoplayId = setInterval(goToNext, AUTO_PLAY_DELAY);
       }
 
-      // inicializa: deixa só o primeiro visível
+      // inicializa
       cards.forEach((card, idx) => {
         card.classList.toggle("is-active", idx === 0);
         if (dots[idx]) {
@@ -227,7 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // setas
       if (prevBtn) {
         prevBtn.addEventListener("click", () => {
           goToPrev();
@@ -242,7 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      // dots
       dots.forEach((dot) => {
         dot.addEventListener("click", () => {
           const targetIndex = Number(dot.dataset.index);
@@ -251,7 +283,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-      // autoplay
       restartAutoPlay();
     }
   }

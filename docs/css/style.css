@@ -1,4 +1,8 @@
-/* ========= VARIÁVEIS ========= */
+/* =====================================================================
+   VARIÁVEIS GLOBAIS
+   Cores base
+   Texto
+===================================================================== */
 :root {
   --bg-main: #050816;
   --bg-elevated: #0b1121;
@@ -8,7 +12,12 @@
   --text-muted: #a3b2d1;
 }
 
-/* ========= BASE GLOBAL ========= */
+/* =====================================================================
+   BASE GLOBAL
+   Reset de box-sizing
+   Scroll suave
+   Body e container padrão
+===================================================================== */
 
 *,
 *::before,
@@ -33,7 +42,17 @@ body {
   padding-inline: 1.5rem;
 }
 
-/* ========= HEADER / NAV ========= */
+/* =====================================================================
+   HEADER / NAVBAR
+   Barra fixa com blur
+   Logo
+   Botão hambúrguer
+   Menu mobile (overlay)
+   Ordem: idioma, links, CTA
+   Layout desktop (menu em linha)
+===================================================================== */
+
+/* ---------- Barra fixa ---------- */
 
 .header {
   position: fixed;
@@ -61,12 +80,19 @@ body {
   justify-content: space-between;
 }
 
+/* ---------- Logo ---------- */
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+}
+
 .nav__logo img {
   height: 32px;
   display: block;
 }
 
-/* Botão hambúrguer */
+/* ---------- Botão hambúrguer (mobile) ---------- */
 
 .nav__toggle {
   width: 40px;
@@ -92,8 +118,7 @@ body {
   transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
-/* Hambúrguer vira X */
-
+/* Ícone hambúrguer vira X quando o menu está aberto */
 .nav-open .nav__toggle-line:nth-child(1) {
   transform: translateY(4px) rotate(45deg);
 }
@@ -106,7 +131,15 @@ body {
   transform: translateY(-4px) rotate(-45deg);
 }
 
-/* Menu overlay */
+/* Mantém o botão fixo no topo quando o overlay está aberto */
+body.nav-open .nav__toggle {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 1100;
+}
+
+/* ---------- Menu mobile (overlay tela cheia) ---------- */
 
 .nav__menu {
   position: fixed;
@@ -127,22 +160,29 @@ body {
   transition: transform 0.35s ease, opacity 0.35s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: calc(64px + 1.75rem) 1.5rem 2.25rem;
+  justify-content: flex-start;
+  padding: calc(64px + 1.5rem) 1.5rem 2.25rem;
   z-index: 998;
 }
 
+/* Estado aberto do overlay mobile */
 .nav-open .nav__menu {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
 
-body.nav-open {
-  overflow: hidden;
+/* ---------- Ordem interna (mobile-first): idioma, links, CTA ---------- */
+
+.nav__lang {
+  order: 0;
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .nav__list {
+  order: 1;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -150,6 +190,14 @@ body.nav-open {
   flex-direction: column;
   gap: 1.25rem;
 }
+
+.nav__cta {
+  order: 2;
+  margin-top: 2.5rem;
+  width: 100%;
+}
+
+/* Links de navegação */
 
 .nav__link {
   text-decoration: none;
@@ -162,13 +210,7 @@ body.nav-open {
   color: var(--accent);
 }
 
-/* Seletor de idioma */
-
-.nav__lang {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.75rem;
-}
+/* ---------- Seletor de idioma (PT / EN) ---------- */
 
 .nav__lang-btn {
   flex: 0 0 auto;
@@ -184,6 +226,17 @@ body.nav-open {
   text-transform: uppercase;
   cursor: pointer;
   text-align: center;
+  line-height: 1; /* ajuda a centralizar verticalmente */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* para o gradiente do ativo não “vazar” */
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
   transition:
     background 0.2s ease,
     color 0.2s ease,
@@ -196,7 +249,29 @@ body.nav-open {
   color: var(--text-main);
 }
 
-/* ========= BOTÕES ========= */
+/* estado ativo do idioma */
+.nav__lang-btn--active {
+  color: var(--text-main);
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  background: transparent; /* gradiente vai pro ::before */
+}
+
+/* gradiente do pill ativo fica “dentro” do botão */
+.nav__lang-btn--active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: linear-gradient(90deg, var(--accent-2), var(--accent));
+  z-index: -1;
+}
+
+/* =====================================================================
+   BOTÕES GENÉRICOS
+   Base .btn
+   Variação .btn--gradient
+===================================================================== */
 
 .btn {
   display: inline-flex;
@@ -211,56 +286,161 @@ body.nav-open {
   font-size: 0.95rem;
 }
 
-/* Reuso do gradiente em botões e idioma ativo */
-.btn--gradient,
-.nav__lang-btn--active {
+/* gradiente só para botões .btn--gradient */
+.btn--gradient {
   background-image: linear-gradient(90deg, var(--accent-2), var(--accent));
   color: var(--text-main);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-.nav__lang-btn--active {
-  border-color: transparent;
+/* =====================================================================
+   NAVBAR – LAYOUT DESKTOP (≥ 900px)
+   Menu em linha
+   Ordem: links, idioma, CTA
+   Hover com sublinhado em gradiente
+===================================================================== */
+
+@media (min-width: 900px) {
+  .nav {
+    height: 72px;
+  }
+
+  .nav__logo {
+    margin-right: 2.5rem;
+  }
+
+  /* esconde o hambúrguer no desktop */
+  .nav__toggle {
+    display: none;
+  }
+
+  /* menu vira linha ao lado da logo */
+  .nav__menu {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    background-image: none;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1.75rem;
+  }
+
+  .nav__list {
+    order: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.75rem;
+    margin: 0;
+  }
+
+  .nav__lang {
+    order: 1;
+    margin: 0 1.5rem 0 0;
+  }
+
+  .nav__cta {
+    order: 2;
+    margin-top: 0;
+    width: auto;
+    padding: 0.7rem 1.9rem;
+    white-space: nowrap;
+  }
+
+  /* Hover dos links no desktop (sublinhado em gradiente) */
+  .nav__link {
+    position: relative;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    padding-block: 0.25rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.3rem;
+    width: 0;
+    height: 2px;
+    border-radius: 999px;
+    background-image: linear-gradient(90deg, #00D9FF, #9BFF3A);
+    opacity: 0;
+    transition:
+      width 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .nav__link:hover {
+    color: #9BFF3A;
+  }
+
+  .nav__link:hover::after {
+    width: 100%;
+    opacity: 1;
+  }
 }
 
-.nav__cta {
-  margin-top: 2rem;
-  width: 100%;
-}
-
-/* ========= LAYOUT GERAL ========= */
+/* =====================================================================
+   LAYOUT GERAL
+   Compensa altura da navbar fixa
+===================================================================== */
 
 main {
   padding-top: 64px;
 }
 
-/* ========= HERO ========= */
+@media (min-width: 900px) {
+  main {
+    padding-top: 72px; /* casa com a altura da navbar desktop */
+  }
+}
+
+/* =====================================================================
+   HERO
+   Background com imagem desbotada
+   Grid: texto + mockup
+   Animação de flutuar do notebook
+===================================================================== */
 
 .hero {
   position: relative;
-  padding-block: 5rem 4rem;
+  padding-block: 5.5rem 4.5rem;
   overflow: hidden;
 }
 
+/* Fundo com imagem em baixa opacidade */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image: url("../img/Fundo-Hero.png");
   background-repeat: no-repeat;
-  background-position: center right;
-  background-size: 1400px auto;
-  opacity: 0.1;
+  background-position: center;
+  background-size: 100% auto;
+  opacity: 0.4;
   pointer-events: none;
   z-index: -1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .hero {
+    padding-block: 5rem 3.5rem;
+  }
+
   .hero::before {
-    background-size: 1000px auto;
-    background-position: top center;
+    background-size: 1300px auto;
+    background-position: center;
   }
 }
+
+/* Layout do conteúdo */
 
 .hero__grid {
   display: flex;
@@ -273,7 +453,7 @@ main {
   max-width: 32rem;
 }
 
-/* eyebrow reutilizado */
+/* eyebrow reutilizado em seções */
 
 .hero__eyebrow,
 .section__eyebrow {
@@ -308,6 +488,8 @@ main {
   gap: 1rem;
 }
 
+/* Mockup do notebook */
+
 .hero__media {
   width: 100%;
   display: flex;
@@ -336,31 +518,26 @@ main {
   }
 }
 
-/* ========= SEÇÕES GENÉRICAS ========= */
+@media (min-width: 900px) {
+  .hero__grid {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
 
-.section {
-  padding-block: 4rem;
-  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  .hero__media {
+    width: auto;
+    justify-content: flex-end;
+  }
 }
 
-.section__header {
-  max-width: 40rem;
-  margin-bottom: 2.5rem;
-}
-
-.section__title {
-  font-size: 1.8rem;
-  line-height: 1.2;
-  margin: 0 0 0.9rem;
-}
-
-.section__subtitle {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-
-/* ========= SEÇÃO SOBRE ========= */
+/* =====================================================================
+   SEÇÃO: SOBRE
+   Cards (cultura + galeria)
+   Pills de cultura
+   Carrossel de imagens
+===================================================================== */
 
 .section--sobre {
   position: relative;
@@ -436,7 +613,7 @@ main {
   color: var(--text-muted);
 }
 
-/* Galeria */
+/* Galeria (carrossel) */
 
 .sobre-gallery {
   margin-top: 0.9rem;
@@ -520,27 +697,36 @@ main {
   background: linear-gradient(90deg, var(--accent-2), var(--accent));
 }
 
-/* ========= SEÇÕES PLACEHOLDER ========= */
+/* Layout desktop da seção SOBRE */
 
-.section-placeholder {
-  padding-block: 4rem;
-  border-top: 1px solid rgba(148, 163, 184, 0.12);
+@media (min-width: 900px) {
+  .section--sobre {
+    padding-block: 5rem 4.5rem;
+  }
+
+  .sobre__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  /* garante que os dois cards tenham a mesma altura */
+  .sobre-card {
+    height: 100%;
+  }
+
+  /* deixa a galeria um pouquinho maior no desktop */
+  .sobre-gallery__viewport {
+    height: 260px;
+  }
 }
 
-.section-placeholder h2 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-/* ========= AJUSTE DO TOGGLE QUANDO MENU ABERTO ========= */
-
-body.nav-open .nav__toggle {
-  position: fixed;
-  top: 12px;
-  right: 16px;
-  z-index: 1100;
-}
-/* ========== SEÇÃO RECURSOS ========== */
+/* =====================================================================
+   SEÇÃO: RECURSOS
+   Cards com efeito de entrar (reveal)
+   Grid responsivo
+===================================================================== */
 
 .section--recursos {
   padding-block: 4.5rem 4rem;
@@ -548,7 +734,6 @@ body.nav-open .nav__toggle {
   position: relative;
   overflow: hidden;
 }
-
 
 .section--recursos > .container {
   position: relative;
@@ -578,7 +763,6 @@ body.nav-open .nav__toggle {
   border: 1px solid rgba(148, 163, 184, 0.18);
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
 
-  /* estado inicial da animação */
   opacity: 0;
   transform: translateY(18px);
   transition:
@@ -586,19 +770,6 @@ body.nav-open .nav__toggle {
     transform 0.4s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease;
-}
-
-/* quando o JS adicionar essa classe, o card aparece “subindo” */
-.recurso-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* hover continua funcionando normal */
-.recurso-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 60px rgba(15, 23, 42, 1);
-  border-color: rgba(148, 163, 184, 0.35);
 }
 
 .recurso-card__title {
@@ -612,13 +783,6 @@ body.nav-open .nav__toggle {
   color: var(--text-muted);
 }
 
-/* um "efeito Applezinho" ao passar o mouse */
-.recurso-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 60px rgba(15, 23, 42, 1);
-  border-color: rgba(148, 163, 184, 0.35);
-}
-
 /* layout em colunas no desktop */
 @media (min-width: 768px) {
   .recursos-grid {
@@ -628,7 +792,10 @@ body.nav-open .nav__toggle {
   }
 }
 
-/* ========== SEÇÃO COMO FUNCIONA ========== */
+/* =====================================================================
+   SEÇÃO: COMO FUNCIONA
+   Cards de passos
+===================================================================== */
 
 .section--steps {
   position: relative;
@@ -637,13 +804,11 @@ body.nav-open .nav__toggle {
   border-top: 1px solid rgba(148, 163, 184, 0.12);
 }
 
-/* garante que o conteúdo fique acima do fundo */
 .section--steps > .container {
   position: relative;
   z-index: 1;
 }
 
-/* grid dos passos empilhados no mobile */
 .steps-grid {
   display: flex;
   flex-direction: column;
@@ -651,7 +816,6 @@ body.nav-open .nav__toggle {
   margin-top: 2rem;
 }
 
-/* card base */
 .step-card {
   border-radius: 24px;
   padding: 1.6rem 1.4rem;
@@ -664,6 +828,7 @@ body.nav-open .nav__toggle {
   border: 1px solid rgba(148, 163, 184, 0.25);
 }
 
+/* Variações de cor por passo */
 
 .step-card--1 {
   background:
@@ -706,6 +871,8 @@ body.nav-open .nav__toggle {
   opacity: 0.9;
 }
 
+/* Layout em colunas no desktop */
+
 @media (min-width: 900px) {
   .steps-grid {
     flex-direction: row;
@@ -716,6 +883,7 @@ body.nav-open .nav__toggle {
     flex: 1;
   }
 
+  /* desníveis sutis pra dar dinamismo */
   .step-card--1 {
     transform: translateY(10px);
   }
@@ -728,7 +896,11 @@ body.nav-open .nav__toggle {
     transform: translateY(30px);
   }
 }
-/* Bloco com o mockup do app */
+
+/* =====================================================================
+   SEÇÃO: COMO FUNCIONA
+   Bloco com mockup do app (steps-app)
+===================================================================== */
 
 .steps-app {
   margin-top: 3rem;
@@ -776,8 +948,6 @@ body.nav-open .nav__toggle {
   color: var(--text-muted);
 }
 
-/* imagem do app */
-
 .steps-app__media {
   display: flex;
   justify-content: center;
@@ -789,8 +959,6 @@ body.nav-open .nav__toggle {
   display: block;
   filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.85));
 }
-
-/* Desktop: conteúdo à esquerda, mockup à direita */
 
 @media (min-width: 900px) {
   .steps-app {
@@ -808,7 +976,13 @@ body.nav-open .nav__toggle {
     max-width: 280px;
   }
 }
-/* animação genérica de aparecer ao rolar */
+
+/* =====================================================================
+   ANIMAÇÕES: REVEAL AO ROLAR
+   data-reveal genérico
+   ajustes para step-card
+   hover especial dos cards de recursos já visíveis
+===================================================================== */
 
 [data-reveal] {
   opacity: 0;
@@ -817,15 +991,56 @@ body.nav-open .nav__toggle {
     opacity 0.6s ease,
     transform 0.6s ease;
 }
+
+/* passo a passo entra um pouco mais de baixo */
 .step-card[data-reveal] {
   transform: translateY(32px);
 }
 
+/* quando o JS adiciona .is-visible */
 [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-/* ========== SEÇÃO DEPOIMENTOS ========== */
+
+/* hover dos cards de recursos só depois que eles aparecerem */
+.recurso-card[data-reveal].is-visible:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 1);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+/* =====================================================================
+   AJUSTES DESKTOP SEÇÃO RECURSOS
+   Espaçamento e altura mínima dos cards
+===================================================================== */
+
+@media (min-width: 900px) {
+  .section--recursos {
+    padding-block: 5rem 4.5rem;
+  }
+
+  /* título + texto um pouco mais compactos */
+  .section--recursos .section__header {
+    max-width: 36rem;
+    margin-bottom: 2.2rem;
+  }
+
+  /* afasta os cards do título */
+  .recursos-grid {
+    margin-top: 0.5rem;
+  }
+
+  /* dá uma altura mínima pros cards ficarem mais parecidos */
+  .recurso-card {
+    min-height: 190px;
+  }
+}
+
+/* =====================================================================
+   SEÇÃO: DEPOIMENTOS
+   Carrossel com setas laterais e dots
+===================================================================== */
 
 .section--testimonials {
   position: relative;
@@ -843,7 +1058,6 @@ body.nav-open .nav__toggle {
   margin-top: 2.2rem;
 }
 
-/* área que segura o card ativo */
 .testimonials__viewport {
   position: relative;
   border-radius: 22px;
@@ -851,12 +1065,11 @@ body.nav-open .nav__toggle {
   padding: 1.5rem 1.4rem 1.6rem;
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.22);
-  overflow: visible; /* deixa as setas "saírem" um pouco */
+  overflow: visible;
 }
 
-/* cada depoimento é um "slide" */
 .testimonial-card {
-  display: none;               /* esconde por padrão */
+  display: none;
   padding: 1.2rem 1.1rem 1.3rem;
   flex-direction: column;
   gap: 0.9rem;
@@ -865,14 +1078,12 @@ body.nav-open .nav__toggle {
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* card visível */
 .testimonial-card.is-active {
-  display: flex;               /* entra no fluxo normal, altura automática */
+  display: flex;
   opacity: 1;
   transform: translateY(0);
 }
 
-/* header com avatar + nome/cargo */
 .testimonial-card__header {
   display: flex;
   align-items: center;
@@ -917,6 +1128,7 @@ body.nav-open .nav__toggle {
 }
 
 /* setas do carrossel */
+
 .testimonials__control {
   position: absolute;
   top: 50%;
@@ -937,14 +1149,15 @@ body.nav-open .nav__toggle {
 }
 
 .testimonials__control--prev {
-  left: -24px;  /* "pra fora" do card */
+  left: -24px;
 }
 
 .testimonials__control--next {
-  right: -24px; /* "pra fora" do card */
+  right: -24px;
 }
 
-/* bolinhas de navegação */
+/* dots do carrossel */
+
 .testimonials__dots {
   display: flex;
   justify-content: center;
@@ -967,9 +1180,511 @@ body.nav-open .nav__toggle {
   background: linear-gradient(90deg, var(--accent-2), var(--accent));
 }
 
-/* um pouco mais de “respiro” em telas menores, se quiser */
 @media (max-width: 600px) {
   .testimonials__viewport {
     padding: 1.5rem 1.4rem 1.9rem;
+  }
+}
+
+/* =====================================================================
+   SEÇÃO: EQUIPE
+   Cards com integrantes e tags de atuação
+===================================================================== */
+
+.section--team {
+  position: relative;
+  padding-block: 4.5rem 4rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  overflow: hidden;
+}
+
+.section--team > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.team-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 2rem;
+}
+
+.team-card {
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.14), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(147, 51, 234, 0.14), transparent 60%),
+    #020617;
+  border-radius: 24px;
+  padding: 1.6rem 1.5rem 1.4rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.95);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 1);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.team-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.team-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top, rgba(59, 130, 246, 0.95), rgba(15, 23, 42, 1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.team-card__name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.team-card__role {
+  margin: 0.1rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.team-card__bio {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.team-card__tags {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.team-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.92);
+  color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* =====================================================================
+   SEÇÃO: INSTAGRAM
+   Grid de posts
+   Card lateral com CTA do perfil
+===================================================================== */
+
+.section--instagram {
+  position: relative;
+  padding-block: 4.5rem 4rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  overflow: hidden;
+}
+
+.section--instagram > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.instagram-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* grid de posts */
+
+.instagram-feed {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.instagram-post {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #020617;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+  aspect-ratio: 1 / 1;
+}
+
+.instagram-post__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.instagram-post__overlay {
+  position: absolute;
+  inset: 0;
+  padding: 0.75rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(15, 23, 42, 0.72) 35%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.instagram-post__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.instagram-post__text {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-main);
+}
+
+/* hover só em dispositivos com mouse */
+
+@media (hover: hover) and (pointer: fine) {
+  .instagram-post:hover .instagram-post__image {
+    transform: scale(1.05);
+  }
+
+  .instagram-post:hover .instagram-post__overlay {
+    opacity: 1;
+  }
+}
+
+/* em toque (mobile) */
+
+@media (hover: none) and (pointer: coarse) {
+  .instagram-post__overlay {
+    opacity: 1;
+  }
+}
+
+/* card lateral com CTA do perfil */
+
+.instagram-cta {
+  border-radius: 24px;
+  padding: 1.7rem 1.5rem;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.16), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(147, 51, 234, 0.18), transparent 60%),
+    #020617;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.instagram-cta__eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.instagram-cta__title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.instagram-cta__text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.instagram-cta__handle {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.instagram-cta__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.instagram-cta__user {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.instagram-cta__hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.instagram-cta__button {
+  margin-top: 0.9rem;
+  align-self: flex-start;
+}
+
+@media (min-width: 900px) {
+  .instagram-layout {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .instagram-feed {
+    flex: 2;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .instagram-cta {
+    flex: 1;
+    align-self: center;
+  }
+}
+
+/* =====================================================================
+   RODAPÉ / CONTATO
+   Cartão principal do footer
+   Colunas de contato e navegação
+===================================================================== */
+
+.section--footer {
+  padding-block: 3.5rem 2.5rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(147, 51, 234, 0.18), transparent 60%),
+    #020617;
+}
+
+.footer-card {
+  border-radius: 24px;
+  padding: 2rem 1.6rem 1.6rem;
+  background: rgba(2, 6, 23, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+}
+
+.footer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.footer-brand__logo {
+  height: 28px;
+  margin-bottom: 0.9rem;
+}
+
+.footer-brand__text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-title {
+  margin: 0 0 0.7rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-link {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: var(--text-main);
+}
+
+/* linha final do footer */
+
+.footer-bottom {
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.footer-bottom__text {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.footer-bottom__right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-jujuba-logo {
+  height: 20px;
+}
+
+@media (min-width: 900px) {
+  .section--footer {
+    padding-block: 4rem 3rem;
+  }
+
+  .footer-card {
+    padding: 2.2rem 2rem 1.8rem;
+  }
+
+  .footer-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .footer-brand {
+    flex: 1.2;
+  }
+
+  .footer-contact,
+  .footer-links {
+    flex: 1;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* =====================================================================
+   BOTÃO VOLTAR AO TOPO
+===================================================================== */
+
+.scroll-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-main);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  z-index: 900;
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 900px) {
+  .scroll-top {
+    display: flex;
+  }
+}
+
+/* =====================================================================
+   HOVERS BOTÕES PRINCIPAIS (DESKTOP)
+   CTA do nav
+   Botão principal da hero
+   Botão da seção Instagram
+===================================================================== */
+
+@media (min-width: 900px) and (hover: hover) and (pointer: fine) {
+  /* Navbar "Baixar app" */
+  .nav__cta:hover {
+    background-image: linear-gradient(90deg, #00D9FF, #9BFF3A);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75);
+  }
+
+  /* Hero "Acessar plataforma" */
+  .hero .btn--gradient:hover {
+    background-image: linear-gradient(90deg, #00D9FF, #9BFF3A);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75);
+  }
+
+  /* CTA da seção Instagram */
+  .instagram-cta__button:hover {
+    background-image: linear-gradient(90deg, #FF00D4, #00D9FF);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75);
   }
 }
