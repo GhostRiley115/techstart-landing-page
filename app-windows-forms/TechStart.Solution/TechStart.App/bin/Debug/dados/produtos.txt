@@ -1,4 +1,2 @@
-1;Adesivo;Brindes;15;150;C:\Users\Clayton\Desktop\techstart-projeto-final\app-windows-forms\TechStart.Solution\TechStart.App\Resources\Jujuba_neutro.png;Teste
-2;Teste2;Brindes;70;50;C:\Users\Clayton\Desktop\techstart-projeto-final\app-windows-forms\TechStart.Solution\TechStart.App\Resources\TechStart_neutro.png;teste2
-3;teste3;Outro;213;1231;C:\Users\Clayton\Desktop\techstart-projeto-final\app-windows-forms\TechStart.Solution\TechStart.App\Resources\Jujuba_nome_neutro_vertical.png;1231
-4;testando;Acessórios;123;4455;C:\Users\Clayton\Desktop\techstart-projeto-final\app-windows-forms\TechStart.Solution\TechStart.App\Resources\Sacola.png;21312
+1;Camiseta TechStart;Vestuário;50;30;C:\Users\Clayton\Desktop\techstart-projeto-final\app-windows-forms\TechStart.Solution\TechStart.App\Resources\Lojinha\Post-Instagram6.png;
+2;Garrafa TechStart;Acessórios;65;15;C:\Users\Clayton\Desktop\techstart-projeto-final\app-windows-forms\TechStart.Solution\TechStart.App\Resources\Lojinha\Post-Instagram7.png;
