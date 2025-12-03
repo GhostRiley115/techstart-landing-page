@@ -678,7 +678,7 @@ main {
 .sobre-gallery__dots {
   display: flex;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 1rem;
   margin-top: 0.35rem;
 }
 
@@ -688,12 +688,12 @@ main {
   border-radius: 999px;
   border: none;
   background: rgba(148, 163, 184, 0.4);
-  padding: 0;
+  padding: 8px;
   cursor: pointer;
 }
 
 .sobre-gallery__dot.is-active {
-  width: 18px;
+  width: 30px;
   background: linear-gradient(90deg, var(--accent-2), var(--accent));
 }
 
@@ -1161,22 +1161,22 @@ main {
 .testimonials__dots {
   display: flex;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 1.2rem;
   margin-top: 0.85rem;
 }
 
 .testimonials__dot {
   width: 7px;
-  height: 7px;
+  height: 9px;
   border-radius: 999px;
   border: none;
   background: rgba(148, 163, 184, 0.45);
-  padding: 0;
+  padding: 14;
   cursor: pointer;
 }
 
 .testimonials__dot.is-active {
-  width: 18px;
+  width: 22px;
   background: linear-gradient(90deg, var(--accent-2), var(--accent));
 }
 
