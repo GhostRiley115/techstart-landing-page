@@ -46,13 +46,13 @@
 
           <!-- Idiomas: ficam logo antes do CTA no desktop -->
           <div class="nav__lang" role="group" aria-label="Selecionar idioma">
-            <button class="nav__lang-btn nav__lang-btn--active" type="button" data-lang="pt">PT</button>
-            <button class="nav__lang-btn" type="button" data-lang="en">EN</button>
+            <button class="nav__lang-btn nav__lang-btn--active" type="button" aria-label="Alterar idioma para o português" data-lang="pt">PT</button>
+            <button class="nav__lang-btn" type="button" aria-label="Alterar idioma para o inglês" data-lang="en">EN</button>
           </div>
 
           <!-- CTA -->
           <a href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms"
-            class="btn btn--gradient nav__cta" data-i18n-en="Download app">
+            class="btn btn--gradient nav__cta" aria-label="Botão para baixar o Aplicativo desktop" data-i18n-en="Download app">
             Baixar App
           </a>
         </nav>
@@ -78,7 +78,7 @@
 
             <div class="hero__actions">
               <a href="https://github.com/GhostRiley115/TechStart-ProjetoFinal-Aplicativo-Forms" class="btn btn--gradient"
-                target="_blank" rel="noopener noreferrer" data-i18n-en="Access platform">
+                target="_blank" rel="noopener noreferrer" aria-label="Botão para baixar o Aplicativo desktop" data-i18n-en="Access platform">
                 Acessar plataforma
               </a>
             </div>
@@ -165,16 +165,16 @@
                   <img src="img/Imagem-carrossel6.jpg" alt="Mini evento “TechStart Meetup” em uma escola técnica." class="sobre-gallery__image" loading="lazy"/>
 
                   <!-- seta próxima -->
-                  <button class="sobre-gallery__control sobre-gallery__control--next" type="button"aria-label="Próxima foto">›</button>
+                  <button class="sobre-gallery__control sobre-gallery__control--next" type="button" aria-label="Próxima foto">›</button>
                 </div>
 
-                <div class="sobre-gallery__dots">
-                  <button class="sobre-gallery__dot is-active" type="button" data-index="0"></button>
-                  <button class="sobre-gallery__dot" type="button" data-index="1"></button>
-                  <button class="sobre-gallery__dot" type="button" data-index="2"></button>
-                  <button class="sobre-gallery__dot" type="button" data-index="3"></button>
-                  <button class="sobre-gallery__dot" type="button" data-index="4"></button>
-                  <button class="sobre-gallery__dot" type="button" data-index="5"></button>
+                <div class="sobre-gallery__dots" aria-label="Navegação de fotos">
+                  <button class="sobre-gallery__dot is-active" type="button" aria-current="true" data-index="0"></button>
+                  <button class="sobre-gallery__dot" type="button" aria-label="Ir para a foto 1" data-index="1"></button>
+                  <button class="sobre-gallery__dot" type="button" aria-label="Ir para a foto 2" data-index="2"></button>
+                  <button class="sobre-gallery__dot" type="button" aria-label="Ir para a foto 3" data-index="3"></button>
+                  <button class="sobre-gallery__dot" type="button" aria-label="Ir para a foto 4" data-index="4"></button>
+                  <button class="sobre-gallery__dot" type="button" aria-label="Ir para a foto 5" data-index="5"></button>
                 </div>
               </div>
 
@@ -412,17 +412,17 @@
               </article>
 
               <!-- Controles do carrossel -->
-              <button class="testimonials__control testimonials__control--prev" type="button"aria-label="Depoimento anterior">‹</button>
+              <button class="testimonials__control testimonials__control--prev" type="button" aria-label="Depoimento anterior">‹</button>
 
-              <button class="testimonials__control testimonials__control--next" type="button"aria-label="Próximo depoimento">›</button>
+              <button class="testimonials__control testimonials__control--next" type="button" aria-label="Próximo depoimento">›</button>
             </div>
 
-            <div class="testimonials__dots">
-              <button class="testimonials__dot is-active" type="button" data-index="0"></button>
-              <button class="testimonials__dot" type="button" data-index="1"></button>
-              <button class="testimonials__dot" type="button" data-index="2"></button>
-              <button class="testimonials__dot" type="button" data-index="3"></button>
-              <button class="testimonials__dot" type="button" data-index="4"></button>
+            <div class="testimonials__dots" aria-label="Navegação de depoimentos">
+              <button class="testimonials__dot is-active" type="button" aria-current="true" data-index="0"></button>
+              <button class="testimonials__dot" type="button" aria-label="Ir para depoimento 1" data-index="1"></button>
+              <button class="testimonials__dot" type="button" aria-label="Ir para depoimento 2" data-index="2"></button>
+              <button class="testimonials__dot" type="button" aria-label="Ir para depoimento 3" data-index="3"></button>
+              <button class="testimonials__dot" type="button" aria-label="Ir para depoimento 4" data-index="4"></button>
             </div>
           </div>
         </div>
@@ -660,7 +660,7 @@
               </div>
 
               <a href="https://www.instagram.com/techstart.junior/" class="btn btn--gradient instagram-cta__button" target="_blank" 
-                rel="noopener noreferrer" data-i18n-en="View profile on Instagram">
+                rel="noopener noreferrer" aria-label="Botão do instagram da TechStart" data-i18n-en="View profile on Instagram">
                 Ver perfil no Instagram
               </a>
             </aside>

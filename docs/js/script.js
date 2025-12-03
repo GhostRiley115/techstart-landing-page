@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const header = document.querySelector(".header");
   const navToggle = document.getElementById("navToggle");
-  const navMenu = document.getElementById("navMenu"); // ✅ agora declarado
+  const navMenu = document.getElementById("navMenu"); 
   const navLinks = document.querySelectorAll(".nav__link");
   const SCROLL_LIMIT = 10;
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const enText = el.dataset.i18nEn;
 
       if (isEnglish && enText) {
-        el.innerHTML = enText; // permite <br> nos títulos
+        el.innerHTML = enText; 
       } else if (ptText) {
         el.innerHTML = ptText;
       }
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== REVEAL ON SCROLL – BLOCO GENÉRICO (steps, equipe, etc.) =====
+  // ===== REVEAL ON SCROLL – BLOCO GENÉRICO =====
   const revealEls = document.querySelectorAll("[data-reveal]");
 
   if (revealEls.length) {
@@ -142,16 +142,40 @@ document.addEventListener("DOMContentLoaded", () => {
     if (images.length && dots.length && prevBtn && nextBtn && viewport) {
       let currentIndex = 0;
 
-      function showSlide(index) {
-        images[currentIndex].classList.remove("is-active");
-        dots[currentIndex].classList.remove("is-active");
+      // Função Auxiliar para atualizar os Pontos (Dots) com Acessibilidade
+      function updateDots(activeIndex) {
+        dots.forEach((dot, index) => {
+          if (index === activeIndex) {
+            // Estado Ativo
+            dot.classList.add("is-active");
+            dot.setAttribute("aria-current", "true");
+            dot.setAttribute("aria-label", `Foto ${index + 1} (Atual)`);
+          } else {
+            // Estado Inativo
+            dot.classList.remove("is-active");
+            dot.removeAttribute("aria-current");
+            dot.setAttribute("aria-label", `Ir para a foto ${index + 1}`);
+          }
+        });
+      }
 
+      function showSlide(index) {
+        // Remove classe da imagem antiga
+        images[currentIndex].classList.remove("is-active");
+
+        // Calcula novo índice
         const total = images.length;
         currentIndex = (index + total) % total;
 
+        // Adiciona classe na nova imagem
         images[currentIndex].classList.add("is-active");
-        dots[currentIndex].classList.add("is-active");
+
+        // Atualiza os dots (Visual + Acessibilidade)
+        updateDots(currentIndex);
       }
+
+      // Garante que o estado inicial esteja correto (acessibilidade) ao carregar
+      updateDots(currentIndex);
 
       prevBtn.addEventListener("click", () => {
         showSlide(currentIndex - 1);
@@ -208,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ===== CARROSSEL DEPOIMENTOS =====
+// ===== CARROSSEL DEPOIMENTOS =====
   const testimonialsSection = document.querySelector(".section--testimonials");
 
   if (testimonialsSection) {
@@ -229,15 +253,36 @@ document.addEventListener("DOMContentLoaded", () => {
       let autoplayId = null;
       const AUTO_PLAY_DELAY = 9000;
 
-      function setActiveSlide(index) {
-        cards[currentIndex].classList.remove("is-active");
-        dots[currentIndex].classList.remove("is-active");
+      // Função auxiliar para atualizar a acessibilidade e estado visual dos dots
+      function updateTestimonialDots(activeIndex) {
+        dots.forEach((dot, index) => {
+          if (index === activeIndex) {
+            // Estado Ativo
+            dot.classList.add("is-active");
+            dot.setAttribute("aria-current", "true");
+            dot.setAttribute("aria-label", `Depoimento ${index + 1} (Atual)`);
+          } else {
+            // Estado Inativo
+            dot.classList.remove("is-active");
+            dot.removeAttribute("aria-current");
+            dot.setAttribute("aria-label", `Ir para o depoimento ${index + 1}`);
+          }
+        });
+      }
 
+      function setActiveSlide(index) {
+        // Remove ativo do card atual
+        cards[currentIndex].classList.remove("is-active");
+        
+        // Calcula novo índice
         const total = cards.length;
         currentIndex = (index + total) % total;
 
+        // Adiciona ativo no novo card
         cards[currentIndex].classList.add("is-active");
-        dots[currentIndex].classList.add("is-active");
+
+        // Atualiza os dots (Visual + Acessibilidade)
+        updateTestimonialDots(currentIndex);
       }
 
       function goToNext() {
@@ -253,13 +298,13 @@ document.addEventListener("DOMContentLoaded", () => {
         autoplayId = setInterval(goToNext, AUTO_PLAY_DELAY);
       }
 
-      // inicializa
+      // Inicialização: define estado inicial dos cards
       cards.forEach((card, idx) => {
         card.classList.toggle("is-active", idx === 0);
-        if (dots[idx]) {
-          dots[idx].classList.toggle("is-active", idx === 0);
-        }
       });
+
+      // Inicialização: define estado inicial dos dots com acessibilidade
+      updateTestimonialDots(0);
 
       if (prevBtn) {
         prevBtn.addEventListener("click", () => {
