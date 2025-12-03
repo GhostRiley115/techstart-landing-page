@@ -93,7 +93,7 @@ namespace TechStart.App
 
         private void tsbExercicios_Click(object sender, EventArgs e)
         {
-            mnuExer9_Click(sender, e);
+            mnuExer10_Click(sender, e);
         }
 
         private void tsbSair_Click(object sender, EventArgs e)
