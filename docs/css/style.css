@@ -420,7 +420,7 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/Fundo-Hero.jpg");
+  background-image: url("../img/fundo-hero-compressed.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% auto;
