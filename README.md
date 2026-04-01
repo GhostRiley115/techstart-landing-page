@@ -16,7 +16,7 @@ O projeto foi criado com foco em prática de desenvolvimento front-end, organiza
 - Responsividade para diferentes dispositivos
 
 ## Acesso ao projeto
-https://ghostriley115.github.io/techstart-projeto-final/
+https://ghostriley115.github.io/techstart-landing-page/
 
 ## Objetivo
 Praticar desenvolvimento web e construção de interfaces modernas, simulando um projeto real para portfólio.
