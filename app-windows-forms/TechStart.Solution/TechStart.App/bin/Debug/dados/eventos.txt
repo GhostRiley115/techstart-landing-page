@@ -1,4 +1,0 @@
-1;TechStart Meetup – Lançamento do Juntaê;2026-07-22;Auditório da Etec Basilides de Godoy;Lançamento;
-2;Oficina Tech – Criando eventos com o Juntaê;2026-01-15;Rio de Janeiro;Workshop;
-3;Evento Cultural TechStart;2026-02-11;São Paulo;Meetup;
-4;Comunidade & Inovação;2026-02-05;Bahia;Palestra;

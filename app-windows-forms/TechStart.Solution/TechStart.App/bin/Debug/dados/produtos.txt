@@ -1,2 +1,0 @@
-1;Camiseta TechStart;Vestuário;50;30;C:\Users\Clayton\Desktop\techstart-projeto-final\app-windows-forms\TechStart.Solution\TechStart.App\Resources\Lojinha\Post-Instagram6.png;
-2;Garrafa TechStart;Acessórios;65;15;C:\Users\Clayton\Desktop\techstart-projeto-final\app-windows-forms\TechStart.Solution\TechStart.App\Resources\Lojinha\Post-Instagram7.png;
