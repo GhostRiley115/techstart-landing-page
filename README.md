@@ -23,3 +23,4 @@ Praticar desenvolvimento web e construção de interfaces modernas, simulando um
 
 ## Preview
 ![Home](./docs/img/print-hero.png)
+![Home](./docs/img/print-carousel.png)
