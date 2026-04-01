@@ -20,3 +20,6 @@ https://ghostriley115.github.io/techstart-landing-page/
 
 ## Objetivo
 Praticar desenvolvimento web e construção de interfaces modernas, simulando um projeto real para portfólio.
+
+## Preview
+![Home](./docs/img/print-hero.png)
