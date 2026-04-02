@@ -1,26 +1,53 @@
 # TechStart Website
-Landing page desenvolvida para apresentação de uma empresa fictícia de tecnologia.
 
-O projeto foi criado com foco em prática de desenvolvimento front-end, organização de layout e responsividade.
+Landing page developed to present a fictional technology/events company.
 
-## Tecnologias
-- HTML
-- CSS
-- JavaScript
+This project was created to practice front-end development, layout structuring, and responsive design, simulating a real-world product.
 
-## Funcionalidades
-- Seção de apresentação da empresa
-- Explicação de serviços
-- Depoimentos
-- Formulário de contato
-- Responsividade para diferentes dispositivos
+---
 
-## Acesso ao projeto
-https://ghostriley115.github.io/techstart-landing-page/
+## Technologies
 
-## Objetivo
-Praticar desenvolvimento web e construção de interfaces modernas, simulando um projeto real para portfólio.
+- HTML  
+- CSS  
+- JavaScript  
+
+---
+
+## Features
+
+- Company presentation section  
+- Services overview  
+- Testimonials section  
+- Responsive design for different devices  
+
+---
+
+## Live Demo
+
+👉 https://ghostriley115.github.io/techstart-landing-page/
+
+---
+
+## Objective
+
+To practice web development and build modern user interfaces, simulating a real project for portfolio purposes.
+
+---
+
+## Project Context
+
+This project is part of a larger system developed for a fictional tech/events company.
+
+The website acts as a landing page to present the business, its services, and guide users to the main system.
+
+The main system is a desktop application built with C#, where users can manage products and events through a full CRUD interface.
+
+Together, these projects simulate a real-world scenario where a company has both a public website and an internal management system.
+
+---
 
 ## Preview
-![Home](./docs/img/print-hero.png)
-![Home](./docs/img/print-carousel.png)
+
+![Hero Section](./docs/img/print-hero.png)  
+![Carousel Section](./docs/img/print-carousel.png)
