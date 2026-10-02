@@ -1,45 +1,71 @@
-# TechStart Website
+![TechStart — apresentação do projeto](assets/readme/cover.svg)
 
-Landing page developed to present a fictional technology/events company.
+<div align="center">
 
-This project was created to practice front-end development, layout structuring, and responsive design, simulating a real-world product.
+# TechStart · landing page
 
-## Technologies
+**Uma apresentação digital para uma startup fictícia e suas ideias de produto.**
 
-- HTML  
-- CSS  
-- JavaScript  
+`HTML` · `CSS` · `JavaScript` · `GitHub Pages`
 
-## Features
+[**Visitar o site ↗**](https://ghostriley115.github.io/techstart-landing-page/) · [Sistema desktop](https://github.com/GhostRiley115/crud-desktop-app)
 
-- Company presentation section  
-- Services overview  
-- Testimonials section  
-- Responsive design for different devices  
+</div>
 
-## Live Demo
+## Da ideia à apresentação
 
-👉 https://ghostriley115.github.io/techstart-landing-page/
+Esta landing page apresenta a TechStart em um contexto acadêmico: sua identidade, proposta e materiais visuais. O projeto combina conteúdo institucional, galeria e mockups para comunicar a ideia da startup e aproximar o visitante das soluções apresentadas.
 
-## Objective
+## Uma visão do projeto
 
-To practice web development and build modern user interfaces, simulating a real project for portfolio purposes.
+![Apresentação da landing page TechStart](docs/img/print-hero.png)
 
-## Project Context
+<details>
+<summary><strong>Ver a galeria da apresentação</strong></summary>
 
-This project is part of a larger system developed for a fictional tech/events company.
+![Galeria da landing page](docs/img/print-carousel.png)
 
-The website acts as a landing page to present the business, its services, and guide users to the main system.
+</details>
 
-The main system is a desktop application built with C#, where users can manage products and events through a full CRUD interface.
+## Destaques
 
-Together, these projects simulate a real-world scenario where a company has both a public website and an internal management system.
+- Identidade visual própria aplicada ao conteúdo da startup.
+- Apresentação das soluções com imagens e mockups.
+- Galeria visual com carrossel.
+- Alternância de textos entre português e inglês.
+- Menu de navegação para telas menores.
+- Estrutura em HTML, CSS e JavaScript, sem etapa de compilação.
+- Publicação estática no GitHub Pages.
 
-## 🔗 Related Projects
+Os mockups comunicam os produtos e conceitos apresentados. Sua presença na página não significa que todas as funcionalidades ilustradas estejam implementadas. O sistema Windows Forms tem código em um [repositório separado](https://github.com/GhostRiley115/crud-desktop-app).
 
-- Desktop Management System (C#)
+## Estrutura
 
-## Preview
+```text
+docs/
+├── index.html     # Página principal
+├── css/           # Estilos
+├── js/            # Interações
+└── img/           # Identidade, galeria e mockups
+```
 
-![Hero Section](./docs/img/print-hero.png)  
-![Carousel Section](./docs/img/print-carousel.png)
+## Executar localmente
+
+Clone o repositório e sirva a pasta `docs` com um servidor estático. Exemplo com Python 3:
+
+```bash
+git clone https://github.com/GhostRiley115/techstart-landing-page.git
+cd techstart-landing-page
+python3 -m http.server 8000 --directory docs
+```
+
+Abra [localhost:8000](http://localhost:8000). Também é possível usar a extensão Live Server do editor, apontando para `docs/index.html`.
+
+## Projetos conectados
+
+| Projeto | O que apresenta |
+| :--- | :--- |
+| [TechStart Desktop](https://github.com/GhostRiley115/crud-desktop-app) | Aplicação C# para eventos e produtos |
+| [Jujuba’s Dev](https://ghostriley115.github.io/Jujubas-LandindPage/) | Portfólio que reúne TechStart e Kiora |
+
+TechStart é uma iniciativa fictícia para fins acadêmicos. [Veja mais projetos de Clayton Brito →](https://github.com/GhostRiley115)
